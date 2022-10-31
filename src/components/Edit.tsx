@@ -7,7 +7,6 @@ export const EditCategory = (props:any) =>{
         <Edit title='Edit a category' {...props} sx={{minWidth:'300px',alignItems:'center',paddingLeft:'20%',paddingRight:'20%'}} >
             
                 <SimpleForm >
-                {/* <TextInput disabled  style={{width:'60%'}} /> */}
         
                  <TextInput source="name" validate={required()} style={{minWidth:'100%'}}/>
                 <TextInput source="imageUrl" validate={required()} style={{minWidth:'100%'}}/>
@@ -22,7 +21,6 @@ export const EditSubCategory = (props:any) =>{
     return(
         <Edit title='Edit a sub category' {...props} sx={{minWidth:'300px',alignItems:'center',paddingLeft:'20%',paddingRight:'20%'}}>
         <SimpleForm>
-        {/* <TextInput source="id" style={{width:'60%'}} /> */}
         <ReferenceInput source="categoryId" reference="categories" recordRepresentation='name'   >
      <AutocompleteInput label="category id" style={{width:'100%'}} />
      </ReferenceInput>
@@ -48,7 +46,6 @@ export const EditOffer = (props:any) =>{
      {/* <ReferenceInput  source="subCategoryId" reference="sub-categories" recordRepresentation='name' >
      <AutocompleteInput label="Sub Category ID" style={{width:'100%'}} />
      </ReferenceInput> */}
-        {/* <TextInput source="subCategoryId" style={{width:'90%'}}/> */}
 
       
         <TextInput source="title" validate={required()} style={{width:'100%'}}/>
