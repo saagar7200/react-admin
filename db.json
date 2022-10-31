@@ -1,0 +1,22 @@
+{
+  "categories": [
+    {
+      "name": "categoory test",
+      "imageUrl": "www.image.com",
+      "isActive": "true",
+      "id": "8hgAEUb"
+    }
+  ],
+  "sub-categories": [
+    {
+      "categoryId": "8hgAEUb",
+      "name": "demo sub-c",
+      "imageUrl": "hehe ",
+      "isActive": true,
+      "id": "fhFWXz5"
+    }
+  ],
+  "offers": [
+
+  ]
+}
