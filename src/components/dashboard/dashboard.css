@@ -1,0 +1,13 @@
+.dash_container{
+    border:1px solid green;
+    /* padding: 2em; */
+}
+
+.dash_title{
+    font-size: 32px;
+    text-transform: capitalize;
+    border:1px solid green;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.774);
+    padding: 0.3em;
+}

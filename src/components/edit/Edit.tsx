@@ -1,4 +1,4 @@
-import {required,Edit, SimpleForm,TextInput,BooleanInput,ReferenceInput, SelectInput, AutocompleteInput} from 'react-admin';
+import {required,Edit, SimpleForm,TextInput,BooleanInput,ReferenceInput,AutocompleteInput} from 'react-admin';
 
 export const EditCategory = (props:any) =>{
 
