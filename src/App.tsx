@@ -7,28 +7,30 @@ import {EditCategory,EditSubCategory,EditOffer} from './components/edit/Edit';
 import {Dashboard} from './components/dashboard/Dashboard';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
+import {theme} from "./theme/theme";
+import CustomLayout from "./layout/customLayout";
 // import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 // import {Route} from "react-router-dom"
 
 
 import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
-// import  authProvider from "./authProvider/authProvider"
+import  authProvider from "./authProvider/authProvider"
 
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 
+// dashboard={Dashboard}
 
 function App() {
   return (
-    <div className="App" >
-     <Admin dashboard={Dashboard} dataProvider={restProvider('http://localhost:3000')}  >
-    
-    
-        <Resource name="categories" list={Categories}  create={CreateCategory}  edit={EditCategory} icon={CategoryOutlinedIcon} recordRepresentation="name" options={{label:'Categories'}}/>
-        <Resource name="sub-categories"   list={SubCategories} create={CreateSubCategory} edit={EditSubCategory} icon={ClassOutlinedIcon} recordRepresentation="name" options={{label:'Sub Categories'}}/>
-        <Resource name="offers"  list={Offers} create={CreateOffer} edit={EditOffer} icon={LocalOfferOutlinedIcon} options={{label:'All Offers'}} />
+    <BrowserRouter>
+     <Admin dashboard={Dashboard} theme={theme} dataProvider={restProvider('http://localhost:3000')} authProvider={authProvider} layout={CustomLayout} >
+    <Resource name="categories" list={Categories}  create={CreateCategory}  edit={EditCategory} icon={CategoryOutlinedIcon} recordRepresentation="name" options={{label:'Categories'}}/>
+    <Resource name="sub-categories"   list={SubCategories} create={CreateSubCategory} edit={EditSubCategory} icon={ClassOutlinedIcon} recordRepresentation="name" options={{label:'Sub Categories'}}/>
+    <Resource name="offers"  list={Offers} create={CreateOffer} edit={EditOffer} icon={LocalOfferOutlinedIcon} options={{label:'All Offers'}} />
 
-    </Admin>
-    </div>
+</Admin>
+    </BrowserRouter>
   );
 }
 

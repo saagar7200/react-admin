@@ -1,0 +1,16 @@
+.card_container{
+    border-radius: 12px !important;
+    width:300px !important;
+    padding:30px !important;
+    margin:30px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.White_text{
+    color:#fff
+}
+.bold{
+    font-weight: 600 !important;
+}

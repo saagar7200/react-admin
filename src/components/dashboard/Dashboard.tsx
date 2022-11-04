@@ -1,11 +1,13 @@
 
-// import "./dashboard.css"
-import CardComponent from "./Card";
+import "./dashboard.css"
+import CardComponent from "./card/Card";
 import { Box } from "@material-ui/core";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import { Card, CardContent } from "@mui/material";
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+
 
 import {
     LineChart,
@@ -16,7 +18,6 @@ import {
     Legend,
     BarChart,
     Bar,
-    CartesianGrid,
   } from "recharts";
 
 
@@ -70,35 +71,41 @@ export const Dashboard = (props:any) => {
 
     return (
         <>
-            <Box style={{display:'flex',justifyContent:'space-around'}} >
+            <Box className="container"  >
             <CardComponent
                 label="Total number of visitors"
                 data="2,000"
-                background={"blue"}
-                icon={<PeopleAltIcon />}
+                background={"#6b8298"}
+                icon={<PeopleAltIcon style={{fontSize:'52px'}}  />}
             />
              <CardComponent
-                label="Profit"
+                label="Profit "
                 data="20,000"
-                background={"green"}
-                icon={<TrendingUpIcon />}
+                background={"#82ca9d"}
+                icon={<TrendingUpIcon style={{fontSize:'52px'}} />}
+            />
+             <CardComponent
+                label="Total Offers"
+                data="200"
+                background={"#6b8298"}
+                icon={<LocalOfferOutlinedIcon style={{fontSize:'52px'}}  />}
             />
             <CardComponent
                 label="Loss"
                 data="20,000"
                 background={"#eb4034"}
-                icon={<TrendingDownIcon />}
+                icon={<TrendingDownIcon style={{fontSize:'52px'}} />}
             />
 
             </Box>
 
             {/* chart */}
 
-           < Box style={{ display: "flex",justifyContent:'center' ,gap:'3em'}}>
+           <Box className="container" style={{ display: "flex",justifyContent:'space-between' }}>
             <Card style={{ minWidth: "360px" }}>
             <CardContent>
           <LineChart
-            width={600}
+            width={750}
             height={400}
             data={dataLine}
             margin={{
@@ -119,7 +126,6 @@ export const Dashboard = (props:any) => {
               activeDot={{ r: 5 }}
             />
             <Line type="monotone" dataKey="total" stroke="#82ca9d" activeDot={{ r: 5 }}/>
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
           </LineChart>
           
 
@@ -131,7 +137,7 @@ export const Dashboard = (props:any) => {
       <Card style={{ minWidth: "60px" }}>
         <CardContent>
           <BarChart
-            width={600}
+            width={750}
             height={400}
             data={dataBar}
             margin={{

@@ -1,41 +1,14 @@
 import  React from "react";
-
 import { List, Datagrid, DateField, TextField, EditButton, DeleteButton,ReferenceField } from 'react-admin';
+import { SearchInput, TextInput } from 'react-admin';
 
-
-
-export const Dashboard = (props:any) => {
-
-
-    return (
-        <>
-        <div>
-        <div> dashboard</div>
-            <div style={{display:'flex', border:'1px solid green'}}>
-                <div style={{border:'1px solid red',padding:'0'}}>
-                    <h4 >Total number of visitors</h4>
-                    <p >10,000</p>
-                </div>
-                
-                <div style={{border:'1px solid red'}}>
-                    <h4>Total Profit</h4>
-                    <p>10,000</p>
-                </div>
-                
-                <div style={{border:'1px solid red'}}>
-                    <h4>Total Loss</h4>
-                    <p>10,000</p>
-                </div>
-            </div>
-        </div>
-        </>
-    )
-};
-
+const postFilters = [
+    <SearchInput variant="standard" source="q" alwaysOn />
+]
 export const Categories = (props:any) => {
 
 
-    return  <List {...props}>
+    return  <List {...props} filters={postFilters}>
 
         
                 <Datagrid rowClick="edit">
@@ -43,8 +16,7 @@ export const Categories = (props:any) => {
                     <TextField source="name" />
                     <TextField source="imageUrl" />
                     <TextField source="isActive" />
-                    <EditButton/>
-                    <DeleteButton />
+                    <EditButton  />
 
                 </Datagrid>
 
@@ -72,7 +44,6 @@ export const SubCategories = (props:any) => {
         
                 <TextField source="isActive" />
                 <EditButton/>
-                <DeleteButton/>
         
                 
             </Datagrid>
@@ -90,7 +61,6 @@ export const Offers = (props:any) => {
 
                 <Datagrid rowClick="edit">
                 <TextField source="id" />
-                {/* <TextField source="subCategoryId" /> */}
         
                 <TextField source="title" />
               
@@ -100,9 +70,7 @@ export const Offers = (props:any) => {
                 <TextField source="isActive" />
                 <DateField source="createdAt" />
                 <DateField source="updatedAt" />
-                {/* <DateField source="startsAt" /> */}
-                <EditButton/>
-                <DeleteButton/>
+                <EditButton  />
         
         
             </Datagrid>
