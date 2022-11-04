@@ -15,7 +15,7 @@ import {
 import "./list.css"
 
 const filters = [
-    <TextInput source="q" label="Search" alwaysOn />
+    <TextInput source="q" variant="outlined" label="Search" alwaysOn />
 ];
 export const Categories = (props: any) => {
   return (
@@ -28,7 +28,7 @@ export const Categories = (props: any) => {
         />
         {/* <TextField source="imageUrl" /> */}
         
-        <BooleanField source="isActive" />
+        <BooleanField source="isActive"  title="Status"/>
         <EditButton />
       </Datagrid>
     </List>

@@ -55,14 +55,14 @@ export const CreateSubCategory = (props: any) => {
               source="categoryId"
               reference="categories"
               recordRepresentation="name"
-            />
-              {/* <AutocompleteInput
+            >
+              <AutocompleteInput
                 variant="outlined"
                 validate={required()}
                 label="Category "
                 style={{ width: "100%" }}
-              /> */}
-            {/* </ReferenceInput> */}
+              /> 
+             </ReferenceInput>
             <TextInput
               variant="outlined"
               validate={required()}
