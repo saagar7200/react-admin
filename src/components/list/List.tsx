@@ -15,17 +15,17 @@ import {
 import "./list.css"
 
 const filters = [
-    <TextInput source="q" variant="outlined" label="Search" alwaysOn />
+    <TextInput className="search_form" source="q" variant="outlined" label="Search" alwaysOn />
 ];
 export const Categories = (props: any) => {
   return (
     <List {...props} filters={filters}>
       <Datagrid rowClick="edit">
-        <TextField source="name" />
         <ImageField className="imgaes" source="imageUrl" title="title"
-        sx={{ '& img': { maxWidth: 50, maxHeight: 60, objectFit:'cover' } }}
-        
+        sx={{ '& img': { maxWidth: 50, maxHeight: 60, objectFit:'cover' } }} 
         />
+        <TextField source="name" />
+
         {/* <TextField source="imageUrl" /> */}
         
         <BooleanField source="isActive"  title="Status"/>
@@ -45,11 +45,12 @@ export const SubCategories = (props: any) => {
           source="categoryId"
           reference="categories"
            />
-        <TextField source="name" />
         <ImageField className="imgaes" source="imageUrl" title="title"
         sx={{ '& img': { maxWidth: 50, maxHeight: 60, objectFit:'cover' } }}
-        
         />
+
+        <TextField source="name" />
+
 
         {/* <TextField source="imageUrl" /> */}
         <BooleanField source="isActive" />
@@ -64,10 +65,11 @@ export const Offers = (props: any) => {
    <div>
     <List title={"Offer"} {...props} filters={filters}>
       <Datagrid rowClick="edit">
-        <TextField source="title" />
+        
         <ImageField className="imgaes" source="imageUrl" title="title"
         sx={{ '& img': { maxWidth: 50, maxHeight: 60, objectFit:'cover' } }}       
         />
+        <TextField source="title" />
         <ReferenceField
           label="Subcategory"
           source="subCategoryId"
