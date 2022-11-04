@@ -12,6 +12,14 @@ import {
   ImageInput,
   ImageField
 } from "react-admin";
+
+
+const choices:{id:string,name:string}[] = [
+  {id:'INR',name:'INR'},
+  {id:'cuelink',name:'Cuelink'},
+
+]
+
 export const CreateCategory = (props: any) => {
   return (
     <div className="create_category_container">
@@ -51,12 +59,13 @@ export const CreateSubCategory = (props: any) => {
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput
-              variant="outlined"
+               variant="outlined"
               source="categoryId"
               reference="categories"
               recordRepresentation="name"
             >
               <AutocompleteInput
+               multiple
                 variant="outlined"
                 validate={required()}
                 label="Category "
@@ -152,11 +161,12 @@ export const CreateOffer = (props: any) => {
               validate={required()}
               source="rating"
             />
-             <TextInput
+             {/* <TextInput
               variant="outlined"
               validate={required()}
               source="network"
-            />
+            /> */}
+            <AutocompleteInput source="network" validate={required()} variant="outlined" choices={choices}/>
            
           </Box>
     

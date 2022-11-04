@@ -12,6 +12,13 @@ import {
 } from "react-admin";
 import "./edit.css";
 
+const choices:{id:string,name:string}[] = [
+  {id:'INR',name:'INR'},
+  {id:'cuelink',name:'Cuelink'},
+
+]
+
+
 export const EditCategory = (props: any) => {
   return (
     <div className="edit_container">
@@ -147,11 +154,13 @@ export const EditOffer = (props: any) => {
               validate={required()}
               source="rating"
             />
-            <TextInput
+            {/* <TextInput
               variant="outlined"
               validate={required()}
               source="network"
-            />
+            /> */}
+            <AutocompleteInput source="network" validate={required()} variant="outlined" choices={choices}/>
+
           </Box>
 
           <TextInput

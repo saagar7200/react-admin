@@ -29,11 +29,11 @@ export const CustomAppBar = (props:any) => (
 
        />
       <div className='Logo_text'>Rayy</div>
-       <Typography
+       {/* <Typography
        className='Title'
        variant='h5'
         id="react-admin-title"
-        />
+        /> */}
 
       </Typography>
      
