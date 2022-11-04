@@ -7,8 +7,10 @@ import {
   TextField,
   EditButton,
   ReferenceField,
+  ImageField
 } from "react-admin";
 import { SearchInput, TextInput } from "react-admin";
+import "./list.css"
 
 const filters = [
   <SearchInput  variant="outlined" source="name" alwaysOn />  
@@ -18,7 +20,11 @@ export const Categories = (props: any) => {
     <List {...props} filters={filters}>
       <Datagrid rowClick="edit">
         <TextField source="name" />
-        <TextField source="imageUrl" />
+        <ImageField className="imgaes" source="imageUrl" title="title"
+        sx={{ '& img': { maxWidth: 50, maxHeight: 60, objectFit:'cover' } }}
+        
+        />
+        {/* <TextField source="imageUrl" /> */}
         <TextField source="isActive" />
         <EditButton />
       </Datagrid>
@@ -37,7 +43,12 @@ export const SubCategories = (props: any) => {
           reference="categories"
            />
         <TextField source="name" />
-        <TextField source="imageUrl" />
+        <ImageField className="imgaes" source="imageUrl" title="title"
+        sx={{ '& img': { maxWidth: 50, maxHeight: 60, objectFit:'cover' } }}
+        
+        />
+
+        {/* <TextField source="imageUrl" /> */}
         <TextField source="isActive" />
         <EditButton />
       </Datagrid>

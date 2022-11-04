@@ -9,26 +9,34 @@ export const CustomAppBar = (props:any) => (
     className='appbar' 
         // {...props}
         userMenu={true}
+                
+
     >
         <Typography
         variant="h5"
         color="inherit"
         className='logo_container'
       
-        id="title"
+        // id="title"
         textAlign="center"
         fontWeight="bold"
       >
        <img
          src={Logo}
          alt="logo"
-         height="30"
+         height="40"
          width='45'
-         color='blue'
 
        />
-       Rayy
+      <div className='Logo_text'>Rayy</div>
+       <Typography
+       className='Title'
+       variant='h5'
+        id="react-admin-title"
+        />
+
       </Typography>
+     
      
     </AppBar>
 );

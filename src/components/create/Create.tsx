@@ -55,14 +55,14 @@ export const CreateSubCategory = (props: any) => {
               source="categoryId"
               reference="categories"
               recordRepresentation="name"
-            >
-              <AutocompleteInput
+            />
+              {/* <AutocompleteInput
                 variant="outlined"
                 validate={required()}
                 label="Category "
                 style={{ width: "100%" }}
-              />
-            </ReferenceInput>
+              /> */}
+            {/* </ReferenceInput> */}
             <TextInput
               variant="outlined"
               validate={required()}
@@ -91,7 +91,7 @@ export const CreateSubCategory = (props: any) => {
             style={{ width: "100%" }}
           />
           <Box className="offer_form_wrapper">
-          <ImageInput className="textInput" source="pictures" label="Image">
+          <ImageInput className="textInput" source="imageUrl" label="Image">
                 <ImageField source="src" title="title" />
             </ImageInput>
             <div className="textInput"></div>
@@ -173,7 +173,7 @@ export const CreateOffer = (props: any) => {
            <BooleanInput source="isActive" />
          </Box>
           <Box className="offer_form_wrapper">
-          <ImageInput className="textInput" source="pictures" label="Image">
+          <ImageInput className="textInput" source="imageUrl" label="Image">
                 <ImageField source="src" title="title" />
             </ImageInput>
             <div className="textInput"></div>

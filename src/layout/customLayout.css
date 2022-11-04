@@ -25,17 +25,30 @@
 
 .logo_container{
     display:flex;
-    align-items:flex-end;
+    align-items:center;
     flex: 1;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     overflow: hidden;
-    font-weight:bold
-
- 
-
+    font-weight:bold;
+    padding:0px
 }
 
-.RaAppBar-toolbar .RaSidebarToggleButton-root{
+/* .RaAppBar-toolbar .RaSidebarToggleButton-root{
     display:none
+} */
+
+
+.Title{
+    margin: auto !important;
+}
+
+.Logo_text{
+    display: flex ;
+    align-items: flex-end !important;
+    justify-content: flex-end;
+    /* margin-top: 10px; */
+    padding-top: 6px !important;
+    padding-left: 2px;
+
 }
