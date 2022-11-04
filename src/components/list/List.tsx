@@ -7,13 +7,15 @@ import {
   TextField,
   EditButton,
   ReferenceField,
-  ImageField
+  ImageField,
+  BooleanField,
+  TextInput
 } from "react-admin";
-import { SearchInput, TextInput } from "react-admin";
+
 import "./list.css"
 
 const filters = [
-  <SearchInput  variant="outlined" source="name" alwaysOn />  
+    <TextInput source="q" label="Search" alwaysOn />
 ];
 export const Categories = (props: any) => {
   return (
@@ -25,7 +27,8 @@ export const Categories = (props: any) => {
         
         />
         {/* <TextField source="imageUrl" /> */}
-        <TextField source="isActive" />
+        
+        <BooleanField source="isActive" />
         <EditButton />
       </Datagrid>
     </List>
@@ -49,7 +52,7 @@ export const SubCategories = (props: any) => {
         />
 
         {/* <TextField source="imageUrl" /> */}
-        <TextField source="isActive" />
+        <BooleanField source="isActive" />
         <EditButton />
       </Datagrid>
     </List>
@@ -62,6 +65,9 @@ export const Offers = (props: any) => {
     <List title={"Offer"} {...props} filters={filters}>
       <Datagrid rowClick="edit">
         <TextField source="title" />
+        <ImageField className="imgaes" source="imageUrl" title="title"
+        sx={{ '& img': { maxWidth: 50, maxHeight: 60, objectFit:'cover' } }}       
+        />
         <ReferenceField
           label="Subcategory"
           source="subCategoryId"
@@ -71,7 +77,8 @@ export const Offers = (props: any) => {
         <TextField source="profit" />
         {/* <TextField source="baseReferalLink" /> */}
         <TextField source="network" />
-        <TextField source="isActive" />
+       
+       <BooleanField source="isActive" />
         <DateField source="createdAt" />
         <DateField source="updatedAt" />
         <EditButton />
