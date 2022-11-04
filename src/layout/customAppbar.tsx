@@ -6,12 +6,12 @@ import "./customLayout.css"
 
 export const CustomAppBar = (props:any) => (
     <AppBar
-    className='appbar'
-       
-        {...props}
+    className='appbar' 
+        // {...props}
+        userMenu={true}
     >
         <Typography
-        variant="h6"
+        variant="h5"
         color="inherit"
         className='logo_container'
       
@@ -22,10 +22,9 @@ export const CustomAppBar = (props:any) => (
        <img
          src={Logo}
          alt="logo"
-         height="50"
+         height="30"
          width='45'
          color='blue'
-
 
        />
        Rayy
