@@ -10,15 +10,13 @@ import {
   ReferenceInput,
   AutocompleteInput,
   ImageInput,
-  ImageField
+  ImageField,
 } from "react-admin";
 
-
-const choices:{id:string,name:string}[] = [
-  {id:'INR',name:'INR'},
-  {id:'cuelink',name:'Cuelink'},
-
-]
+const choices: { id: string; name: string }[] = [
+  { id: "INR", name: "INR" },
+  { id: "cuelink", name: "Cuelink" },
+];
 
 export const CreateCategory = (props: any) => {
   return (
@@ -38,6 +36,8 @@ export const CreateCategory = (props: any) => {
           />
            <Box className="offer_form_wrapper">
             {/* <ImageInput className="textInput" source="image" label="Image">
+          <Box className="offer_form_wrapper">
+            <ImageInput className="textInput" source="pictures" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput> */}
              <TextInput
@@ -65,12 +65,14 @@ export const CreateSubCategory = (props: any) => {
         <SimpleForm>
           <Box className="offer_form_wrapper">
             {/* <ReferenceInput
+            <ReferenceInput
+              variant="outlined"
               source="categoryId"
               reference="categories"
               recordRepresentation="name"
             >
               <AutocompleteInput
-               multiple
+                multiple
                 variant="outlined"
                 validate={required()}
                 label="Category"
@@ -101,13 +103,10 @@ export const CreateSubCategory = (props: any) => {
               variant="outlined"
               validate={required()}
               source="name"
-              label='Sub Category Name'
+              label="Sub Category Name"
               style={{ width: "100%" }}
             />
-          <BooleanInput source="isActive" />
-
-
-           
+            <BooleanInput source="isActive" />
           </Box>
           <TextInput
             multiline
@@ -129,7 +128,6 @@ export const CreateSubCategory = (props: any) => {
           />
             <div className="textInput"></div>
           </Box>
-
         </SimpleForm>
       </Create>
     </div>
@@ -171,12 +169,11 @@ export const CreateOffer = (props: any) => {
               validate={required()}
               source="profit"
             />
-           <TextInput
+            <TextInput
               variant="outlined"
               validate={required()}
               source="baseReferalLink"
               label="Base Referal Link"
-
             />
           </Box>
           <Box className="offer_form_wrapper">
@@ -185,27 +182,29 @@ export const CreateOffer = (props: any) => {
               validate={required()}
               source="rating"
             />
-             {/* <TextInput
+            {/* <TextInput
               variant="outlined"
               validate={required()}
               source="network"
             /> */}
-            <AutocompleteInput source="network" validate={required()} variant="outlined" choices={choices}/>
-           
-          </Box>
-    
-         
-          <TextInput
-            className='textInput'
-              variant="outlined"
+            <AutocompleteInput
+              source="network"
               validate={required()}
-              multiline
-              source="description"
+              variant="outlined"
+              choices={choices}
             />
+          </Box>
+
+          <TextInput
+            className="textInput"
+            variant="outlined"
+            validate={required()}
+            multiline
+            source="description"
+          />
           <Box className="offer_form_wrapper">
-           
-           <BooleanInput source="isActive" />
-         </Box>
+            <BooleanInput source="isActive" />
+          </Box>
           <Box className="offer_form_wrapper">
           {/* <ImageInput className="textInput" source="imageUrl" label="Image">
                 <ImageField source="src" title="title" />
@@ -218,6 +217,9 @@ export const CreateOffer = (props: any) => {
               multiline
               source="imageUrl"
             />
+            {/* <ImageInput className="textInput" source="imageUrl" label="Image">
+              <ImageField source="src" title="title" />
+            </ImageInput> */}
             <div className="textInput"></div>
           </Box>
         </SimpleForm>

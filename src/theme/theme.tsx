@@ -41,16 +41,14 @@ export const theme = createTheme(defaultTheme, {
     RaSidebar: {
       styleOverrides: {
         root: {
-            borderRight:"2px solid #D2D2D2",
+          borderRight: "2px solid #D2D2D2",
         },
       },
     },
-    RaMenu:{
+    RaMenu: {
       styleOverrides: {
         root: {
           paddingTop: "30px",
-
-
         },
       },
     },
@@ -82,8 +80,8 @@ export const theme = createTheme(defaultTheme, {
           backgroundColor: "#fff",
           border: "1px solid rgb(224, 224, 227)",
           boxShadow: "none",
-          textAlign:'center',
-          fontSize:'20px',
+          textAlign: "center",
+          fontSize: "20px",
         },
       },
     },

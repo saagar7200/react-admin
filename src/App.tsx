@@ -14,6 +14,7 @@ import {
 } from "./components/edit/Edit";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
+import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import { theme } from "./theme/theme";
 import CustomLayout from "./layout/customLayout";
@@ -65,11 +66,11 @@ function App() {
           options={{ label: "All Offers" }}
         />
         <Resource
-          name="transaction"
+          name="transactions"
           list={Transactions}
           // create={CreateTransaction}
           // edit={EditTransaction}
-          icon={LocalOfferOutlinedIcon}
+          icon={ReceiptOutlinedIcon}
           options={{ label: "Transactions" }}
         />
       </Admin>

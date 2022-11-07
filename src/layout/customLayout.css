@@ -1,3 +1,7 @@
+.appbar {
+padding: 5px 0px;
+}
+
 .appbar button {
   margin-right: 0.2em;
   outline: none;

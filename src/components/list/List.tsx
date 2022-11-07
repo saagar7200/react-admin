@@ -47,7 +47,7 @@ export const Categories = (props: any) => {
           />
           <TextField source="name" />
           {/* <TextField source="imageUrl" /> */}
-          <BooleanField source="isActive" title="Status" valueLabelTrue="Active" valueLabelFalse="inActive"/>
+          <BooleanField source="isActive" valueLabelTrue="Active" valueLabelFalse="inActive"/>
           <EditButton />
         </Datagrid>
       </List>
@@ -82,7 +82,7 @@ export const SubCategories = (props: any) => {
           />
           <TextField source="name" />
           {/* <TextField source="imageUrl" /> */}
-          <BooleanField source="isActive" label="Status" />
+          <BooleanField source="isActive" />
           <EditButton />
         </Datagrid>
       </List>
@@ -118,7 +118,7 @@ export const Offers = (props: any) => {
           <TextField source="profit" />
           {/* <TextField source="baseReferalLink" /> */}
           <TextField source="network" />
-          <BooleanField source="isActive" label="Status"/>
+          <BooleanField source="isActive"/>
           <DateField source="createdAt" />
           <DateField source="updatedAt" />
           <EditButton />

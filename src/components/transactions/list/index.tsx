@@ -5,7 +5,6 @@ import {
   DateField,
   TextField,
   EditButton,
-  BooleanField,
   TextInput,
 } from "react-admin";
 
@@ -29,19 +28,13 @@ const Transactions = (props: any) => {
         Transaction
       </Typography>
 
-      <List title={"Offer"} {...props} filters={filters}>
+      <List title={"Transaction"} {...props} filters={filters}>
         <Datagrid rowClick="edit">
           <TextField source="storeName" />
           <TextField source="saleAmount" />
-          {/* <ReferenceField
-            label="User"
-            source="user"
-            reference="user"
-          /> */}
-
-          <TextField source="profit" />
-          <DateField source="commission" />
-          <BooleanField source="status" />
+          <TextField source="commission" />
+          <DateField source="date" />
+          <TextField source="status" />
           <EditButton />
         </Datagrid>
       </List>

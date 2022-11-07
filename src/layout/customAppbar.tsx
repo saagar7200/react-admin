@@ -18,7 +18,7 @@ export const CustomAppBar = (props: any) => (
       textAlign="center"
       fontWeight="bold"
     >
-      <img src={Logo} alt="logo" height="40" width="45" />
+      <img src={Logo} alt="logo" height="35" width="40" />
       <div className="Logo_text">Rayy</div>
       {/* <Typography
        className='Title'
