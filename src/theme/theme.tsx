@@ -18,7 +18,7 @@ export const theme = createTheme(defaultTheme, {
       styleOverrides: {
         root: {
           "& .RaLayout-contentWithSidebar": {
-            backgroundColor: "#312A91",
+            // backgroundColor: "#312A91",
           },
           "& .MuiList-root": {
             margin: 0,
@@ -29,15 +29,28 @@ export const theme = createTheme(defaultTheme, {
     RaMenuItemLink: {
       styleOverrides: {
         root: {
-          color: "#fff",
+          color: "rgba(0, 0, 0, 0.87)",
           padding: "14px",
-          "&.RaMenuItemLink-icon": {
-            color: "#fff",
-          },
           "&.RaMenuItemLink-active": {
-            background: "#181354",
+            background: "#D2D2D2",
             color: "#fff",
           },
+        },
+      },
+    },
+    RaSidebar: {
+      styleOverrides: {
+        root: {
+            borderRight:"2px solid #D2D2D2",
+        },
+      },
+    },
+    RaMenu:{
+      styleOverrides: {
+        root: {
+          paddingTop: "30px",
+
+
         },
       },
     },
@@ -57,7 +70,7 @@ export const theme = createTheme(defaultTheme, {
           color: "#fff",
           // padding: "14px",
           "&.RaMenuItemLink-icon": {
-            color: "#fff",
+            color: "rgba(0, 0, 0, 0.87)",
           },
         },
       },
