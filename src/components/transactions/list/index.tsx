@@ -29,7 +29,14 @@ const Transactions = (props: any) => {
       </Typography>
 
       <List title={"Transaction"} {...props} filters={filters}>
-        <Datagrid rowClick="edit">
+        <Datagrid
+          rowClick="edit"
+          empty={
+            <Typography className="empty_text" variant="h6">
+              No Transactions !!
+            </Typography>
+          }
+        >
           <TextField source="storeName" />
           <TextField source="saleAmount" />
           <TextField source="commission" />
