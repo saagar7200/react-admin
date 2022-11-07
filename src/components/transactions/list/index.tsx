@@ -37,7 +37,9 @@ const Transactions = (props: any) => {
             </Typography>
           }
         >
+          <TextField source="user.name" />
           <TextField source="storeName" />
+          <TextField source="offer.network" />
           <TextField source="saleAmount" />
           <TextField source="commission" />
           <DateField source="date" />

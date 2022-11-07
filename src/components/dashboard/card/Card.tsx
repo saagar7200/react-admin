@@ -16,7 +16,7 @@ const CardComponent: FC<Iprop> = ({ label, data, icon, background }) => {
           <Typography className="White_text" variant="h6">
             {label}
           </Typography>
-          <Typography className="White_text bold" variant="h5">
+          <Typography className="White_text bold" variant="h4">
             {data}
           </Typography>
         </Box>
