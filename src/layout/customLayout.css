@@ -1,54 +1,55 @@
-/* .appbar{
-    padding-left:30px !important;
-}
-*/
 .appbar button {
-    margin-right: 0.2em;
-    outline: none;
-
-    
+  margin-right: 0.2em;
+  outline: none;
+  font-size: 16px;
+  color: rgb(105, 97, 97);
+  font-weight: 500;
 }
-.appbar ~ .appbar button {
-    display: inline-block;
+.appbar button svg {
+  color: #312a91;
 }
 
-
-.appbar button .RaSidebarToggleButton-menuButtonIconOpen {
-    font-size: 2rem !important;
-
-}
-.appbar button .RaSidebarToggleButton-menuButtonIconClosed{
-    font-size: 2rem !important;
-} 
-
-
-
-.logo_container{
-    display:flex;
-    align-items:center;
-    flex: 1;
-    text-overflow: ellipsis;
-    /* white-space: nowrap; */
-    overflow: hidden;
-    font-weight:bold;
-    padding:0px
+.logo_container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: bold;
+  padding: 0px;
+  margin-left: 6px !important;
 }
 
 /* .RaAppBar-toolbar .RaSidebarToggleButton-root{
     display:none
 } */
 
-
-.Title{
-    margin: auto !important;
+.Title {
+  margin: auto !important;
 }
 
-.Logo_text{
-    display: flex ;
-    align-items: flex-end !important;
-    justify-content: flex-end;
-    /* margin-top: 10px; */
-    padding-top: 6px !important;
-    padding-left: 2px;
+.Logo_text {
+  display: flex;
+  align-items: flex-end !important;
+  justify-content: flex-end;
+  /* margin-top: 10px; */
+  padding-top: 6px !important;
+  padding-left: 2px;
+}
 
+.MuiPopover-paper {
+  margin-top: 12px;
+  margin-left: 10px;
+}
+.MuiPopover-paper svg {
+  color: #312a91;
+}
+
+.appbar .RaAppBar-menuButton {
+  display: none;
+}
+
+.appbar .MuiButton-text svg {
+  font-size: x-large;
 }

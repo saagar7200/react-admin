@@ -6,38 +6,39 @@ import {
   DateField,
   TextField,
   EditButton,
+  ShowButton,
   ReferenceField,
   ImageField,
   BooleanField,
   TextInput,
-  useListContext
+  useListContext,
+  useRecordContext,
+  Labeled
 } from "react-admin";
+import { Empty } from "../empty/Empty";
 
 import "./list.css"
 
 const filters = [
-    <TextInput className="search_form" source="q" variant="outlined" label="Search" alwaysOn />
+    <TextInput className="search_form" source="q" variant="outlined" label="Search" />
 ];
 export const Categories = (props: any) => {
-
-    const {isLoading } = useListContext();
-    if (isLoading) return ( <h5>Loading</h5>);
 
 
   return (
     <div className="list_wapper">
         <Typography className="List_header" variant="h5"> Categories</Typography>
-        <List {...props}  emptyWhileLoading filters={filters}>
-        <Datagrid rowClick="edit">
-            <ImageField className="imgaes" source="imageUrl" title="title"
+        <List {...props}  emptyWhileLoading filters={filters}  empty={<Empty label="Category" />}>
+        <Datagrid rowClick="edit" empty={<Empty label="Category" />}>
+            <ImageField className="imgaes" source="imageUrl" title="image" label='Image'
             sx={{ '& img': { maxWidth: 50, maxHeight: 60, objectFit:'cover' } }} 
             />
             <TextField source="name" />
-
-            {/* <TextField source="imageUrl" /> */}
-            
-            <BooleanField source="isActive"  title="Status"/>
+            <BooleanField source="isActive"  label="Status" valueLabelTrue="Active" valueLabelFalse="inActive"/>
             <EditButton />
+          <Labeled label="actions">
+          <ShowButton/>
+          </Labeled>
         </Datagrid>
         </List>
     </div>
@@ -50,7 +51,7 @@ export const SubCategories = (props: any) => {
         <Typography className="List_header" variant="h5"> Sub Categories</Typography>
 
         <List {...props} filters={filters}>
-      <Datagrid rowClick="edit">
+      <Datagrid rowClick="edit" empty={<Empty label="Sub Category" />}>
         {/* <TextField source="categoryId" /> */}
         <ReferenceField
           label="category"
@@ -62,10 +63,7 @@ export const SubCategories = (props: any) => {
         />
 
         <TextField source="name" />
-
-
-        {/* <TextField source="imageUrl" /> */}
-        <BooleanField source="isActive" />
+        <BooleanField source="isActive" label="Status" />
         <EditButton />
       </Datagrid>
     </List>
@@ -79,7 +77,7 @@ export const Offers = (props: any) => {
         <Typography className="List_header" variant="h5"> All Offers</Typography>
 
     <List title={"Offer"} {...props} filters={filters}>
-      <Datagrid rowClick="edit">
+      <Datagrid rowClick="edit" empty={<Empty label="Offer" />}>
         
         <ImageField className="imgaes" source="imageUrl" title="title"
         sx={{ '& img': { maxWidth: 50, maxHeight: 60, objectFit:'cover' } }}       
@@ -95,10 +93,12 @@ export const Offers = (props: any) => {
         {/* <TextField source="baseReferalLink" /> */}
         <TextField source="network" />
        
-       <BooleanField source="isActive" />
+       <BooleanField source="isActive" label="Status" />
         <DateField source="createdAt" />
         <DateField source="updatedAt" />
-        <EditButton />
+        <EditButton label="Action" />
+        <ShowButton/>
+       
       </Datagrid>
     </List>
    </div>

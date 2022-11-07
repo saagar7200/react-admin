@@ -36,12 +36,12 @@ export const CreateCategory = (props: any) => {
             variant="outlined"
             validate={required()}
           />
-          <TextInput
-            className="textInput"
-            source="imageUrl"
-            validate={required()}
-            variant="outlined"
-          />
+           <Box className="offer_form_wrapper">
+            <ImageInput className="textInput" source="pictures" label="Image">
+              <ImageField source="src" title="title" />
+            </ImageInput>
+            <div className="textInput"></div>
+          </Box>
           <BooleanInput defaultChecked source="isActive" />
         </SimpleForm>
       </Create>

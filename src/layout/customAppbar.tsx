@@ -9,8 +9,6 @@ export const CustomAppBar = (props:any) => (
     className='appbar' 
         // {...props}
         userMenu={true}
-                
-
     >
         <Typography
         variant="h5"

@@ -8,7 +8,6 @@ import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import { Card, CardContent } from "@mui/material";
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 
-
 import {
     LineChart,
     Line,
@@ -19,6 +18,7 @@ import {
     BarChart,
     Bar,
   } from "recharts";
+import { Empty } from "../empty/Empty";
 
 
   const dataLine = [
@@ -156,6 +156,10 @@ export const Dashboard = (props:any) => {
           </BarChart>
         </CardContent>
       </Card>
+    </Box>
+        
+    <Box>
+            <Empty label="category"/>
     </Box>
         </>
     )
