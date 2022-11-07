@@ -10,6 +10,7 @@ import {
   BooleanField,
   TextInput,
   useListContext,
+  UrlField
 } from "react-admin";
 import { Empty } from "../empty/Empty";
 
@@ -66,11 +67,7 @@ export const SubCategories = (props: any) => {
       <List {...props} filters={filters}>
         <Datagrid rowClick="edit"  empty={<Empty label="Sub Category" /> }>
           {/* <TextField source="categoryId" /> */}
-          <ReferenceField
-            label="category"
-            source="categoryId"
-            reference="categories"
-          />
+          
           <ImageField
             className="imgaes"
             source="imageUrl"
@@ -82,6 +79,11 @@ export const SubCategories = (props: any) => {
           />
           <TextField source="name" />
           {/* <TextField source="imageUrl" /> */}
+          <ReferenceField
+            label="category"
+            source="categoryId"
+            reference="categories"
+          />
           <BooleanField source="isActive" />
           <EditButton />
         </Datagrid>

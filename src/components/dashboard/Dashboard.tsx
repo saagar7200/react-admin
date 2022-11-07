@@ -72,7 +72,7 @@ export const Dashboard = (props: any) => {
       <Grid container spacing={2}>
         <Grid item sm={6} md={3}>
           <CardComponent
-            label="Total number of visitors"
+            label="Total Users"
             data="2,000"
             background={"#6b8298"}
             icon={<PeopleAltIcon className="dashboard-item-icon" />}
@@ -81,25 +81,25 @@ export const Dashboard = (props: any) => {
 
         <Grid item sm={6} md={3}>
           <CardComponent
-            label="Profit "
+            label="Total Offers"
             data="20,000"
             background={"#82ca9d"}
-            icon={<TrendingUpIcon className="dashboard-item-icon" />}
-          />
-        </Grid>
-
-        <Grid item sm={6} md={3}>
-          <CardComponent
-            label="Total Offers"
-            data="200"
-            background={"#6b8298"}
             icon={<LocalOfferOutlinedIcon className="dashboard-item-icon" />}
           />
         </Grid>
 
         <Grid item sm={6} md={3}>
           <CardComponent
-            label="Loss"
+            label="Profit"
+            data="200"
+            background={"#6b8298"}
+            icon={<TrendingUpIcon className="dashboard-item-icon" />}
+          />
+        </Grid>
+
+        <Grid item sm={6} md={3}>
+          <CardComponent
+            label="Completed Transactions"
             data="20,000"
             background={"#eb4034"}
             icon={<TrendingDownIcon className="dashboard-item-icon" />}
