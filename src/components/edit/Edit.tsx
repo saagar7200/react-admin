@@ -33,9 +33,15 @@ export const EditCategory = (props: any) => {
           />
           <BooleanInput source="isActive" />
           <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="pictures" label="Image">
+            {/* <ImageInput className="textInput" source="pictures" label="Image">
               <ImageField source="src" title="title" />
-            </ImageInput>
+            </ImageInput> */}
+            <TextInput
+            className="textInput"
+            source="imageUrl"
+            variant="outlined"
+            validate={required()}
+          /> 
             <div className="textInput"></div>
           </Box>
         </SimpleForm>
@@ -92,9 +98,15 @@ export const EditSubCategory = (props: any) => {
             style={{ width: "100%" }}
           />
           <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="pictures" label="Image">
+            {/* <ImageInput className="textInput" source="pictures" label="Image">
               <ImageField source="src" title="title" />
-            </ImageInput>
+            </ImageInput> */}
+            <TextInput
+            className="textInput"
+            source="imageUrl"
+            variant="outlined"
+            validate={required()}
+          /> 
             <div className="textInput"></div>
           </Box>
         </SimpleForm>
@@ -175,9 +187,15 @@ export const EditOffer = (props: any) => {
             <BooleanInput source="isActive" />
           </Box>
           <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="pictures" label="Image">
+            {/* <ImageInput className="textInput" source="pictures" label="Image">
               <ImageField source="src" title="title" />
-            </ImageInput>
+            </ImageInput> */}
+            <TextInput
+            className="textInput"
+            source="imageUrl"
+            variant="outlined"
+            validate={required()}
+          /> 
             <div className="textInput"></div>
           </Box>
         </SimpleForm>

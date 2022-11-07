@@ -11,6 +11,7 @@ import {
   TextInput,
   useListContext,
 } from "react-admin";
+import { Empty } from "../empty/Empty";
 
 import "./list.css";
 
@@ -19,7 +20,7 @@ const filters = [
     className="search_form"
     source="q"
     variant="outlined"
-    label="Search"
+    label="Search By Name"
     alwaysOn
   />,
 ];
@@ -34,11 +35,12 @@ export const Categories = (props: any) => {
         Categories
       </Typography>
       <List {...props} emptyWhileLoading filters={filters}>
-        <Datagrid rowClick="edit">
+        <Datagrid rowClick="edit" empty={<Empty label="Category" /> }>
           <ImageField
             className="imgaes"
             source="imageUrl"
             title="title"
+            label="Image"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
@@ -62,7 +64,7 @@ export const SubCategories = (props: any) => {
       </Typography>
 
       <List {...props} filters={filters}>
-        <Datagrid rowClick="edit">
+        <Datagrid rowClick="edit"  empty={<Empty label="Sub Category" /> }>
           {/* <TextField source="categoryId" /> */}
           <ReferenceField
             label="category"
@@ -73,6 +75,7 @@ export const SubCategories = (props: any) => {
             className="imgaes"
             source="imageUrl"
             title="title"
+            label="Image"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
@@ -96,11 +99,12 @@ export const Offers = (props: any) => {
       </Typography>
 
       <List title={"Offer"} {...props} filters={filters}>
-        <Datagrid rowClick="edit">
+        <Datagrid rowClick="edit"  empty={<Empty label="Offers" /> }>
           <ImageField
             className="imgaes"
             source="imageUrl"
             title="title"
+            label="Image"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
