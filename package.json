@@ -1,6 +1,5 @@
 {
   "name": "react-admin",
-  "proxy": "https://2069-202-63-244-120.in.ngrok.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

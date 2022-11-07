@@ -1,40 +1,30 @@
-import * as React from 'react';
-import { AppBar } from 'react-admin';
-import {Typography} from '@mui/material';
+import * as React from "react";
+import { AppBar } from "react-admin";
+import { Typography } from "@mui/material";
 import Logo from "../assets/logo.svg";
-import "./customLayout.css"
+import "./customLayout.css";
 
-export const CustomAppBar = (props:any) => (
-    <AppBar
-    className='appbar' 
-        // {...props}
-        userMenu={true}
+export const CustomAppBar = (props: any) => (
+  <AppBar
+    className="appbar"
+    // {...props}
+    userMenu={true}
+  >
+    <Typography
+      variant="h5"
+      color="inherit"
+      className="logo_container"
+      // id="title"
+      textAlign="center"
+      fontWeight="bold"
     >
-        <Typography
-        variant="h5"
-        color="inherit"
-        className='logo_container'
-      
-        // id="title"
-        textAlign="center"
-        fontWeight="bold"
-      >
-       <img
-         src={Logo}
-         alt="logo"
-         height="40"
-         width='45'
-
-       />
-      <div className='Logo_text'>Rayy</div>
-       {/* <Typography
+      <img src={Logo} alt="logo" height="40" width="45" />
+      <div className="Logo_text">Rayy</div>
+      {/* <Typography
        className='Title'
        variant='h5'
         id="react-admin-title"
         /> */}
-
-      </Typography>
-     
-     
-    </AppBar>
+    </Typography>
+  </AppBar>
 );

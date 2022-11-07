@@ -1,6 +1,13 @@
-.container{
-padding-left: 8px;
-display: flex;
-justify-content: space-between;
+.dashboard-container {
+  margin-left: 8px;
 }
 
+.page-title {
+  margin-top: 40px !important;
+  color: rgb(105, 97, 97);
+  font-weight: 500 !important;
+}
+
+.dashboard-item-icon {
+  font-size: 35px !important;
+}

@@ -1,19 +1,16 @@
 import { Typography } from "@material-ui/core";
-import React from "react";
 import {
   List,
   Datagrid,
   DateField,
   TextField,
   EditButton,
-  ShowButton,
   ReferenceField,
   ImageField,
   BooleanField,
   TextInput,
-  Labeled,
+  useListContext,
 } from "react-admin";
-import { Empty } from "../empty/Empty";
 
 import "./list.css";
 
@@ -27,36 +24,29 @@ const filters = [
   />,
 ];
 export const Categories = (props: any) => {
+  const { isLoading } = useListContext();
+  if (isLoading) return <h5>Loading</h5>;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
         {" "}
         Categories
       </Typography>
-      <List {...props} filters={filters}>
-        <Datagrid rowClick="edit" empty={<Empty label="Category" />}>
+      <List {...props} emptyWhileLoading filters={filters}>
+        <Datagrid rowClick="edit">
           <ImageField
             className="imgaes"
             source="imageUrl"
-            title="image"
-            label="Image"
+            title="title"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
           <TextField source="name" />
-          <BooleanField
-            source="isActive"
-            label="Status"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
-
-          <Labeled label="actions">
-            <>
-              <EditButton label=' '/>
-            </>
-          </Labeled>
+          {/* <TextField source="imageUrl" /> */}
+          <BooleanField source="isActive" title="Status" valueLabelTrue="Active" valueLabelFalse="inActive"/>
+          <EditButton />
         </Datagrid>
       </List>
     </div>
@@ -65,14 +55,14 @@ export const Categories = (props: any) => {
 
 export const SubCategories = (props: any) => {
   return (
-    <div>
+    <div className="list_wapper">
       <Typography className="List_header" variant="h5">
         {" "}
         Sub Categories
       </Typography>
 
       <List {...props} filters={filters}>
-        <Datagrid rowClick="edit" empty={<Empty label="Sub Category" />}>
+        <Datagrid rowClick="edit">
           {/* <TextField source="categoryId" /> */}
           <ReferenceField
             label="category"
@@ -87,8 +77,8 @@ export const SubCategories = (props: any) => {
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-
           <TextField source="name" />
+          {/* <TextField source="imageUrl" /> */}
           <BooleanField source="isActive" label="Status" />
           <EditButton />
         </Datagrid>
@@ -99,14 +89,14 @@ export const SubCategories = (props: any) => {
 
 export const Offers = (props: any) => {
   return (
-    <div>
+    <div className="list_wapper">
       <Typography className="List_header" variant="h5">
         {" "}
         All Offers
       </Typography>
 
       <List title={"Offer"} {...props} filters={filters}>
-        <Datagrid rowClick="edit" empty={<Empty label="Offer" />}>
+        <Datagrid rowClick="edit">
           <ImageField
             className="imgaes"
             source="imageUrl"
@@ -121,16 +111,13 @@ export const Offers = (props: any) => {
             source="subCategoryId"
             reference="sub-categories"
           />
-
           <TextField source="profit" />
           {/* <TextField source="baseReferalLink" /> */}
           <TextField source="network" />
-
-          <BooleanField source="isActive" label="Status" />
+          <BooleanField source="isActive" label="Status"/>
           <DateField source="createdAt" />
           <DateField source="updatedAt" />
-          <EditButton label="Action" />
-          <ShowButton />
+          <EditButton />
         </Datagrid>
       </List>
     </div>
