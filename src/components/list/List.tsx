@@ -1,5 +1,4 @@
 import { Typography } from "@material-ui/core";
-import React from "react";
 import {
   List,
   Datagrid,
@@ -45,10 +44,8 @@ export const Categories = (props: any) => {
             }}
           />
           <TextField source="name" />
-
           {/* <TextField source="imageUrl" /> */}
-
-          <BooleanField source="isActive" title="Status" />
+          <BooleanField source="isActive" title="Status" valueLabelTrue="Active" valueLabelFalse="inActive"/>
           <EditButton />
         </Datagrid>
       </List>
@@ -80,11 +77,9 @@ export const SubCategories = (props: any) => {
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-
           <TextField source="name" />
-
           {/* <TextField source="imageUrl" /> */}
-          <BooleanField source="isActive" />
+          <BooleanField source="isActive" label="Status" />
           <EditButton />
         </Datagrid>
       </List>
@@ -116,12 +111,10 @@ export const Offers = (props: any) => {
             source="subCategoryId"
             reference="sub-categories"
           />
-
           <TextField source="profit" />
           {/* <TextField source="baseReferalLink" /> */}
           <TextField source="network" />
-
-          <BooleanField source="isActive" />
+          <BooleanField source="isActive" label="Status"/>
           <DateField source="createdAt" />
           <DateField source="updatedAt" />
           <EditButton />

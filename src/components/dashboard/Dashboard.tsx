@@ -1,6 +1,6 @@
 import "./dashboard.css";
 import CardComponent from "./card/Card";
-import { Box, Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
@@ -69,7 +69,6 @@ export const Dashboard = (props: any) => {
       <Typography className="page-title" variant="h5">
         Dashboard
       </Typography>
-      {/* <Box className="container"> */}
       <Grid container spacing={2}>
         <Grid item sm={6} md={3}>
           <CardComponent
@@ -107,14 +106,6 @@ export const Dashboard = (props: any) => {
           />
         </Grid>
       </Grid>
-      {/* </Box> */}
-
-      {/* chart */}
-
-      {/* <Box
-        className="container"
-        style={{ display: "flex", justifyContent: "space-between" }}
-      > */}
 
       <Grid container spacing={3}>
         <Grid item xs={6}>
@@ -178,7 +169,6 @@ export const Dashboard = (props: any) => {
           </Card>
         </Grid>
       </Grid>
-      {/* </Box> */}
     </div>
   );
 };

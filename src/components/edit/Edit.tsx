@@ -12,12 +12,10 @@ import {
 } from "react-admin";
 import "./edit.css";
 
-const choices:{id:string,name:string}[] = [
-  {id:'INR',name:'INR'},
-  {id:'cuelink',name:'Cuelink'},
-
-]
-
+const choices: { id: string; name: string }[] = [
+  { id: "INR", name: "INR" },
+  { id: "cuelink", name: "Cuelink" },
+];
 
 export const EditCategory = (props: any) => {
   return (
@@ -99,7 +97,6 @@ export const EditSubCategory = (props: any) => {
             </ImageInput>
             <div className="textInput"></div>
           </Box>
-         
         </SimpleForm>
       </Edit>
     </div>
@@ -159,8 +156,12 @@ export const EditOffer = (props: any) => {
               validate={required()}
               source="network"
             /> */}
-            <AutocompleteInput source="network" validate={required()} variant="outlined" choices={choices}/>
-
+            <AutocompleteInput
+              source="network"
+              validate={required()}
+              variant="outlined"
+              choices={choices}
+            />
           </Box>
 
           <TextInput
