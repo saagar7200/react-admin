@@ -43,7 +43,7 @@ const dataLine = [
 const dataBar = [
   {
     name: "Users",
-    total: 400,
+    total: 19900,
     inactive: 100,
   },
   {
@@ -58,8 +58,8 @@ const dataBar = [
   },
   {
     name: "Offers",
-    total: 2780,
-    inactive: 3908,
+    total: 2000,
+    inactive: 208,
   },
 ];
 
@@ -72,8 +72,8 @@ export const Dashboard = (props: any) => {
       <Grid container spacing={2}>
         <Grid item sm={6} md={3}>
           <CardComponent
-            label="Total number of visitors"
-            data="2,000"
+            label="Total users"
+            data="20,000"
             background={"#6b8298"}
             icon={<PeopleAltIcon className="dashboard-item-icon" />}
           />
@@ -81,27 +81,27 @@ export const Dashboard = (props: any) => {
 
         <Grid item sm={6} md={3}>
           <CardComponent
-            label="Profit "
-            data="20,000"
-            background={"#82ca9d"}
-            icon={<TrendingUpIcon className="dashboard-item-icon" />}
-          />
-        </Grid>
-
-        <Grid item sm={6} md={3}>
-          <CardComponent
-            label="Total Offers"
-            data="200"
-            background={"#6b8298"}
+            label="Total offers"
+            data="2,000"
+            background={"#E16C71"}
             icon={<LocalOfferOutlinedIcon className="dashboard-item-icon" />}
           />
         </Grid>
 
         <Grid item sm={6} md={3}>
           <CardComponent
-            label="Loss"
-            data="20,000"
-            background={"#eb4034"}
+            label="Total links shared"
+            data="800"
+            background={"#E1A07A"}
+            icon={<TrendingUpIcon className="dashboard-item-icon" />}
+          />
+        </Grid>
+
+        <Grid item sm={6} md={3}>
+          <CardComponent
+            label="Transactions completed"
+            data="700"
+            background={"#82ca9d"}
             icon={<TrendingDownIcon className="dashboard-item-icon" />}
           />
         </Grid>
