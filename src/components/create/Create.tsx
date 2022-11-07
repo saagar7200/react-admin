@@ -9,8 +9,6 @@ import {
   BooleanInput,
   ReferenceInput,
   AutocompleteInput,
-  ImageInput,
-  ImageField,
 } from "react-admin";
 
 const choices: { id: string; name: string }[] = [
@@ -34,20 +32,21 @@ export const CreateCategory = (props: any) => {
             variant="outlined"
             validate={required()}
           />
-           <Box className="offer_form_wrapper">
-            {/* <ImageInput className="textInput" source="image" label="Image">
-          <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="pictures" label="Image">
-              <ImageField source="src" title="title" />
-            </ImageInput> */}
-             <TextInput
+          <TextInput
             className="textInput"
             source="imageUrl"
             variant="outlined"
             validate={required()}
           />
+           {/* <Box className="offer_form_wrapper">
+             <ImageInput className="textInput" source="image" label="Image">
+          <Box className="offer_form_wrapper">
+            <ImageInput className="textInput" source="pictures" label="Image">
+              <ImageField source="src" title="title" />
+            </ImageInput>
+             
             <div className="textInput"></div>
-          </Box>
+          </Box> */}
           <BooleanInput defaultChecked source="isActive" />
         </SimpleForm>
       </Create>
@@ -64,21 +63,6 @@ export const CreateSubCategory = (props: any) => {
       <Create title=" ">
         <SimpleForm>
           <Box className="offer_form_wrapper">
-            {/* <ReferenceInput
-            <ReferenceInput
-              variant="outlined"
-              source="categoryId"
-              reference="categories"
-              recordRepresentation="name"
-            >
-              <AutocompleteInput
-                multiple
-                variant="outlined"
-                validate={required()}
-                label="Category"
-                style={{ width: "100%" }}
-              /> 
-             </ReferenceInput> */}
               <ReferenceInput
               variant="outlined"
               source="categoryId"
@@ -106,7 +90,12 @@ export const CreateSubCategory = (props: any) => {
               label="Sub Category Name"
               style={{ width: "100%" }}
             />
-            <BooleanInput source="isActive" />
+             <TextInput
+            variant="outlined"
+            validate={required()}
+            source="imageUrl"
+            style={{ width: "100%" }}
+          />
           </Box>
           <TextInput
             multiline
@@ -115,19 +104,15 @@ export const CreateSubCategory = (props: any) => {
             source="description"
             style={{ width: "100%" }}
           />
-          <Box className="offer_form_wrapper">
-          {/* <ImageInput className="textInput" source="imageUrl" label="Image">
+          {/* <Box className="offer_form_wrapper">
+           <ImageInput className="textInput" source="imageUrl" label="Image">
                 <ImageField source="src" title="title" />
-            </ImageInput> */}
-            <TextInput
-            multiline
-            variant="outlined"
-            validate={required()}
-            source="imageUrl"
-            style={{ width: "100%" }}
-          />
+            </ImageInput> 
+           
             <div className="textInput"></div>
-          </Box>
+          </Box> */}
+          <BooleanInput source="isActive" />
+
         </SimpleForm>
       </Create>
     </div>
@@ -187,6 +172,8 @@ export const CreateOffer = (props: any) => {
               validate={required()}
               source="network"
             /> */}
+
+
             <AutocompleteInput
               source="network"
               validate={required()}
@@ -195,21 +182,7 @@ export const CreateOffer = (props: any) => {
             />
           </Box>
 
-          <TextInput
-            className="textInput"
-            variant="outlined"
-            validate={required()}
-            multiline
-            source="description"
-          />
           <Box className="offer_form_wrapper">
-            <BooleanInput source="isActive" />
-          </Box>
-          <Box className="offer_form_wrapper">
-          {/* <ImageInput className="textInput" source="imageUrl" label="Image">
-                <ImageField source="src" title="title" />
-            </ImageInput> */}
-
           <TextInput
             className='textInput'
               variant="outlined"
@@ -217,11 +190,23 @@ export const CreateOffer = (props: any) => {
               multiline
               source="imageUrl"
             />
-            {/* <ImageInput className="textInput" source="imageUrl" label="Image">
-              <ImageField source="src" title="title" />
-            </ImageInput> */}
-            <div className="textInput"></div>
+            <BooleanInput source="isActive" />
           </Box>
+          
+          <TextInput
+            className="textInput"
+            variant="outlined"
+            validate={required()}
+            multiline
+            source="description"
+          />
+        
+          {/* <Box className="offer_form_wrapper">
+            <ImageInput className="textInput" source="imageUrl" label="Image">
+              <ImageField source="src" title="title" />
+            </ImageInput>
+            <div className="textInput"></div>
+          </Box> */}
         </SimpleForm>
       </Create>
     </div>
