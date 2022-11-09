@@ -6,7 +6,6 @@ import {
   EditButton,
   TextInput,
   ImageField,
- 
 } from "react-admin";
 
 import "../../../styles/list.css";
@@ -20,8 +19,6 @@ const filters = [
     alwaysOn
   />,
 ];
-
-
 
 const Users = (props: any) => {
   return (
@@ -40,19 +37,29 @@ const Users = (props: any) => {
             </Typography>
           }
         >
-          <ImageField 
-          sx={{
-            "& img": { maxWidth: 50, maxHeight: 60, objectFit:"cover" },
-          }}
-          source="image"/>
+          <ImageField
+            sx={{
+              "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
+            }}
+            source="image"
+          />
           <TextField source="name" />
 
-          <TextField source="commissionSumPend" label="Commission Sum Pending" />
-          <TextField source="commissionSumApproved" label="Commission Sum Approved" />
+          <TextField
+            source="commissionSumPend"
+            label="Commission Sum Pending"
+          />
+          <TextField
+            source="commissionSumApproved"
+            label="Commission Sum Approved"
+          />
           <TextField source="salesAmountSumPend" label="Sales Sum Pending" />
-          <TextField source="salesAmountSumApproved" label="Sales Sum Approved" />
+          <TextField
+            source="salesAmountSumApproved"
+            label="Sales Sum Approved"
+          />
           <TextField source="commissionAmountSum" label="Total Commission" />
-          <TextField source="salesAmountSum" label="Total Sales"/>
+          <TextField source="salesAmountSum" label="Total Sales" />
           <EditButton />
         </Datagrid>
       </List>

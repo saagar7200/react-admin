@@ -8,13 +8,9 @@ import {
   useNotify,
   useRefresh,
   useRedirect,
-  AutocompleteInput,
+  ImageInput,
+  ImageField,
 } from "react-admin";
-
-const choices: { id: string; name: string }[] = [
-  { id: "Approved", name: "Approved" },
-  { id: "Pending", name: "Pending" },
-];
 
 export const EditUser = (props: any) => {
   const notify = useNotify();
@@ -43,30 +39,26 @@ export const EditUser = (props: any) => {
               variant="outlined"
               validate={required()}
             />
-            
           </Box>
-        
-       
-        <Box className="offer_form_wrapper">
-        <TextInput
+
+          {/* <Box className="offer_form_wrapper">
+            <TextInput
               className="textInput"
               source="image"
               variant="outlined"
               validate={required()}
             />
             <div className="textInput"></div>
-        </Box>
+          </Box> */}
 
-         
-          {/* <Box className="offer_form_wrapper">
-             <ImageInput className="textInput" source="image" label="Image">
+          
           <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="pictures" label="Image">
+            <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
              
             <div className="textInput"></div>
-          </Box> */}
+          </Box>
         </SimpleForm>
       </Edit>
     </div>

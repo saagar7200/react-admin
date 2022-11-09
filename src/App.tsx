@@ -75,7 +75,7 @@ function App() {
           create={CreateUser}
           edit={EditUser}
           icon={PeopleOutlinedIcon}
-          options={{ label: "users" }}
+          options={{ label: "Users" }}
         />
         <Resource
           name="transactions"
