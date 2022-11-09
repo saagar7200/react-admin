@@ -19,6 +19,9 @@
 
 
 }
+.textInput{
+    width:100%
+}
 
 .offer_form_wrapper >.ra-input{
     justify-content: center;
