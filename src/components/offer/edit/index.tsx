@@ -8,112 +8,14 @@ import {
   ReferenceInput,
   AutocompleteInput,
 } from "react-admin";
-import "./edit.css";
+import "../../../styles/edit.css";
+
 
 const choices: { id: string; name: string }[] = [
   { id: "INR", name: "INR" },
   { id: "cuelink", name: "Cuelink" },
 ];
 
-export const EditCategory = (props: any) => {
-  return (
-    <div className="edit_container">
-      <Typography className="form_heading" variant="h5">
-        Edit a Category
-      </Typography>
-      <Edit title=" " {...props}>
-        <SimpleForm>
-          <TextInput
-            variant="outlined"
-            source="name"
-            validate={required()}
-            style={{ minWidth: "100%" }}
-          />
-          <TextInput
-            className="textInput"
-            source="imageUrl"
-            variant="outlined"
-            validate={required()}
-          /> 
-          <BooleanInput source="isActive" />
-          {/* <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="pictures" label="Image">
-              <ImageField source="src" title="title" />
-            </ImageInput>
-            
-            <div className="textInput"></div>
-          </Box> */}
-        </SimpleForm>
-      </Edit>
-    </div>
-  );
-};
-
-export const EditSubCategory = (props: any) => {
-  return (
-    <div className="edit_container">
-      <Typography className="form_heading" variant="h5">
-        Edit a sub category
-      </Typography>
-
-      <Edit title=" " {...props}>
-      <SimpleForm>
-          <Box className="offer_form_wrapper">
-              <ReferenceInput
-              variant="outlined"
-              source="categoryId"
-              reference="categories"
-              recordRepresentation="name"
-            >
-              <AutocompleteInput
-                variant="outlined"
-                validate={required()}
-                label="Category"
-              />
-            </ReferenceInput>
-            <TextInput
-              variant="outlined"
-              validate={required()}
-              source="title"
-              style={{ width: "100%" }}
-            />
-          </Box>
-          <Box className="offer_form_wrapper">
-            <TextInput
-              variant="outlined"
-              validate={required()}
-              source="name"
-              label="Sub Category Name"
-              style={{ width: "100%" }}
-            />
-             <TextInput
-            variant="outlined"
-            validate={required()}
-            source="imageUrl"
-            style={{ width: "100%" }}
-          />
-          </Box>
-          <TextInput
-            multiline
-            variant="outlined"
-            validate={required()}
-            source="description"
-            style={{ width: "100%" }}
-          />
-          {/* <Box className="offer_form_wrapper">
-           <ImageInput className="textInput" source="imageUrl" label="Image">
-                <ImageField source="src" title="title" />
-            </ImageInput> 
-           
-            <div className="textInput"></div>
-          </Box> */}
-          <BooleanInput source="isActive" />
-
-        </SimpleForm>
-      </Edit>
-    </div>
-  );
-};
 
 export const EditOffer = (props: any) => {
   return (
