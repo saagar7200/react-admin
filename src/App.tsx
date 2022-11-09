@@ -1,6 +1,5 @@
 import React from "react";
 import { Admin, Resource } from "react-admin";
-import simpleRestProvider from "ra-data-simple-rest";
 import { Categories, SubCategories, Offers } from "./components/list/List";
 import {
   CreateCategory,
@@ -14,7 +13,7 @@ import {
 } from "./components/edit/Edit";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
-import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
+import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import { theme } from "./theme/theme";
 import CustomLayout from "./layout/customLayout";
@@ -23,10 +22,10 @@ import CustomLayout from "./layout/customLayout";
 
 import ClassOutlinedIcon from "@mui/icons-material/ClassOutlined";
 import authProvider from "./authProvider/authProvider";
-
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Transactions from "./components/transactions/list";
+import { myDataProvider } from "./utils/data-provider";
 // import LoginPage from './components/login/login';
 
 function App() {
@@ -35,7 +34,7 @@ function App() {
       <Admin
         dashboard={Dashboard}
         theme={theme}
-        dataProvider={simpleRestProvider("https://2069-202-63-244-120.in.ngrok.io")}
+        dataProvider={myDataProvider}
         authProvider={authProvider}
         layout={CustomLayout}
       >

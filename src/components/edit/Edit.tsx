@@ -7,6 +7,8 @@ import {
   BooleanInput,
   ReferenceInput,
   AutocompleteInput,
+  ImageInput,
+  ImageField,
 } from "react-admin";
 import "./edit.css";
 
@@ -29,20 +31,24 @@ export const EditCategory = (props: any) => {
             validate={required()}
             style={{ minWidth: "100%" }}
           />
-          <TextInput
+          {/* <TextInput
             className="textInput"
             source="imageUrl"
             variant="outlined"
             validate={required()}
-          /> 
+          /> */}
           <BooleanInput source="isActive" />
-          {/* <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="pictures" label="Image">
-              <ImageField source="src" title="title" />
+          <Box className="offer_form_wrapper">
+            <ImageInput
+              className="textInput"
+              source="image"
+              label="Image"
+            >
+              <ImageField source="imageUrl" title="title" />
             </ImageInput>
-            
+
             <div className="textInput"></div>
-          </Box> */}
+          </Box>
         </SimpleForm>
       </Edit>
     </div>
@@ -57,9 +63,9 @@ export const EditSubCategory = (props: any) => {
       </Typography>
 
       <Edit title=" " {...props}>
-      <SimpleForm>
+        <SimpleForm>
           <Box className="offer_form_wrapper">
-              <ReferenceInput
+            <ReferenceInput
               variant="outlined"
               source="categoryId"
               reference="categories"
@@ -86,12 +92,12 @@ export const EditSubCategory = (props: any) => {
               label="Sub Category Name"
               style={{ width: "100%" }}
             />
-             <TextInput
-            variant="outlined"
-            validate={required()}
-            source="imageUrl"
-            style={{ width: "100%" }}
-          />
+            {/* <TextInput
+              variant="outlined"
+              validate={required()}
+              source="imageUrl"
+              style={{ width: "100%" }}
+            /> */}
           </Box>
           <TextInput
             multiline
@@ -100,15 +106,14 @@ export const EditSubCategory = (props: any) => {
             source="description"
             style={{ width: "100%" }}
           />
-          {/* <Box className="offer_form_wrapper">
-           <ImageInput className="textInput" source="imageUrl" label="Image">
-                <ImageField source="src" title="title" />
+          <Box className="offer_form_wrapper">
+           <ImageInput className="textInput" source="image" label="Image">
+                <ImageField source="imageUrl" title="title" />
             </ImageInput> 
            
             <div className="textInput"></div>
-          </Box> */}
+          </Box>
           <BooleanInput source="isActive" />
-
         </SimpleForm>
       </Edit>
     </div>
@@ -123,7 +128,7 @@ export const EditOffer = (props: any) => {
       </Typography>
 
       <Edit title=" " {...props}>
-      <SimpleForm>
+        <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput
               variant="outlined"
@@ -169,7 +174,6 @@ export const EditOffer = (props: any) => {
               source="network"
             /> */}
 
-
             <AutocompleteInput
               source="network"
               validate={required()}
@@ -179,16 +183,16 @@ export const EditOffer = (props: any) => {
           </Box>
 
           <Box className="offer_form_wrapper">
-          <TextInput
-            className='textInput'
+            {/* <TextInput
+              className="textInput"
               variant="outlined"
               validate={required()}
               multiline
               source="imageUrl"
-            />
+            /> */}
             <BooleanInput source="isActive" />
           </Box>
-          
+
           <TextInput
             className="textInput"
             variant="outlined"
@@ -196,13 +200,13 @@ export const EditOffer = (props: any) => {
             multiline
             source="description"
           />
-        
-          {/* <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="imageUrl" label="Image">
-              <ImageField source="src" title="title" />
+
+          <Box className="offer_form_wrapper">
+            <ImageInput className="textInput" source="image" label="Image">
+              <ImageField source="imageUrl" title="title" />
             </ImageInput>
             <div className="textInput"></div>
-          </Box> */}
+          </Box>
         </SimpleForm>
       </Edit>
     </div>
