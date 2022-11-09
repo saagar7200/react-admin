@@ -40,7 +40,7 @@ export const CreateCategory = (props: any) => {
           /> */}
            
           <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="pictures" label="Image">
+            <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
              

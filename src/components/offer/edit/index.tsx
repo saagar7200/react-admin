@@ -93,8 +93,8 @@ export const EditOffer = (props: any) => {
           />
         
           <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="imageUrl" label="Image">
-              <ImageField source="src" title="title" />
+            <ImageInput className="textInput" source="image" label="Image">
+              <ImageField source="imageUrl" title="title" />
             </ImageInput>
             <div className="textInput"></div>
           </Box>

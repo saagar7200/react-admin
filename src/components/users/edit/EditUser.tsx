@@ -43,31 +43,10 @@ export const EditUser = (props: any) => {
               variant="outlined"
               validate={required()}
             />
-             <AutocompleteInput
-            className="textInput"
-            source="status"
-            validate={required()}
-            variant="outlined"
-            choices={choices}
-          />
             
           </Box>
         
-        <Box className="offer_form_wrapper">
-        <TextInput
-            className="textInput"
-            source="salesAmountSum"
-            variant="outlined"
-            validate={required()}
-          />
-
-          <TextInput
-            className="textInput"
-            source="commissionSum"
-            variant="outlined"
-            validate={required()}
-          />
-        </Box>
+       
         <Box className="offer_form_wrapper">
         <TextInput
               className="textInput"

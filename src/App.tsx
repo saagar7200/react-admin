@@ -1,7 +1,5 @@
 import React from "react";
 import { Admin, Resource } from "react-admin";
-import simpleRestProvider from "ra-data-simple-rest";
-// import { Categories, SubCategories, Offers } from "./components/list/List";
 import {Categories} from "./components/categories/list"
 import {SubCategories} from "./components/subCategories/list"
 import {Offers} from "./components/offer/list"
@@ -15,7 +13,7 @@ import {EditOffer} from "./components/offer/edit";
 
 import { Dashboard } from "./components/dashboard/Dashboard";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
-import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
+import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import { theme } from "./theme/theme";
 import CustomLayout from "./layout/customLayout";
@@ -29,6 +27,8 @@ import Transactions from "./components/transactions/list";
 import Users from "./components/users/list";
 import { CreateUser } from "./components/users/create";
 import { EditUser } from "./components/users/edit/EditUser";
+import { myDataProvider } from "./utils/data-provider";
+
 // import LoginPage from './components/login/login';
 
 
@@ -39,7 +39,7 @@ function App() {
       <Admin
         dashboard={Dashboard}
         theme={theme}
-        dataProvider={simpleRestProvider("https://7f16-103-10-28-227.in.ngrok.io")}
+        dataProvider={myDataProvider}
         authProvider={authProvider}
         layout={CustomLayout}
       >
