@@ -7,6 +7,8 @@ import {
   SimpleForm,
   TextInput,
   BooleanInput,
+  ImageInput,
+  ImageField,
   ReferenceInput,
   AutocompleteInput,
 } from "react-admin";
@@ -40,21 +42,17 @@ export const CreateSubCategory = (props: any) => {
               style={{ width: "100%" }}
             />
           </Box>
-          <Box className="offer_form_wrapper">
-            <TextInput
+           <Box className="offer_form_wrapper">
+           <TextInput
               variant="outlined"
               validate={required()}
               source="name"
               label="Sub Category Name"
               style={{ width: "100%" }}
             />
-             <TextInput
-            variant="outlined"
-            validate={required()}
-            source="imageUrl"
-            style={{ width: "100%" }}
-          />
-          </Box>
+          <BooleanInput source="isActive" />
+           </Box>
+          
           <TextInput
             multiline
             variant="outlined"
@@ -62,14 +60,13 @@ export const CreateSubCategory = (props: any) => {
             source="description"
             style={{ width: "100%" }}
           />
-          {/* <Box className="offer_form_wrapper">
+          <Box className="offer_form_wrapper">
            <ImageInput className="textInput" source="imageUrl" label="Image">
                 <ImageField source="src" title="title" />
             </ImageInput> 
            
             <div className="textInput"></div>
-          </Box> */}
-          <BooleanInput source="isActive" />
+          </Box>
 
         </SimpleForm>
       </Create>

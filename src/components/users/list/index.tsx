@@ -10,6 +10,7 @@ import {
 } from "react-admin";
 
 import "../../../styles/list.css";
+
 const filters = [
   <TextInput
     className="search_form"

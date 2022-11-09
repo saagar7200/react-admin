@@ -1,10 +1,12 @@
-import { Typography } from "@material-ui/core";
+import {Box, Typography } from "@material-ui/core";
 import {
   required,
   Edit,
   SimpleForm,
   TextInput,
+  ImageInput,
   BooleanInput,
+  ImageField,
 } from "react-admin";
 import "../../../styles/edit.css";
 
@@ -23,20 +25,20 @@ export const EditCategory = (props: any) => {
             validate={required()}
             style={{ minWidth: "100%" }}
           />
-          <TextInput
+          {/* <TextInput
             className="textInput"
             source="imageUrl"
             variant="outlined"
             validate={required()}
-          /> 
+          />  */}
           <BooleanInput source="isActive" />
-          {/* <Box className="offer_form_wrapper">
-            <ImageInput className="textInput" source="pictures" label="Image">
+          <Box className="offer_form_wrapper">
+            <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
             
             <div className="textInput"></div>
-          </Box> */}
+          </Box>
         </SimpleForm>
       </Edit>
     </div>

@@ -6,6 +6,8 @@ import {
   required,
   SimpleForm,
   TextInput,
+  ImageInput,
+  ImageField,
   BooleanInput,
   ReferenceInput,
   AutocompleteInput,
@@ -79,16 +81,7 @@ export const CreateOffer = (props: any) => {
             />
           </Box>
 
-          <Box className="offer_form_wrapper">
-          <TextInput
-            className='textInput'
-              variant="outlined"
-              validate={required()}
-              multiline
-              source="imageUrl"
-            />
-            <BooleanInput source="isActive" />
-          </Box>
+         
           
           <TextInput
             className="textInput"
@@ -98,12 +91,14 @@ export const CreateOffer = (props: any) => {
             source="description"
           />
         
-          {/* <Box className="offer_form_wrapper">
+          <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="imageUrl" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
             <div className="textInput"></div>
-          </Box> */}
+          </Box>
+         
+         <BooleanInput source="isActive" />
         </SimpleForm>
       </Create>
     </div>

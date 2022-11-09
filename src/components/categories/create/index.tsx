@@ -1,4 +1,4 @@
-import {Typography } from "@material-ui/core";
+import {Box,Typography } from "@material-ui/core";
 import "../../../styles/create.css";
 import {
   Create,
@@ -6,6 +6,8 @@ import {
   SimpleForm,
   TextInput,
   BooleanInput,
+  ImageInput,
+  ImageField
 
 } from "react-admin";
 
@@ -30,21 +32,20 @@ export const CreateCategory = (props: any) => {
             variant="outlined"
             validate={required()}
           />
-          <TextInput
+          {/* <TextInput
             className="textInput"
             source="imageUrl"
             variant="outlined"
             validate={required()}
-          />
-           {/* <Box className="offer_form_wrapper">
-             <ImageInput className="textInput" source="image" label="Image">
+          /> */}
+           
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="pictures" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
              
             <div className="textInput"></div>
-          </Box> */}
+          </Box>
           <BooleanInput defaultChecked source="isActive" />
         </SimpleForm>
       </Create>

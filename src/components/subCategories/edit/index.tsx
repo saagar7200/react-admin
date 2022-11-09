@@ -4,6 +4,8 @@ import {
   Edit,
   SimpleForm,
   TextInput,
+  ImageInput,
+  ImageField,
   BooleanInput,
   ReferenceInput,
   AutocompleteInput,
@@ -49,12 +51,8 @@ export const EditSubCategory = (props: any) => {
               label="Sub Category Name"
               style={{ width: "100%" }}
             />
-             <TextInput
-            variant="outlined"
-            validate={required()}
-            source="imageUrl"
-            style={{ width: "100%" }}
-          />
+          <BooleanInput source="isActive" />
+            
           </Box>
           <TextInput
             multiline
@@ -63,14 +61,13 @@ export const EditSubCategory = (props: any) => {
             source="description"
             style={{ width: "100%" }}
           />
-          {/* <Box className="offer_form_wrapper">
+          <Box className="offer_form_wrapper">
            <ImageInput className="textInput" source="imageUrl" label="Image">
                 <ImageField source="src" title="title" />
             </ImageInput> 
            
             <div className="textInput"></div>
-          </Box> */}
-          <BooleanInput source="isActive" />
+          </Box>
 
         </SimpleForm>
       </Edit>
