@@ -25,7 +25,7 @@ export const CreateOffer = (props: any) => {
         Create a offer
       </Typography>
 
-      <Create title=" " {...props}>
+      <Create title=" " {...props} redirect="list">
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput

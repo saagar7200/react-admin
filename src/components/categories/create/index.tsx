@@ -23,7 +23,7 @@ export const CreateCategory = (props: any) => {
         Create a Category
       </Typography>
 
-      <Create  title=" " {...props}>
+      <Create  title=" " {...props} redirect="list">
         <SimpleForm>
           <TextInput
             className="textInput"

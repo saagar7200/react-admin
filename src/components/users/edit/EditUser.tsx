@@ -1,5 +1,7 @@
 import { Box, Typography } from "@material-ui/core";
 // import Grid from '@mui/material/Grid';
+import "../../../styles/edit.css";
+
 import {
   Edit,
   required,
@@ -18,7 +20,7 @@ export const EditUser = (props: any) => {
   const redirect = useRedirect();
 
   const onSuccess = () => {
-    notify(`Category created.`);
+    notify(`user updated.`);
     redirect("/categories");
     refresh();
   };
