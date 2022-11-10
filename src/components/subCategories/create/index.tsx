@@ -20,7 +20,7 @@ export const CreateSubCategory = (props: any) => {
         Create a Subcategory
       </Typography>
 
-      <Create title=" ">
+      <Create title=" " redirect="list">
         <SimpleForm>
           <Box className="offer_form_wrapper">
               <ReferenceInput
