@@ -18,16 +18,16 @@ export const CreateCategory = (props: any) => {
   const notify = useNotify();
 
   const onError = (error:any) => {
-    notify(`Could not create post: ${error.message}`);
-};
-
+    notify(`Could not create post: ${error.message}`)
+    }
+  
   return (
     <div className="create_category_container">
       <Typography className="form_heading" variant="h5">
         Create a Category
       </Typography>
 
-      <Create mutationOptions={{ onError }}  title=" " {...props} redirect="list">
+      <Create  mutationOptions={{onError}}  title=" " {...props} redirect="list">
         <SimpleForm>
           <TextInput
             className="textInput"
