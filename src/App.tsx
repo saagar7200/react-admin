@@ -28,8 +28,6 @@ import Users from "./components/users/list";
 import { CreateUser } from "./components/users/create";
 import { EditUser } from "./components/users/edit/EditUser";
 import { myDataProvider } from "./utils/data-provider";
-import { Tags } from "./components/tags/list";
-import { EditTag } from "./components/tags/edit";
 
 // import LoginPage from './components/login/login';
 

@@ -18,7 +18,7 @@ export const CreateCategory = (props: any) => {
   const notify = useNotify();
 
   const onError = (error:any) => {
-    notify(`Could not create post: ${error.message}`)
+    notify(`Could not create post: ${error?.message}`)
     }
   
   return (

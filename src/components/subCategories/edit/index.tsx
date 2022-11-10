@@ -38,9 +38,9 @@ export const EditSubCategory = (props: any) => {
                 label="Category"
               />
             </ReferenceInput>
-            <ReferenceArrayInput 
+          <ReferenceArrayInput 
            variant="outlined"
-           source="relatedsubCategories"
+           source="childSubCategory"
            reference="sub-categories"
            recordRepresentation="name"
           >

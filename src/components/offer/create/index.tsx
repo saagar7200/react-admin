@@ -25,7 +25,7 @@ export const CreateOffer = (props: any) => {
   const notify = useNotify();
 
   const onError = (error:any) => {
-    notify(`Could not create post: ${error.message}`);
+    notify(`Could not create post: ${ error?.message }`);
 };
   return (
     <div className="create_category_container">

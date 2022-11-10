@@ -47,7 +47,7 @@ export const CreateSubCategory = (props: any) => {
             </ReferenceInput>
             <ReferenceArrayInput 
            variant="outlined"
-           source="relatedsubCategories"
+           source="childSubCategoryId"
            reference="sub-categories"
            recordRepresentation="name"
           >
