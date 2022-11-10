@@ -7,13 +7,19 @@ import {
   TextInput,
   BooleanInput,
   ImageInput,
-  ImageField
-
+  ImageField,
+  useNotify
 } from "react-admin";
 
 
 
 export const CreateCategory = (props: any) => {
+
+  const notify = useNotify();
+
+  const onError = (error:any) => {
+    notify(`Could not create post: ${error.message}`);
+};
 
 
   
@@ -23,7 +29,7 @@ export const CreateCategory = (props: any) => {
         Create a Category
       </Typography>
 
-      <Create  title=" " {...props} redirect="list">
+      <Create   title=" " {...props} redirect="list">
         <SimpleForm>
           <TextInput
             className="textInput"

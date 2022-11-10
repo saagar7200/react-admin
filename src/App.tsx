@@ -28,6 +28,8 @@ import Users from "./components/users/list";
 import { CreateUser } from "./components/users/create";
 import { EditUser } from "./components/users/edit/EditUser";
 import { myDataProvider } from "./utils/data-provider";
+import { Tags } from "./components/tags/list";
+import { EditTag } from "./components/tags/edit";
 
 // import LoginPage from './components/login/login';
 
@@ -61,6 +63,7 @@ function App() {
           recordRepresentation="name"
           options={{ label: "Sub Categories" }}
         />
+
         <Resource
           name="offers"
           list={Offers}
@@ -69,6 +72,7 @@ function App() {
           icon={LocalOfferOutlinedIcon}
           options={{ label: "All Offers" }}
         />
+       
         <Resource
           name="customer360"
           list={Users}

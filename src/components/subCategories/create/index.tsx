@@ -10,6 +10,8 @@ import {
   ImageInput,
   ImageField,
   ReferenceInput,
+  ReferenceArrayInput,
+  AutocompleteArrayInput,
   AutocompleteInput,
 } from "react-admin";
 
@@ -35,14 +37,26 @@ export const CreateSubCategory = (props: any) => {
                 label="Category"
               />
             </ReferenceInput>
-            <TextInput
+            <ReferenceArrayInput 
+           variant="outlined"
+           source="relatedsubCategories"
+           reference="sub-categories"
+           recordRepresentation="name"
+          >
+            <AutocompleteArrayInput
+            variant="outlined"
+            label="Related Sub Categories"
+            />
+          </ReferenceArrayInput>
+            
+          </Box>
+           <Box className="offer_form_wrapper">
+           <TextInput
               variant="outlined"
               validate={required()}
               source="title"
               style={{ width: "100%" }}
             />
-          </Box>
-           <Box className="offer_form_wrapper">
            <TextInput
               variant="outlined"
               validate={required()}
@@ -50,7 +64,6 @@ export const CreateSubCategory = (props: any) => {
               label="Sub Category Name"
               style={{ width: "100%" }}
             />
-          <BooleanInput source="isActive" />
            </Box>
           
           <TextInput
@@ -67,6 +80,8 @@ export const CreateSubCategory = (props: any) => {
            
             <div className="textInput"></div>
           </Box>
+         
+          <BooleanInput source="isActive" />
 
         </SimpleForm>
       </Create>

@@ -56,7 +56,7 @@ export const EditUser = (props: any) => {
           
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
-              <ImageField source="src" title="title" />
+              <ImageField source="imageUrl" title="title" />
             </ImageInput>
              
             <div className="textInput"></div>
