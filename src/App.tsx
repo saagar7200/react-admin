@@ -20,7 +20,7 @@ import CustomLayout from "./layout/customLayout";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 // import {Route} from "react-router-dom"
 import ClassOutlinedIcon from "@mui/icons-material/ClassOutlined";
-import authProvider from "./provider/authProvider/authProvider";
+import authProvider from  "./utils/authProvider";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Transactions from "./components/transactions/list";
