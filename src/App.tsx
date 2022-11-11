@@ -1,15 +1,15 @@
 import React from "react";
 import { Admin, Resource } from "react-admin";
-import {Categories} from "./components/categories/list"
-import {SubCategories} from "./components/subCategories/list"
-import {Offers} from "./components/offer/list"
+import { Categories } from "./components/categories/list";
+import { SubCategories } from "./components/subCategories/list";
+import { Offers } from "./components/offer/list";
 
 import { CreateCategory } from "./components/categories/create";
-import {CreateSubCategory} from "./components/subCategories/create";
-import {CreateOffer} from "./components/offer/create";
-import {EditCategory} from "./components/categories/edit";
-import {EditSubCategory} from "./components/subCategories/edit";
-import {EditOffer} from "./components/offer/edit";
+import { CreateSubCategory } from "./components/subCategories/create";
+import { CreateOffer } from "./components/offer/create";
+import { EditCategory } from "./components/categories/edit";
+import { EditSubCategory } from "./components/subCategories/edit";
+import { EditOffer } from "./components/offer/edit";
 
 import { Dashboard } from "./components/dashboard/Dashboard";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
@@ -28,10 +28,9 @@ import Users from "./components/users/list";
 import { CreateUser } from "./components/users/create";
 import { EditUser } from "./components/users/edit/EditUser";
 import { myDataProvider } from "./utils/data-provider";
+import { DetailUser } from "./components/users/detail";
 
 // import LoginPage from './components/login/login';
-
-
 
 function App() {
   return (
@@ -74,6 +73,7 @@ function App() {
           list={Users}
           create={CreateUser}
           edit={EditUser}
+          show={DetailUser}
           icon={PeopleOutlinedIcon}
           options={{ label: "Users" }}
         />

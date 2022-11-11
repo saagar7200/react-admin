@@ -2,7 +2,9 @@
 import simpleRestProvider from "ra-data-simple-rest";
 import { fetchUtils } from "react-admin";
 
-const servicesHost = "https://7f16-103-10-28-227.in.ngrok.io";
+const servicesHost =
+  "https://c06c-2400-1a00-bd20-e146-b9cf-2e53-c0b6-dfe.in.ngrok.io";
+// const servicesHost = "http://rayyapi.tk";
 
 const objectToFormData = (obj, form, namespace) => {
   const fd = form || new FormData();
@@ -65,7 +67,7 @@ export const myDataProvider = {
     }).then(({ json }) => ({ data: json }));
   },
   update: (resource: any, params: any) => {
-    console.log({params})
+    console.log({ params });
     const objectFromForm = params.data;
     let isFormWithFile = false;
     //go through each value in object, and if a value has rawFile property, then it is a file

@@ -4,6 +4,7 @@ import {
   Datagrid,
   TextField,
   EditButton,
+  ShowButton,
   TextInput,
   ImageField,
 } from "react-admin";
@@ -61,6 +62,7 @@ const Users = (props: any) => {
           <TextField source="commissionAmountSum" label="Total Commission" />
           <TextField source="salesAmountSum" label="Total Sales" />
           <EditButton />
+          <ShowButton />
         </Datagrid>
       </List>
     </div>
