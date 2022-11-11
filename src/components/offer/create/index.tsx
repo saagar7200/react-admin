@@ -12,6 +12,7 @@ import {
   ReferenceInput,
   AutocompleteInput,
 } from "react-admin";
+import { validateOffer } from "../../../inputValidation/validateOffer";
 
 const choices: { id: string; name: string }[] = [
   { id: "INR", name: "INR" },
@@ -25,8 +26,8 @@ export const CreateOffer = (props: any) => {
         Create a offer
       </Typography>
 
-      <Create title=" " {...props} redirect="list">
-        <SimpleForm>
+      <Create title=" " {...props}  redirect="list">
+        <SimpleForm validate={validateOffer}>
           <Box className="offer_form_wrapper">
             <ReferenceInput
               variant="outlined"
@@ -50,7 +51,7 @@ export const CreateOffer = (props: any) => {
           <Box className="offer_form_wrapper">
             <TextInput
               variant="outlined"
-              validate={required()}
+              // validate={required()}
               source="profit"
             />
             <TextInput
@@ -86,7 +87,7 @@ export const CreateOffer = (props: any) => {
           <TextInput
             className="textInput"
             variant="outlined"
-            validate={required()}
+            // validate={required()}
             multiline
             source="description"
           />

@@ -11,6 +11,7 @@ import {
   AutocompleteInput,
 } from "react-admin";
 import "../../../styles/edit.css";
+import { validateOffer } from "../../../inputValidation/validateOffer";
 
 
 const choices: { id: string; name: string }[] = [
@@ -27,7 +28,7 @@ export const EditOffer = (props: any) => {
       </Typography>
 
       <Edit title=" " {...props}>
-      <SimpleForm>
+      <SimpleForm validate={validateOffer}>
           <Box className="offer_form_wrapper">
             <ReferenceInput
               variant="outlined"

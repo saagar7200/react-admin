@@ -10,10 +10,10 @@ import {
   ImageInput,
   ImageField,
   ReferenceInput,
-  ReferenceArrayInput,
-  AutocompleteArrayInput,
   AutocompleteInput,
 } from "react-admin";
+
+import {validateSubCategory} from "../../../inputValidation/validateSubCategory"
 
 export const CreateSubCategory = (props: any) => {
   return (
@@ -23,7 +23,7 @@ export const CreateSubCategory = (props: any) => {
       </Typography>
 
       <Create title=" " redirect="list">
-        <SimpleForm>
+        <SimpleForm validate={validateSubCategory}>
           <Box className="offer_form_wrapper">
               <ReferenceInput
               variant="outlined"
@@ -37,7 +37,7 @@ export const CreateSubCategory = (props: any) => {
                 label="Category"
               />
             </ReferenceInput>
-            <ReferenceArrayInput 
+            {/* <ReferenceArrayInput 
            variant="outlined"
            source="relatedsubCategories"
            reference="sub-categories"
@@ -48,7 +48,7 @@ export const CreateSubCategory = (props: any) => {
             label="Related Sub Categories"
             />
           </ReferenceArrayInput>
-            
+             */}
           </Box>
            <Box className="offer_form_wrapper">
            <TextInput

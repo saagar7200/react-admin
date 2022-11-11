@@ -14,6 +14,7 @@ import {
 } from "react-admin";
 import "../../../styles/edit.css";
 
+import {validateSubCategory} from "../../../inputValidation/validateSubCategory"
 
 
 export const EditSubCategory = (props: any) => {
@@ -24,7 +25,7 @@ export const EditSubCategory = (props: any) => {
       </Typography>
 
       <Edit title=" " {...props}>
-      <SimpleForm>
+      <SimpleForm validate={validateSubCategory} >
           <Box className="offer_form_wrapper">
               <ReferenceInput
               variant="outlined"

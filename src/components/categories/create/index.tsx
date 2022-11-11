@@ -10,6 +10,7 @@ import {
   ImageField,
 } from "react-admin";
 
+import {validateCategory} from "../../../inputValidation/validateCategory"
 
 
 export const CreateCategory = (props: any) => {
@@ -24,7 +25,7 @@ export const CreateCategory = (props: any) => {
       </Typography>
 
       <Create title=" " {...props} redirect="list">
-        <SimpleForm>
+        <SimpleForm validate={validateCategory}>
           <TextInput
             className="textInput"
             source="name"
