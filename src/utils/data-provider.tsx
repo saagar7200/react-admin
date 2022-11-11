@@ -2,7 +2,7 @@
 import simpleRestProvider from "ra-data-simple-rest";
 import { fetchUtils } from "react-admin";
 
-const servicesHost = "https://7f16-103-10-28-227.in.ngrok.io";
+const servicesHost = "https://bb02-110-44-127-196.in.ngrok.io";
 
 const objectToFormData = (obj, form, namespace) => {
   const fd = form || new FormData();
