@@ -2,7 +2,7 @@
 import simpleRestProvider from "ra-data-simple-rest";
 import { fetchUtils } from "react-admin";
 
-const servicesHost = "http://rayyapi.tk";
+export const servicesHost = "http://rayyapi.tk";
 
 const objectToFormData = (obj, form, namespace) => {
   const fd = form || new FormData();

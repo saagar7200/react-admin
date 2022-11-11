@@ -3,7 +3,8 @@
 import axios from "axios";
 import decodeJwt from "jwt-decode";
 
-const servicesHost = "https://c06c-2400-1a00-bd20-e146-b9cf-2e53-c0b6-dfe.in.ngrok.io";
+// const servicesHost = "http://rayyapi.tk";
+import {servicesHost} from "./data-provider"
 
 const authProvider = {
     login: ({ username, password }:{username:string,password:string}) => {
@@ -25,7 +26,7 @@ const authProvider = {
               const refreshToken = response?.data?.tokens?.refreshToken;
               
               const userId = response?.data?.uid;
-              const username = response?.data?.username
+              const username = response?.data?.name ? response?.data?.name :"user"
 
               const decodedToken = decodeJwt(response?.data?.tokens?.refreshToken);
 
