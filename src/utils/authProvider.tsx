@@ -3,7 +3,7 @@
 import axios from "axios";
 import decodeJwt from "jwt-decode";
 
-const servicesHost = "https://bb02-110-44-127-196.in.ngrok.io";
+const servicesHost = "https://c06c-2400-1a00-bd20-e146-b9cf-2e53-c0b6-dfe.in.ngrok.io";
 
 const authProvider = {
     login: ({ username, password }:{username:string,password:string}) => {
@@ -19,23 +19,25 @@ const authProvider = {
           };
           return axios(request)
           .then((response) => {
+            // console.log("response --> " , response)
+
             if (response?.data?.tokens) {
-              const token = response?.data?.tokens?.refreshToken;
+              const refreshToken = response?.data?.tokens?.refreshToken;
               
               const userId = response?.data?.uid;
-              const email = response?.data?.email
+              const username = response?.data?.username
 
-              const decodedToken = decodeJwt(response?.data?.tokens?.accessToken);
+              const decodedToken = decodeJwt(response?.data?.tokens?.refreshToken);
 
 
               const user = {
-                token,
+                refreshToken,
                 userId,
-                userName:email.split("@")[0],
+                username,
                 permission:decodedToken.roles
               }
 
-            // console.log("decode access token " , decodedToken.roles)
+            // console.log("decode access token " , decodedToken)
 
               localStorage.setItem("user", JSON.stringify(user));             
 
@@ -70,12 +72,12 @@ const authProvider = {
     },
     getIdentity: () =>{
         const user:any=JSON.parse(localStorage.getItem("user"))
-        console.log("user",user)
+        // console.log("user",user)
 
  
        return  Promise.resolve({
              id: user.userId,
-             fullName:user.userName,
+             fullName:user.username,
          })
     },
     getPermissions: () => Promise.resolve(''),
