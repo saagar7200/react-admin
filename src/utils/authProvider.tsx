@@ -52,7 +52,11 @@ const authProvider = {
             // return response?.data?.json();
           })
           .catch((err) => { 
-            throw new Error("Please enter valid Email or Password.")   
+            const status = error.status;
+        if (status === 401 || status === 403) {
+          throw new Error("Please enter valid Email or Password.")  
+        }
+            throw new Error("Something went wrong.Please Try again Sometimes Later.")   
           });
 
     },

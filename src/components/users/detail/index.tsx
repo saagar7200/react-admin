@@ -18,7 +18,7 @@ export const DetailUser = (props: any) => {
   //     payload: { id: record.id },
   //   });
 
-  //   console.log({ record });
+    console.log(record );
   return (
     <div className="create_category_container">
       <Typography className="form_heading" variant="h5">
