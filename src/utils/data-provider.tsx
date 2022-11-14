@@ -78,8 +78,8 @@ export const myDataProvider = {
         console.log(json,"<------------------------------getList")
 
         return {
-          // data: json.data,
-            data: json,
+          data: json.data,
+            // data: json,
             total:
                 countHeader === 'Content-Range'
                     ? parseInt(
@@ -99,8 +99,8 @@ export const myDataProvider = {
     const url = `${servicesHost}/${resource}?${stringify(query)}`;
     return httpClient(url).then(({ json }) => {
       console.log(json,"<------------------------------getMany")
-    //  return { data: json.data}});
-    return { data: json}});
+     return { data: json.data}});
+    // return { data: json}});
 
 },
 
