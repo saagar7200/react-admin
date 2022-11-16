@@ -68,6 +68,13 @@ export const EditSubCategory = (props: any) => {
            
             <div className="textInput"></div>
           </Box>
+          <Box className="offer_form_wrapper">
+            <ImageInput className="textInput" source="icon" label="Icon">
+              <ImageField source="icon" title="title" />
+            </ImageInput>
+             
+            <div className="textInput"></div>
+          </Box>
 
         </SimpleForm>
       </Edit>
