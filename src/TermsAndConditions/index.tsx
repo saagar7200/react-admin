@@ -19,19 +19,8 @@ const [scrollState,setScrollState] = useState(0)
       
     }
 
-// let scrollButton:any = document.querySelector('.scroll_button');
 
-// When the user scrolls down 20px from the top of the document, show the button
-// window.onscroll = function() {scrollFunction()};
-console.log(window.scrollY)
 
-// function scrollFunction() {
-//   if ( window.scrollY > 20 || document.documentElement.scrollTop > 20) {
-//     scrollButton.style.display = "block";
-//   } else {
-//     scrollButton.style.display = "none";
-//   }
-// }
 
     console.log(document.documentElement.scrollTop)
     useEffect(() => {
@@ -44,6 +33,7 @@ console.log(window.scrollY)
       }, []);
   return (
     <>
+      <div className="terms-card">
       <div  className="termsWrapper">
         <h6 className="heading headingColor">
           {" "}
@@ -1510,6 +1500,7 @@ console.log(window.scrollY)
         <button onClick={scrollToTop} id="myBtn" className={`scroll_button ${ scrollState > 50 && 'show'}`} ><KeyboardArrowUpOutlinedIcon className="scroll_up" /></button>
 
         
+      </div>
       </div>
     </>
   );

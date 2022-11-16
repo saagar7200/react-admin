@@ -50,7 +50,7 @@ function App() {
           list={Categories}
           create={CreateCategory}
           edit={EditCategory}
-          show={TermsAndConditions}
+        
           icon={CategoryOutlinedIcon}
           recordRepresentation="name"
           options={{ label: "Categories" }}
@@ -91,6 +91,7 @@ function App() {
         />
         <CustomRoutes noLayout>
           <Route path="/reward-point" element={<RewardPoint />} />
+          <Route path="/terms&conditions" element={<TermsAndConditions/>} />
         </CustomRoutes>
       </Admin>
     </BrowserRouter>
