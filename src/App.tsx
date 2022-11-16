@@ -20,7 +20,7 @@ import CustomLayout from "./layout/customLayout";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 // import {Route} from "react-router-dom"
 import ClassOutlinedIcon from "@mui/icons-material/ClassOutlined";
-import authProvider from  "./utils/authProvider";
+import authProvider from "./utils/authProvider";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Transactions from "./components/transactions/list";
@@ -30,7 +30,7 @@ import { EditUser } from "./components/users/edit/EditUser";
 import { myDataProvider } from "./utils/data-provider";
 import { DetailUser } from "./components/users/detail";
 
-// import LoginPage from './components/login/login';
+import LoginPage from "./components/login/login";
 
 function App() {
   return (
@@ -41,6 +41,7 @@ function App() {
         dataProvider={myDataProvider}
         authProvider={authProvider}
         layout={CustomLayout}
+        loginPage={LoginPage}
       >
         <Resource
           name="categories"
