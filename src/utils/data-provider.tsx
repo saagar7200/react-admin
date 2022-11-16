@@ -45,6 +45,8 @@ export const dataProvider = simpleRestProvider(servicesHost, httpClient);
 export const myDataProvider = {
   ...dataProvider,
   create: (resource: any, params: any) => {
+    console.log("create",{ params });
+
     const objectFromForm = params.data;
     let isFormWithFile = false;
     //go through each value in object, and if a value has rawFile property, then it is a file
