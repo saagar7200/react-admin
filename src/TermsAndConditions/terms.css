@@ -16,10 +16,12 @@
     margin-bottom: 14px;
 
 }
+
 .headingColor{
-    color: rgba(128, 125, 125, 0.952);
+    color: rgb(128, 125, 125);
 }
 .contentColor{
+
     color: #666666;
 }
 
@@ -31,16 +33,19 @@
 
 
 strong{
-    color: #8d8585;
+    color: #6e6c6c;
 }
 
 
 .contentHead{
 margin: 0;
+color: #807e7e;
+
+
 font-size: 16px;
 margin-bottom: 7px;
 display: block;
-font-weight: 500;
+font-weight:bold;
 }
 
 .terms_content{

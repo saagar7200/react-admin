@@ -50,7 +50,7 @@ console.log(window.scrollY)
           Terms & Conditions and Privacy Policy – Rayy{" "}
         </h6>
         <div className="contentWrapper">
-          <p className="contentHead contentColor">1. Introduction:</p>
+          <p className="contentHead contentHeadColor">1. Introduction:</p>
           <p className="terms_content contentColor">
             Welcome to www.rayy.com. The Service is operated by Pouring
             Pounds Ltd and/ or Pouring Pounds India Private Limited (
