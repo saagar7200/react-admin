@@ -8,6 +8,7 @@ import {
   BooleanField,
   TextInput,
   useListContext,
+  ShowButton,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -48,6 +49,7 @@ export const Categories = (props: any) => {
           {/* <TextField source="imageUrl" /> */}
           <BooleanField source="isActive" valueLabelTrue="Active" valueLabelFalse="inActive"/>
           <EditButton />
+          <ShowButton/>
         </Datagrid>
       </List>
     </div>
