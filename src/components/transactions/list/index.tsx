@@ -21,25 +21,12 @@ const Transactions = (props: any) => {
 
   if (location.search !== "") {
     var search = location.search.substring(1);
-    console.log(search)
-    console.log(search.includes("%7B%22user%22%3Atrue%7D&filter"))
+
+    console.log(search.includes("%7B%22user.name%22%3Atrue%7D&filter"))
 
     // search.split("=")[1] === "%7B%22user%22%3Atrue%7D&filter")
-    if (search.includes("%7B%22user%22%3Atrue%7D&filter")) {
-      const searchObj = JSON.parse(
-        '{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
-        function (key, value) {
-          return key === "" ? value : decodeURIComponent(value);
-        }
-      );
-
-      console.log()
-
-      if (JSON.parse(searchObj?.displayedFilters).user) {
-        const { user } = JSON.parse(searchObj.displayedFilters);
-
-        userSearch = user;
-      }
+    if (search.includes("%7B%22user.name%22%3Atrue%7D&filter")) {
+      userSearch = true;
     }
   }
 
@@ -59,6 +46,7 @@ const Transactions = (props: any) => {
       variant="outlined"
       label="Search By User"
       placeholder="Search"
+      hidden={!userSearch}
     />, 
 
     <DateInput label="From" source="startDate" variant="outlined" alwaysOn />,
