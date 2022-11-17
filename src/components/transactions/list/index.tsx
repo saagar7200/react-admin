@@ -55,11 +55,11 @@ const Transactions = (props: any) => {
     />,
     <TextInput
       className="search_form"
-      source="user"
+      source="user.name"
       variant="outlined"
       label="Search By User"
       placeholder="Search"
-    />,
+    />, 
 
     <DateInput label="From" source="startDate" variant="outlined" alwaysOn />,
     <DateInput label="To" source="endDate" variant="outlined" alwaysOn />,
@@ -74,6 +74,16 @@ const Transactions = (props: any) => {
         { id: "approved", name: "approved" },
       ]}
     />,
+    <AutocompleteInput
+    label="Filter by Network"
+    source="offer.network"
+    variant="outlined"
+    alwaysOn
+    choices={[
+      { id: "inr", name: "inr" },
+      { id: "cuelink", name: "cuelink" },
+    ]}
+  />,
   ];
 
   return (
