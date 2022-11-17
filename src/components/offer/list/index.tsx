@@ -25,6 +25,10 @@ const filters = [
   />,
 ];
 
+
+
+
+
 export const Offers = (props: any) => {
   return (
     <div className="list_wapper">
@@ -33,7 +37,11 @@ export const Offers = (props: any) => {
         All Offers
       </Typography>
 
-      <List title={"Offer"} {...props} filters={filters}>
+      <List 
+        {...props} 
+        title={"Offer"} 
+        filters={filters}
+        >
         <Datagrid rowClick="edit"  empty={<Empty label="Offers" /> }>
           <ImageField
             className="imgaes"
