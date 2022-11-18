@@ -1,33 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
+
 .rewardPoint-container {
-  background-color: #f6f6f6;
-  padding: 10px;
+  padding: 15px;
   height: 100vh;
 }
 
-.rewardPoint-card-offer {
-  background-color: #87d06e !important;
+.rewardPoint-title {
+  font-family: "Open Sans", serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 22px !important;
+  line-height: 32px !important;
+  letter-spacing: 0.2px !important;
+  color: #0d0d0d !important;
+  margin-top: 50px !important;
+  margin-bottom: 30px !important;
+}
+
+.rewardPoint-card {
+  background-color: #312a91 !important;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-.rewardPoint-header {
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f6ff75;
-  border-radius: 5px;
-}
-.rewardPoint-header-text {
+.rewardPoint-card-label {
+  font-family: "Open Sans", serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
   font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.4px !important;
+  color: #ffffff !important;
+  margin-bottom: 10px !important;
 }
 
-.rewardPoint-header-dot {
-  background-color: red;
-  width: 5px;
-  height: 5px;
-  border-radius: 100%;
-  margin-right: 10px;
+.rewardPoint-card-value {
+  font-family: "Open Sans", serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  line-height: 22px !important;
+  letter-spacing: 0.4px !important;
+  color: #ffffff !important;
 }
 
 .rewardPoint-contents-description {
@@ -45,32 +59,90 @@
   margin-bottom: 15px;
 }
 
-.rewardPoint-card-other-info {
+.rewardPoint-transaction {
   margin-bottom: 20px;
 }
 
-.rewardPoint-card-other-info-data {
-  padding: 20px;
-  border-bottom: 2px solid #f6f6f6;
+.rewardPoint-transaction-date {
+  margin-top: 20px !important;
+  font-family: "Open Sans", serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  line-height: 17px !important;
+  letter-spacing: 0.2px !important;
+  color: #86868d !important;
+  /* border-bottom: 2px solid #f6f6f6; */
 }
 
-.rewardPoint-card-other-info-datas {
+.rewardPoint-transaction-datas {
   padding: 20px;
 }
 
-.rewardPoint-card-other-info-title {
+.rewardPoint-transaction-title {
+  font-family: "Open Sans", serif !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.4px !important;
+  color: #0d0d0d !important;
+}
+
+.rewardPoint-transaction-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.rewardPoint-transaction-desc {
+  font-family: "Open Sans", serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.4px !important;
+  color: #8a8a8a !important;
+}
+
+.rewardPoint-transaction-view-btn {
+  font-family: "Open Sans", serif !important;
+  font-style: normal !important;
   font-weight: 600 !important;
   font-size: 14px !important;
-  color: #8a8a8a !important;
-  letter-spacing: 2px !important;
+  line-height: 17px !important;
+  color: #312a91 !important;
 }
 
-.rewardPoint-card-other-info-points-number {
-  color: red;
-  font-weight: 600;
+.rewardPoint-transaction-data-container {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  width: 100vh;
 }
 
-.rewardPoint-card-other-info-points {
-  color: #3d3d3d;
-  font-weight: 600;
+.rewardPoint-transaction-data-values {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rewardPoint-transaction-data-values-points-title {
+  font-family: "Open Sans", serif !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 17px !important;
+  color: #86868d !important;
+}
+
+.rewardPoint-transaction-data-values-points-points {
+  font-family: "Open Sans", serif !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  line-height: 19px !important;
+  letter-spacing: 1px !important;
+  color: #2b2b30 !important;
 }

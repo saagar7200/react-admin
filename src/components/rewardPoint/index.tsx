@@ -4,73 +4,62 @@ import "./rewardPoint.css";
 const RewardPoint = () => {
   return (
     <div className="rewardPoint-container">
-      <Card className="rewardPoint-card-offer">
+      <Typography className="rewardPoint-title">Rewards</Typography>
+      <Card className="rewardPoint-card">
         <Grid container>
-          <Grid item xs={6}></Grid>
           <Grid item xs={6}>
-            <div className="rewardPoint-header">
-              <div className="rewardPoint-header-dot" />
-              <Typography className="rewardPoint-header-text">
-                Today Spotlight
-              </Typography>
-            </div>
+            <Typography className="rewardPoint-card-label">
+              Existing Balance
+            </Typography>
+            <Typography className="rewardPoint-card-value">700</Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography className="rewardPoint-card-label">
+              Total reward points
+            </Typography>
+            <Typography className="rewardPoint-card-value">250</Typography>
           </Grid>
         </Grid>
+      </Card>
+      <div className="rewardPoint-transaction">
+        <Typography className="rewardPoint-transaction-title">
+          Transaction
+        </Typography>
+        <div className="rewardPoint-transaction-description">
+          <Typography className="rewardPoint-transaction-desc">
+            Last ten transactions
+          </Typography>
+          <Typography className="rewardPoint-transaction-view-btn">
+            View All
+          </Typography>
+        </div>
+        <div className="rewardPoint-transaction-data">
+          <Typography className="rewardPoint-transaction-date">
+            Thu, 17 Nov
+          </Typography>
 
-        <div className="rewardPoint-contents">
-          <img
-            src="https://asset20.ckassets.com/resources/image/stores/ajio-coupons-1632200353.png"
-            alt=""
-            className="rewardPoint-contents-image"
-          />
-          <Typography className="rewardPoint-contents-title">
-            There's plenty more for you
-          </Typography>
-          <Typography className="rewardPoint-contents-description">
-            Get more than 70% off on your booking
-          </Typography>
+          <div className="rewardPoint-transaction-data-container">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/TAXI.jpg/220px-TAXI.jpg"
+              alt="img"
+              width={"40px"}
+            />
+            <div className="rewardPoint-transaction-data-values">
+              <div className="rewardPoint-transaction-data-values-points">
+                <Typography className="rewardPoint-transaction-data-values-points-title">
+                  Ola taxi booking
+                </Typography>
+                <Typography className="rewardPoint-transaction-data-values-points-points">
+                  10 Points
+                </Typography>
+              </div>
+              <Typography className="rewardPoint-transaction-data-values-status">
+                Approved
+              </Typography>
+            </div>
+          </div>
         </div>
-      </Card>
-      <Card className="rewardPoint-card-other-info">
-        <div className="rewardPoint-card-other-info-data">
-          <Typography className="rewardPoint-card-other-info-title">
-            CASHBACK RATE
-          </Typography>
-          <ul>
-            <li className="rewardPoint-card-other-info-points">
-              <span className="rewardPoint-card-other-info-points-number">
-                6%
-              </span>{" "}
-              Cashback for New Users of ZoomCar
-            </li>
-            <li className="rewardPoint-card-other-info-points">
-              <span className="rewardPoint-card-other-info-points-number">
-                6%
-              </span>{" "}
-              Cashback for Exit Users of ZoomCar
-            </li>
-          </ul>
-        </div>
-        <div className="rewardPoint-card-other-info-datas">
-          <Typography className="rewardPoint-card-other-info-title">
-            OFFER TERMS
-          </Typography>
-          <ul>
-            <li className="rewardPoint-card-other-info-points">
-              <span className="rewardPoint-card-other-info-points-number">
-                6%
-              </span>{" "}
-              Cashback for New Users of ZoomCar
-            </li>
-            <li className="rewardPoint-card-other-info-points">
-              <span className="rewardPoint-card-other-info-points-number">
-                6%
-              </span>{" "}
-              Cashback for Exit Users of ZoomCar
-            </li>
-          </ul>
-        </div>
-      </Card>
+      </div>
     </div>
   );
 };
