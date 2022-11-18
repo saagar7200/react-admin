@@ -22,10 +22,9 @@ const Transactions = (props: any) => {
   if (location.search !== "") {
     var search = location.search.substring(1);
 
-    console.log(search.includes("%7B%22user.name%22%3Atrue%7D&filter"))
+   
 
-    // search.split("=")[1] === "%7B%22user%22%3Atrue%7D&filter")
-    if (search.includes("%7B%22user.name%22%3Atrue%7D&filter")) {
+    if (search.split('=')[1] ===  "%7B%22user.name%22%3Atrue%7D&filter" || search.split('=')[1] === "%7B%22user.name%22%3Atrue%2C%22q%22%3Atrue%7D&filter" || search.split('=')[1] === "%7B%22q%22%3Atrue%2C%22user.name%22%3Atrue%7D&filter") {
       userSearch = true;
     }
   }
@@ -37,7 +36,7 @@ const Transactions = (props: any) => {
       variant="outlined"
       label="Search By Store"
       placeholder="Search"
-      alwaysOn={!userSearch ? true : false}
+      alwaysOn={!userSearch && true}
       hidden={userSearch}
     />,
     <TextInput
@@ -46,6 +45,8 @@ const Transactions = (props: any) => {
       variant="outlined"
       label="Search By User"
       placeholder="Search"
+      // alwaysOn={userSearch && true}
+
       hidden={!userSearch}
     />, 
 
