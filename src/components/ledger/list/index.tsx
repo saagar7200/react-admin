@@ -1,5 +1,6 @@
 import { Typography } from "@material-ui/core";
 import { List, Datagrid, TextField, EditButton, TextInput } from "react-admin";
+import { PostPagination } from "../../../utils/pagination";
 
 import "../ledger.css";
 
@@ -21,7 +22,12 @@ const Ledger = (props: any) => {
         Ledger
       </Typography>
 
-      <List title={"Ledgers"} {...props} filters={filters}>
+      <List
+        title={"Ledgers"}
+        {...props}
+        filters={filters}
+        pagination={<PostPagination limit={null} />}
+      >
         <Datagrid
           rowClick="edit"
           empty={
