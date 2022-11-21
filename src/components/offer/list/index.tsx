@@ -13,7 +13,7 @@ import {
 import { Empty } from "../../empty/Empty";
 
 import "../../../styles/list.css";
-
+import { PostPagination } from "../../../utils/pagination/index";
 
 const filters = [
   <TextInput
@@ -25,10 +25,6 @@ const filters = [
   />,
 ];
 
-
-
-
-
 export const Offers = (props: any) => {
   return (
     <div className="list_wapper">
@@ -37,12 +33,13 @@ export const Offers = (props: any) => {
         All Offers
       </Typography>
 
-      <List 
-        {...props} 
-        title={"Offer"} 
+      <List
+        {...props}
+        title={"Offer"}
         filters={filters}
-        >
-        <Datagrid rowClick="edit"  empty={<Empty label="Offers" /> }>
+        pagination={<PostPagination limit={null} />}
+      >
+        <Datagrid rowClick="edit" empty={<Empty label="Offers" />}>
           <ImageField
             className="imgaes"
             source="imageUrl"
@@ -61,7 +58,11 @@ export const Offers = (props: any) => {
           <TextField source="profit" />
           {/* <TextField source="baseReferalLink" /> */}
           <TextField source="network" />
-          <BooleanField  source="isActive" valueLabelTrue="Active" valueLabelFalse="inActive"/>
+          <BooleanField
+            source="isActive"
+            valueLabelTrue="Active"
+            valueLabelFalse="inActive"
+          />
           <DateField source="createdAt" />
           <DateField source="updatedAt" />
           <EditButton />
