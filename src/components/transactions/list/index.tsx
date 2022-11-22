@@ -87,12 +87,12 @@ const Transactions = (props: any) => {
           actions={null}
         >
           <Datagrid
-            rowClick="edit"
             empty={
               <Typography className="empty_text" variant="h6">
                 No Transactions !!
               </Typography>
             }
+            bulkActionButtons={false}
           >
             <TextField source="user.name" />
             <TextField source="storeName" />
@@ -101,7 +101,6 @@ const Transactions = (props: any) => {
             <TextField source="commission" />
             <DateField source="date" />
             <ChipField source="status" />
-            <EditButton />
           </Datagrid>
         </List>
       </ListBase>

@@ -23,18 +23,17 @@ const Ledger = (props: any) => {
 
       <List title={"Ledgers"} {...props} filters={filters}>
         <Datagrid
-          rowClick="edit"
           empty={
             <Typography className="empty_text" variant="h6">
               Ledger data not available !!
             </Typography>
           }
+          bulkActionButtons={false}
         >
           <TextField source="transactionType" />
           <TextField source="rewardPoint" />
           <TextField source="network" />
           <TextField source="amount" />
-          <EditButton />
         </Datagrid>
       </List>
     </div>
