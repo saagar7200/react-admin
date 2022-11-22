@@ -12,14 +12,21 @@ import {
   FilterButton,
   FilterForm,
   ListBase,
+  AutocompleteInput,
 } from "react-admin";
 
 import "../../../styles/list.css";
+import { useLocation } from "react-router-dom";
 import { servicesHost } from "../../../utils/data-provider";
 import "../transaction.css";
 import { Stack } from "@mui/material";
+import { PostPagination } from "../../../utils/pagination/index";
 
 const Transactions = (props: any) => {
+  let userSearch = false;
+
+  const location = useLocation();
+
   const refresh = useRefresh();
   const getData = async () => {
     const res = await fetch(
@@ -40,16 +47,63 @@ const Transactions = (props: any) => {
       refresh();
     }
   };
+
+  if (location.search !== "") {
+    var search = location.search.substring(1);
+
+    if (
+      search.split("=")[1] === "%7B%22user.name%22%3Atrue%7D&filter" ||
+      search.split("=")[1] ===
+        "%7B%22user.name%22%3Atrue%2C%22q%22%3Atrue%7D&filter" ||
+      search.split("=")[1] ===
+        "%7B%22q%22%3Atrue%2C%22user.name%22%3Atrue%7D&filter"
+    ) {
+      userSearch = true;
+    }
+  }
+
   const filters = [
     <TextInput
       className="search_form"
       source="q"
       variant="outlined"
-      label="Search"
-      alwaysOn
+      label="Search By Store"
+      placeholder="Search"
+      alwaysOn={!userSearch && true}
+      hidden={userSearch}
     />,
-    <DateInput source="from_date" />,
-    <DateInput source="to_date" />,
+    <TextInput
+      className="search_form"
+      source="user.name"
+      variant="outlined"
+      label="Search By User"
+      placeholder="Search"
+      hidden={!userSearch}
+    />,
+
+    <DateInput label="From" source="startDate" variant="outlined" alwaysOn />,
+    <DateInput label="To" source="endDate" variant="outlined" alwaysOn />,
+
+    <AutocompleteInput
+      label="Filter by Status"
+      source="status"
+      variant="outlined"
+      alwaysOn
+      choices={[
+        { id: "pending", name: "pending" },
+        { id: "approved", name: "approved" },
+      ]}
+    />,
+    <AutocompleteInput
+      label="Filter by Network"
+      source="offer.network"
+      variant="outlined"
+      alwaysOn
+      choices={[
+        { id: "inr", name: "inr" },
+        { id: "cuelink", name: "cuelink" },
+      ]}
+    />,
   ];
 
   const ListToolbar = () => (
@@ -71,6 +125,7 @@ const Transactions = (props: any) => {
       </div>
     </Stack>
   );
+
   return (
     <div className="list_wapper">
       <Typography className="List_header transaction-header" variant="h5">
@@ -85,6 +140,7 @@ const Transactions = (props: any) => {
           {...props}
           className="transaction-table"
           actions={null}
+          pagination={<PostPagination limit={null} />}
         >
           <Datagrid
             empty={
