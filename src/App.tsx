@@ -14,6 +14,7 @@ import { EditOffer } from "./components/offer/edit";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import LibraryBooksOutlinedIcon from "@mui/icons-material/LibraryBooksOutlined";
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import { theme } from "./theme/theme";
 import CustomLayout from "./layout/customLayout";
@@ -33,6 +34,7 @@ import TermsAndConditions from "./TermsAndConditions";
 
 import LoginPage from "./components/login/login";
 import RewardPoint from "./components/rewardPoint";
+import Ledger from "./components/ledger/list";
 
 function App() {
   return (
@@ -88,6 +90,12 @@ function App() {
           // edit={EditTransaction}
           icon={ReceiptOutlinedIcon}
           options={{ label: "Transactions" }}
+        />
+        <Resource
+          name="ledgers"
+          list={Ledger}
+          icon={LibraryBooksOutlinedIcon}
+          options={{ label: "Ledger" }}
         />
         <CustomRoutes noLayout>
           <Route path="/reward-point" element={<RewardPoint />} />

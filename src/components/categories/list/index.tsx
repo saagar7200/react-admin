@@ -13,7 +13,7 @@ import {
 import { Empty } from "../../empty/Empty";
 
 import "../../../styles/list.css";
-
+import { PostPagination } from "../../../utils/pagination/index";
 
 const filters = [
   <TextInput
@@ -34,8 +34,13 @@ export const Categories = (props: any) => {
         {" "}
         Categories
       </Typography>
-      <List {...props} emptyWhileLoading filters={filters}>
-        <Datagrid rowClick="edit" empty={<Empty label="Category" /> }>
+      <List
+        {...props}
+        emptyWhileLoading
+        filters={filters}
+        pagination={<PostPagination limit={null} />}
+      >
+        <Datagrid rowClick="edit" empty={<Empty label="Category" />}>
           <ImageField
             className="imgaes"
             source="imageUrl"
@@ -47,7 +52,11 @@ export const Categories = (props: any) => {
           />
           <TextField source="name" />
           {/* <TextField source="imageUrl" /> */}
-          <BooleanField source="isActive" valueLabelTrue="Active" valueLabelFalse="inActive"/>
+          <BooleanField
+            source="isActive"
+            valueLabelTrue="Active"
+            valueLabelFalse="inActive"
+          />
           <EditButton />
           <ShowButton/>
         </Datagrid>
