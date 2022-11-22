@@ -4,7 +4,6 @@ import {
   Datagrid,
   DateField,
   TextField,
-  EditButton,
   TextInput,
   ChipField,
   DateInput,

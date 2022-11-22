@@ -1,5 +1,5 @@
 import { Typography } from "@material-ui/core";
-import { List, Datagrid, TextField, EditButton, TextInput } from "react-admin";
+import { List, Datagrid, TextField, TextInput } from "react-admin";
 import { PostPagination } from "../../../utils/pagination";
 
 import "../ledger.css";
