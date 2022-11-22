@@ -44,6 +44,9 @@ strong {
   display: block;
   font-weight: bold;
 }
+.sub-header {
+  margin: 10px 0px !important;
+}
 
 .terms_content {
   font-size: 12px;
@@ -57,6 +60,9 @@ ol {
 
   padding-left: 30px;
   margin-top: 5px;
+  margin-bottom: 5px;
+}
+li {
   margin-bottom: 5px;
 }
 
