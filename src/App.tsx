@@ -30,6 +30,7 @@ import { CreateUser } from "./components/users/create";
 import { EditUser } from "./components/users/edit/EditUser";
 import { myDataProvider } from "./utils/data-provider";
 import { DetailUser } from "./components/users/detail";
+import TermsAndConditions from "./TermsAndConditions";
 
 import LoginPage from "./components/login/login";
 import RewardPoint from "./components/rewardPoint";
@@ -51,6 +52,7 @@ function App() {
           list={Categories}
           create={CreateCategory}
           edit={EditCategory}
+        
           icon={CategoryOutlinedIcon}
           recordRepresentation="name"
           options={{ label: "Categories" }}
@@ -97,6 +99,7 @@ function App() {
         />
         <CustomRoutes noLayout>
           <Route path="/reward-point" element={<RewardPoint />} />
+          <Route path="/terms&conditions" element={<TermsAndConditions/>} />
         </CustomRoutes>
       </Admin>
     </BrowserRouter>
