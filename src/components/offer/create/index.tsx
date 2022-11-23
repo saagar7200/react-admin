@@ -82,11 +82,6 @@ export const CreateOffer = (props: any) => {
             />
           </Box>
           <Box className="offer_form_wrapper">
-            <TextInput
-              variant="outlined"
-              validate={required()}
-              source="cashBackRate"
-            />
             {/* <TextInput
               variant="outlined"
               validate={required()}
