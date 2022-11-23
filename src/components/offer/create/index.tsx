@@ -1,7 +1,6 @@
 import { Box, Typography } from "@material-ui/core";
 import { RichTextInput } from "ra-input-rich-text";
-// import Grid from '@mui/material/Grid';
-// import "./create.css";
+
 import {
   Create,
   required,
@@ -67,11 +66,6 @@ export const CreateOffer = (props: any) => {
               validate={required()}
               source="rating"
             />
-            {/* <TextInput
-              variant="outlined"
-              validate={required()}
-              source="network"
-            /> */}
 
             <AutocompleteInput
               source="network"
