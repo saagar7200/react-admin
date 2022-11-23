@@ -1,4 +1,5 @@
 import { Box, Typography } from "@material-ui/core";
+import { RichTextInput } from "ra-input-rich-text";
 // import Grid from '@mui/material/Grid';
 // import "./create.css";
 import {
@@ -11,6 +12,7 @@ import {
   BooleanInput,
   ReferenceInput,
   AutocompleteInput,
+  ArrayInput,
 } from "react-admin";
 
 const choices: { id: string; name: string }[] = [
@@ -72,7 +74,6 @@ export const CreateOffer = (props: any) => {
               source="network"
             /> */}
 
-
             <AutocompleteInput
               source="network"
               validate={required()}
@@ -80,9 +81,23 @@ export const CreateOffer = (props: any) => {
               choices={choices}
             />
           </Box>
-
-         
-          
+          <Box className="offer_form_wrapper">
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              source="cashBackRate"
+            />
+            {/* <TextInput
+              variant="outlined"
+              validate={required()}
+              source="network"
+            /> */}
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              source="merchantName"
+            />
+          </Box>
           <TextInput
             className="textInput"
             variant="outlined"
@@ -90,15 +105,37 @@ export const CreateOffer = (props: any) => {
             multiline
             source="description"
           />
-        
+
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
-            <div className="textInput"></div>
+            <ImageInput className="textInput" source="icon" label="Icon">
+              <ImageField source="src" title="title" />
+            </ImageInput>
           </Box>
-         
-         <BooleanInput source="isActive" />
+
+          <RichTextInput
+            variant="outlined"
+            validate={required()}
+            source="cashBackRate"
+            fullWidth
+          />
+          <RichTextInput
+            variant="outlined"
+            validate={required()}
+            source="offerDetail"
+            fullWidth
+          />
+
+          <RichTextInput
+            variant="outlined"
+            validate={required()}
+            source="cashBackTerms"
+            fullWidth
+          />
+
+          <BooleanInput source="isActive" />
         </SimpleForm>
       </Create>
     </div>
