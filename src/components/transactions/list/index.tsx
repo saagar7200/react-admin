@@ -149,13 +149,13 @@ const Transactions = (props: any) => {
             }
             bulkActionButtons={false}
           >
-            <TextField source="user.name" />
-            <TextField source="storeName" />
-            <TextField source="offer.network" />
-            <TextField source="saleAmount" />
-            <TextField source="commission" />
-            <DateField source="date" />
-            <ChipField source="status" />
+            <TextField source="user.name" emptyText="━" />
+            <TextField source="storeName" emptyText="━" />
+            <TextField source="offer.network" emptyText="━" />
+            <TextField source="saleAmount" emptyText="━" />
+            <TextField source="commission" emptyText="━" />
+            <DateField source="date" emptyText="━" />
+            <ChipField source="status" emptyText="━" />
           </Datagrid>
         </List>
       </ListBase>

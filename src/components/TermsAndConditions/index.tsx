@@ -15,7 +15,6 @@ const TermsAndConditions = (props: Props) => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
-  console.log(document.documentElement.scrollTop);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 

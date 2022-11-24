@@ -4,8 +4,7 @@ import simpleRestProvider from "ra-data-simple-rest";
 import { fetchUtils } from "react-admin";
 
 export const servicesHost = "https://rayyapi.tk";
-// export const servicesHost = "https://2414-202-63-244-120.in.ngrok.io";
-// export const servicesHost = "https://2c8e-110-44-120-57.in.ngrok.io";
+// export const servicesHost = "https://a1a6-103-10-28-196.in.ngrok.io";
 
 const countHeader: string = "Content-Range";
 
@@ -115,6 +114,7 @@ export const myDataProvider = {
   },
 
   create: (resource: any, params: any) => {
+    console.log(params.data);
     const objectFromForm = params.data;
     let isFormWithFile = false;
     //go through each value in object, and if a value has rawFile property, then it is a file
