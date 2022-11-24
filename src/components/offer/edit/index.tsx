@@ -15,7 +15,7 @@ import { RichTextInput } from "ra-input-rich-text";
 
 const choices: { id: string; name: string }[] = [
   { id: "inr", name: "inr" },
-  { id: "cuelinks", name: "cuelinks" },
+  { id: "cuelink", name: "cuelink" },
 ];
 
 export const EditOffer = (props: any) => {
