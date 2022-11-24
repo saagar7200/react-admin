@@ -11,6 +11,7 @@ import {
   AutocompleteInput,
 } from "react-admin";
 import "../../../styles/edit.css";
+import { RichTextInput } from "ra-input-rich-text";
 
 const choices: { id: string; name: string }[] = [
   { id: "inr", name: "inr" },
@@ -65,17 +66,25 @@ export const EditOffer = (props: any) => {
               validate={required()}
               source="rating"
             />
-            {/* <TextInput
-              variant="outlined"
-              validate={required()}
-              source="network"
-            /> */}
 
             <AutocompleteInput
               source="network"
               validate={required()}
               variant="outlined"
               choices={choices}
+            />
+          </Box>
+
+          <Box className="offer_form_wrapper">
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              source="subtitle"
+            />
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              source="merchantName"
             />
           </Box>
 
@@ -89,15 +98,32 @@ export const EditOffer = (props: any) => {
 
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
-              <>
-                <ImageField source="src" title="title" />
-                <ImageField source="imageUrl" />
-              </>
-              {/* <img src="imageUrl" alt="" /> */}
+              <ImageField source="src" title="title" />
             </ImageInput>
-
-            <div className="textInput"></div>
+            <ImageInput className="textInput" source="icon" label="Icon">
+              <ImageField source="src" title="title" />
+            </ImageInput>
           </Box>
+
+          <RichTextInput
+            variant="outlined"
+            validate={required()}
+            source="cashbackRate"
+            fullWidth
+          />
+          <RichTextInput
+            variant="outlined"
+            validate={required()}
+            source="offerDetails"
+            fullWidth
+          />
+
+          <RichTextInput
+            variant="outlined"
+            validate={required()}
+            source="cashbackTerms"
+            fullWidth
+          />
           <BooleanInput source="isActive" />
         </SimpleForm>
       </Edit>

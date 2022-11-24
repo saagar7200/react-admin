@@ -1,4 +1,6 @@
 import { Box, Typography } from "@material-ui/core";
+import { RichTextInput } from "ra-input-rich-text";
+
 import {
   Create,
   required,
@@ -72,7 +74,18 @@ export const CreateOffer = (props: any) => {
               choices={choices}
             />
           </Box>
-
+          <Box className="offer_form_wrapper">
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              source="subtitle"
+            />
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              source="merchantName"
+            />
+          </Box>
           <TextInput
             className="textInput"
             variant="outlined"
@@ -85,8 +98,30 @@ export const CreateOffer = (props: any) => {
             <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
-            <div className="textInput"></div>
+            <ImageInput className="textInput" source="icon" label="Icon">
+              <ImageField source="src" title="title" />
+            </ImageInput>
           </Box>
+
+          <RichTextInput
+            variant="outlined"
+            validate={required()}
+            source="cashbackRate"
+            fullWidth
+          />
+          <RichTextInput
+            variant="outlined"
+            validate={required()}
+            source="offerDetails"
+            fullWidth
+          />
+
+          <RichTextInput
+            variant="outlined"
+            validate={required()}
+            source="cashbackTerms"
+            fullWidth
+          />
 
           <BooleanInput source="isActive" />
         </SimpleForm>
