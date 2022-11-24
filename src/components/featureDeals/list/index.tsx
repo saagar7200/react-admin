@@ -6,6 +6,7 @@ import {
   EditButton,
   ImageField,
   TextInput,
+  ReferenceField,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -31,7 +32,7 @@ export const FeatureDeals = (props: any) => {
 
       <List
         {...props}
-        title={"Carousel"}
+        emptyWhileLoading
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
@@ -46,6 +47,12 @@ export const FeatureDeals = (props: any) => {
             }}
           />
           <TextField source="type" />
+          <ReferenceField
+            label="Offer"
+            source="offerId"
+            reference="offers"
+            emptyText="━"
+          />
           <TextField source="priority" />
           <EditButton />
         </Datagrid>

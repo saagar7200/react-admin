@@ -7,6 +7,7 @@ import {
   ImageField,
   AutocompleteInput,
   NumberInput,
+  ReferenceInput,
 } from "react-admin";
 import "../../../styles/edit.css";
 
@@ -31,12 +32,14 @@ export const EditDeal = (props: any) => {
               variant="outlined"
               choices={choices}
             />
-            <NumberInput
+            <ReferenceInput
               variant="outlined"
-              validate={required()}
-              label="Priority"
-              source="priority"
-            />
+              source="offerId"
+              reference="offers"
+              recordRepresentation="name"
+            >
+              <AutocompleteInput variant="outlined" label="Deal Offer" />
+            </ReferenceInput>
           </Box>
 
           <Box className="offer_form_wrapper">
@@ -46,7 +49,12 @@ export const EditDeal = (props: any) => {
                 <ImageField source="imageUrl" />
               </>
             </ImageInput>
-            <div className="textInput"></div>
+            <NumberInput
+              variant="outlined"
+              validate={required()}
+              label="Priority"
+              source="priority"
+            />
           </Box>
         </SimpleForm>
       </Edit>

@@ -7,6 +7,7 @@ import {
   ImageField,
   AutocompleteInput,
   NumberInput,
+  ReferenceInput,
 } from "react-admin";
 
 const choices: { id: string; name: string }[] = [
@@ -30,19 +31,26 @@ export const CreateDeals = (props: any) => {
               variant="outlined"
               choices={choices}
             />
-            <NumberInput
+            <ReferenceInput
               variant="outlined"
-              validate={required()}
-              label="Priority"
-              source="priority"
-            />
+              source="offerId"
+              reference="offers"
+              recordRepresentation="name"
+            >
+              <AutocompleteInput variant="outlined" label="Deal Offer" />
+            </ReferenceInput>
           </Box>
 
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="carousel" />
             </ImageInput>
-            <div className="textInput"></div>
+            <NumberInput
+              variant="outlined"
+              validate={required()}
+              label="Priority"
+              source="priority"
+            />
           </Box>
         </SimpleForm>
       </Create>
