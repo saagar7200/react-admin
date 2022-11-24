@@ -5,8 +5,8 @@ import {
   TextField,
   EditButton,
   ImageField,
-  TextInput,
   ReferenceField,
+  AutocompleteInput,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -14,12 +14,16 @@ import "../../../styles/list.css";
 import { PostPagination } from "../../../utils/pagination/index";
 
 const filters = [
-  <TextInput
+  <AutocompleteInput
     className="search_form"
     source="q"
     variant="outlined"
     label="Search By Type"
     alwaysOn
+    choices={[
+      { id: "offer", name: "offer" },
+      { id: "coupon", name: "coupon" },
+    ]}
   />,
 ];
 export const DealSuggestion = (props: any) => {

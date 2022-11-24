@@ -6,6 +6,8 @@ import {
   ReferenceInput,
   AutocompleteInput,
   SelectInput,
+  ImageInput,
+  ImageField,
 } from "react-admin";
 import "../../../styles/edit.css";
 import { validateDeal } from "../validaton/index";
@@ -37,7 +39,7 @@ export const EditDealSuggestion = (props: any) => {
               source="coupon"
               label="Coupon Code"
               style={{ width: "100%" }}
-              defaultValue="-"
+              defaultValue="━"
             />
           </Box>
 
@@ -55,11 +57,10 @@ export const EditDealSuggestion = (props: any) => {
           </ReferenceInput>
 
           <Box className="offer_form_wrapper">
-            {/* <ImageInput className="textInput" source="image" label="Image">
+            <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
-            </ImageInput> */}
-            <TextInput variant="outlined" source="image" label="Image URL" />
-            {/* <div className="textInput"></div> */}
+            </ImageInput>
+            <div className="textInput"></div>
           </Box>
         </SimpleForm>
       </Edit>

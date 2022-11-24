@@ -6,8 +6,8 @@ import {
   Create,
   SimpleForm,
   TextInput,
-  // ImageInput,
-  // ImageField,
+  ImageInput,
+  ImageField,
   ReferenceInput,
   AutocompleteInput,
   SelectInput,
@@ -69,16 +69,10 @@ export const CreateDealSuggestion: FC = (props: any) => {
           </Box>
 
           <Box className="offer_form_wrapper">
-            {/* <ImageInput className="textInput" source="image" label="Image">
+            <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
-            </ImageInput> */}
-            <TextInput
-              variant="outlined"
-              source="image"
-              label="Image URL"
-              onChange={handlechange}
-            />
-            {/* <div className="textInput"></div> */}
+            </ImageInput>
+            <div className="textInput"></div>
           </Box>
         </SimpleForm>
       </Create>
