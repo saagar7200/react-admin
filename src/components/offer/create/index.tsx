@@ -66,12 +66,6 @@ export const CreateOffer = (props: any) => {
               validate={required()}
               source="rating"
             />
-            {/* <TextInput
-              variant="outlined"
-              validate={required()}
-              source="network"
-            /> */}
-
 
             <AutocompleteInput
               source="network"
@@ -81,8 +75,6 @@ export const CreateOffer = (props: any) => {
             />
           </Box>
 
-         
-          
           <TextInput
             className="textInput"
             variant="outlined"
@@ -90,15 +82,15 @@ export const CreateOffer = (props: any) => {
             multiline
             source="description"
           />
-        
+
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
             <div className="textInput"></div>
           </Box>
-         
-         <BooleanInput source="isActive" />
+
+          <BooleanInput source="isActive" />
         </SimpleForm>
       </Create>
     </div>
