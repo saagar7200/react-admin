@@ -35,6 +35,10 @@ import TermsAndConditions from "./components/TermsAndConditions";
 import LoginPage from "./components/login/login";
 import RewardPoint from "./components/rewardPoint";
 import Ledger from "./components/ledger/list";
+import { DealSuggestion } from "./components/dealSuggestion/list/index";
+import { CreateDealSuggestion } from "./components/dealSuggestion/create/index";
+import { EditDealSuggestion } from "./components/dealSuggestion/edit/index";
+import BookmarksOutlinedIcon from "@mui/icons-material/BookmarksOutlined";
 import { FeatureDeals } from "./components/featureDeals/list";
 import { CreateDeals } from "./components/featureDeals/create";
 import { EditDeal } from "./components/featureDeals/edit";
@@ -75,6 +79,15 @@ function App() {
           edit={EditOffer}
           icon={LocalOfferOutlinedIcon}
           options={{ label: "All Offers" }}
+          recordRepresentation="title"
+        />
+        <Resource
+          name="deal-carousels"
+          list={DealSuggestion}
+          create={CreateDealSuggestion}
+          edit={EditDealSuggestion}
+          icon={BookmarksOutlinedIcon}
+          options={{ label: "Deal Suggestion" }}
         />
         <Resource
           name="customer360"

@@ -1,6 +1,5 @@
 import { Box, Typography } from "@material-ui/core";
-// import Grid from '@mui/material/Grid';
-// import "./create.css";
+
 import {
   Create,
   required,
