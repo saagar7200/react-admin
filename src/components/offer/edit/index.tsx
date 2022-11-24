@@ -12,12 +12,10 @@ import {
 } from "react-admin";
 import "../../../styles/edit.css";
 
-
 const choices: { id: string; name: string }[] = [
   { id: "inr", name: "inr" },
   { id: "cuelinks", name: "cuelinks" },
 ];
-
 
 export const EditOffer = (props: any) => {
   return (
@@ -27,7 +25,7 @@ export const EditOffer = (props: any) => {
       </Typography>
 
       <Edit title=" " {...props}>
-      <SimpleForm>
+        <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput
               variant="outlined"
@@ -73,7 +71,6 @@ export const EditOffer = (props: any) => {
               source="network"
             /> */}
 
-
             <AutocompleteInput
               source="network"
               validate={required()}
@@ -82,8 +79,6 @@ export const EditOffer = (props: any) => {
             />
           </Box>
 
-         
-          
           <TextInput
             className="textInput"
             variant="outlined"
@@ -91,20 +86,19 @@ export const EditOffer = (props: any) => {
             multiline
             source="description"
           />
-        
+
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
               <>
-              <ImageField source="src" title="title" />
-            <ImageField source="imageUrl" />
+                <ImageField source="src" title="title" />
+                <ImageField source="imageUrl" />
               </>
-            {/* <img src="imageUrl" alt="" /> */}
+              {/* <img src="imageUrl" alt="" /> */}
             </ImageInput>
 
             <div className="textInput"></div>
           </Box>
-            <BooleanInput source="isActive" />
-
+          <BooleanInput source="isActive" />
         </SimpleForm>
       </Edit>
     </div>
