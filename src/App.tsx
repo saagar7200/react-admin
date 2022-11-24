@@ -19,7 +19,7 @@ import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import { theme } from "./theme/theme";
 import CustomLayout from "./layout/customLayout";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-// import {Route} from "react-router-dom"
+import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 import ClassOutlinedIcon from "@mui/icons-material/ClassOutlined";
 import authProvider from "./utils/authProvider";
 import "./App.css";
@@ -30,10 +30,18 @@ import { CreateUser } from "./components/users/create";
 import { EditUser } from "./components/users/edit/EditUser";
 import { myDataProvider } from "./utils/data-provider";
 import { DetailUser } from "./components/users/detail";
+import TermsAndConditions from "./components/TermsAndConditions";
 
 import LoginPage from "./components/login/login";
 import RewardPoint from "./components/rewardPoint";
 import Ledger from "./components/ledger/list";
+import { DealSuggestion } from "./components/dealSuggestion/list/index";
+import { CreateDealSuggestion } from "./components/dealSuggestion/create/index";
+import { EditDealSuggestion } from "./components/dealSuggestion/edit/index";
+import BookmarksOutlinedIcon from "@mui/icons-material/BookmarksOutlined";
+import { FeatureDeals } from "./components/featureDeals/list";
+import { CreateDeals } from "./components/featureDeals/create";
+import { EditDeal } from "./components/featureDeals/edit";
 
 function App() {
   return (
@@ -71,6 +79,15 @@ function App() {
           edit={EditOffer}
           icon={LocalOfferOutlinedIcon}
           options={{ label: "All Offers" }}
+          recordRepresentation="title"
+        />
+        <Resource
+          name="deal-carousels"
+          list={DealSuggestion}
+          create={CreateDealSuggestion}
+          edit={EditDealSuggestion}
+          icon={BookmarksOutlinedIcon}
+          options={{ label: "Deal Suggestion" }}
         />
         <Resource
           name="customer360"
@@ -84,8 +101,6 @@ function App() {
         <Resource
           name="transactions"
           list={Transactions}
-          // create={CreateTransaction}
-          // edit={EditTransaction}
           icon={ReceiptOutlinedIcon}
           options={{ label: "Transactions" }}
         />
@@ -95,8 +110,17 @@ function App() {
           icon={LibraryBooksOutlinedIcon}
           options={{ label: "Ledger" }}
         />
+        <Resource
+          name="carousel"
+          list={FeatureDeals}
+          create={CreateDeals}
+          edit={EditDeal}
+          icon={HandshakeOutlinedIcon}
+          options={{ label: "Feature deals" }}
+        />
         <CustomRoutes noLayout>
           <Route path="/reward-point" element={<RewardPoint />} />
+          <Route path="/terms&conditions" element={<TermsAndConditions />} />
         </CustomRoutes>
       </Admin>
     </BrowserRouter>

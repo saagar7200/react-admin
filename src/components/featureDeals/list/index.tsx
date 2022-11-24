@@ -5,10 +5,7 @@ import {
   TextField,
   EditButton,
   ImageField,
-  BooleanField,
   TextInput,
-  useListContext,
-  ShowButton,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -20,45 +17,37 @@ const filters = [
     className="search_form"
     source="q"
     variant="outlined"
-    label="Search By Name"
+    label="Search By Type"
     alwaysOn
   />,
 ];
-export const Categories = (props: any) => {
-  const { isLoading } = useListContext();
-  if (isLoading) return <h5>Loading</h5>;
 
+export const FeatureDeals = (props: any) => {
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
-        {" "}
-        Categories
+        Feature Deals
       </Typography>
+
       <List
         {...props}
-        emptyWhileLoading
+        title={"Carousel"}
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
-        <Datagrid rowClick="edit" empty={<Empty label="Category" />}>
+        <Datagrid rowClick="edit" empty={<Empty label="Carousel" />}>
           <ImageField
             className="imgaes"
             source="imageUrl"
-            title="title"
+            title="carousel"
             label="Image"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-          <TextField source="name" />
-          {/* <TextField source="imageUrl" /> */}
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
+          <TextField source="type" />
+          <TextField source="priority" />
           <EditButton />
-          <ShowButton/>
         </Datagrid>
       </List>
     </div>

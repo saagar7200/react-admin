@@ -3,10 +3,10 @@ import {
   List,
   Datagrid,
   TextField,
-  EditButton,
   TextInput,
   AutocompleteInput,
 } from "react-admin";
+import { PostPagination } from "../../../utils/pagination";
 
 import "../ledger.css";
 
@@ -39,21 +39,25 @@ const Ledger = (props: any) => {
         Ledger
       </Typography>
 
-      <List title={"Ledgers"} {...props} filters={filters}>
+      <List
+        title={"Ledgers"}
+        {...props}
+        filters={filters}
+        pagination={<PostPagination limit={null} />}
+      >
         <Datagrid
-          rowClick="edit"
           empty={
             <Typography className="empty_text" variant="h6">
               Ledger data not available !!
             </Typography>
           }
+          bulkActionButtons={false}
         >
           <TextField label="User Name" source="user.name" emptyText="━" />
           <TextField source="transactionType" emptyText="━" />
           <TextField source="rewardPoint" emptyText="━" />
           <TextField source="network" emptyText="━" />
           <TextField source="amount" emptyText="━" />
-          <EditButton />
         </Datagrid>
       </List>
     </div>
