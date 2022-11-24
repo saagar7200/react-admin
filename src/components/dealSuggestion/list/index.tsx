@@ -6,7 +6,6 @@ import {
   EditButton,
   ImageField,
   TextInput,
-  useListContext,
   ReferenceField,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
@@ -24,9 +23,6 @@ const filters = [
   />,
 ];
 export const DealSuggestion = (props: any) => {
-  const { isLoading, data } = useListContext();
-  if (isLoading) return <h5>Loading</h5>;
-
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
