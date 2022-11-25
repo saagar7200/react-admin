@@ -10,7 +10,7 @@ import {
   ReferenceInput,
   AutocompleteInput,
   AutocompleteArrayInput,
-  ReferenceArrayInput 
+  ReferenceArrayInput,
 } from "react-admin";
 import "../../../styles/edit.css";
 
@@ -22,7 +22,7 @@ export const EditSubCategory = (props: any) => {
       </Typography>
 
       <Edit title=" " {...props}>
-      <SimpleForm>
+        <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput
               variant="outlined"
@@ -36,20 +36,17 @@ export const EditSubCategory = (props: any) => {
                 label="Category"
               />
             </ReferenceInput>
-            <ReferenceArrayInput 
-           variant="outlined"
-           source="childSubCategoryId"
-           reference="sub-categories"
-           recordRepresentation="name"
-          >
-            <AutocompleteArrayInput
-            variant="outlined"
-            label="Related Sub Categories"
-            />
-          </ReferenceArrayInput>
-
-            
-           
+            <ReferenceArrayInput
+              variant="outlined"
+              source="childSubCategoryId"
+              reference="sub-categories"
+              recordRepresentation="name"
+            >
+              <AutocompleteArrayInput
+                variant="outlined"
+                label="Related Sub Categories"
+              />
+            </ReferenceArrayInput>
           </Box>
           <Box className="offer_form_wrapper">
             <TextInput
@@ -59,7 +56,7 @@ export const EditSubCategory = (props: any) => {
               label="Sub Category Name"
               style={{ width: "100%" }}
             />
-             <TextInput
+            <TextInput
               variant="outlined"
               validate={required()}
               label="Sub Category Title"
@@ -84,7 +81,6 @@ export const EditSubCategory = (props: any) => {
             </ImageInput>
           </Box>
           <BooleanInput source="isActive" />
-
         </SimpleForm>
       </Edit>
     </div>

@@ -41,9 +41,6 @@ export const CreateOffer = (props: any) => {
               />
             </ReferenceInput>
 
-            
-
-
             <TextInput
               variant="outlined"
               validate={required()}

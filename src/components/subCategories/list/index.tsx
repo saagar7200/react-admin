@@ -38,8 +38,6 @@ export const SubCategories = (props: any) => {
         pagination={<PostPagination limit={null} />}
       >
         <Datagrid rowClick="edit" empty={<Empty label="Sub Category" />}>
-          {/* <TextField source="categoryId" /> */}
-
           <ImageField
             className="imgaes"
             source="imageUrl"
@@ -50,7 +48,6 @@ export const SubCategories = (props: any) => {
             }}
           />
           <TextField source="name" />
-          {/* <TextField source="imageUrl" /> */}
           <ReferenceField
             label="category"
             source="categoryId"
