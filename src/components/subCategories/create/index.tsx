@@ -1,6 +1,5 @@
 import { Box, Typography } from "@material-ui/core";
-// import Grid from '@mui/material/Grid';
-// import "./create.css";
+
 import {
   Create,
   required,
@@ -11,6 +10,8 @@ import {
   ImageField,
   ReferenceInput,
   AutocompleteInput,
+  ReferenceArrayInput,
+  AutocompleteArrayInput,
 } from "react-admin";
 
 export const CreateSubCategory = (props: any) => {
@@ -35,12 +36,17 @@ export const CreateSubCategory = (props: any) => {
                 label="Category"
               />
             </ReferenceInput>
-            <TextInput
+            <ReferenceArrayInput
               variant="outlined"
-              validate={required()}
-              source="title"
-              style={{ width: "100%" }}
-            />
+              source="childSubCategoryId"
+              reference="sub-categories"
+              recordRepresentation="name"
+            >
+              <AutocompleteArrayInput
+                variant="outlined"
+                label="Related Sub Categories"
+              />
+            </ReferenceArrayInput>
           </Box>
           <Box className="offer_form_wrapper">
             <TextInput
@@ -50,7 +56,12 @@ export const CreateSubCategory = (props: any) => {
               label="Sub Category Name"
               style={{ width: "100%" }}
             />
-            <BooleanInput source="isActive" />
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              label="Sub Category Title"
+              source="title"
+            />
           </Box>
 
           <TextInput
@@ -69,6 +80,7 @@ export const CreateSubCategory = (props: any) => {
               <ImageField source="src" title="title" />
             </ImageInput>
           </Box>
+          <BooleanInput source="isActive" />
         </SimpleForm>
       </Create>
     </div>

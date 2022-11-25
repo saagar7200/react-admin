@@ -9,6 +9,8 @@ import {
   BooleanInput,
   ReferenceInput,
   AutocompleteInput,
+  AutocompleteArrayInput,
+  ReferenceArrayInput,
 } from "react-admin";
 import "../../../styles/edit.css";
 
@@ -34,12 +36,17 @@ export const EditSubCategory = (props: any) => {
                 label="Category"
               />
             </ReferenceInput>
-            <TextInput
+            <ReferenceArrayInput
               variant="outlined"
-              validate={required()}
-              source="title"
-              style={{ width: "100%" }}
-            />
+              source="childSubCategoryId"
+              reference="sub-categories"
+              recordRepresentation="name"
+            >
+              <AutocompleteArrayInput
+                variant="outlined"
+                label="Related Sub Categories"
+              />
+            </ReferenceArrayInput>
           </Box>
           <Box className="offer_form_wrapper">
             <TextInput
@@ -49,8 +56,14 @@ export const EditSubCategory = (props: any) => {
               label="Sub Category Name"
               style={{ width: "100%" }}
             />
-            <BooleanInput source="isActive" />
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              label="Sub Category Title"
+              source="title"
+            />
           </Box>
+
           <TextInput
             multiline
             variant="outlined"
@@ -60,12 +73,14 @@ export const EditSubCategory = (props: any) => {
           />
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
-              <ImageField source="imageUrl" title="title" />
+              <ImageField source="src" title="title" />
             </ImageInput>
+
             <ImageInput className="textInput" source="icon" label="Icon">
-              <ImageField source="icon" title="title" />
+              <ImageField source="src" title="title" />
             </ImageInput>
           </Box>
+          <BooleanInput source="isActive" />
         </SimpleForm>
       </Edit>
     </div>

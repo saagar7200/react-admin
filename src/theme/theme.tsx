@@ -23,6 +23,9 @@ export const theme = createTheme(defaultTheme, {
           "& .MuiList-root": {
             margin: 0,
           },
+          "& .RaSidebar-fixed": {
+            borderRight: "2px solid #D2D2D2",
+          },
         },
       },
     },
@@ -66,7 +69,6 @@ export const theme = createTheme(defaultTheme, {
       styleOverrides: {
         root: {
           color: "#fff",
-          // padding: "14px",
           "&.RaMenuItemLink-icon": {
             color: "rgba(0, 0, 0, 0.87)",
           },
