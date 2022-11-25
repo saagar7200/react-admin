@@ -49,6 +49,7 @@ const Users = (props: any) => {
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
             source="image"
+            title="name"
           />
           <TextField source="name" />
 

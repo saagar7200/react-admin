@@ -58,7 +58,6 @@ export const Categories = (props: any) => {
             valueLabelFalse="inActive"
           />
           <EditButton />
-          <ShowButton/>
         </Datagrid>
       </List>
     </div>
