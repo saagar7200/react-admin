@@ -40,6 +40,7 @@ export const CreateOffer = (props: any) => {
                 label="Sub Category"
               />
             </ReferenceInput>
+
             <TextInput
               variant="outlined"
               validate={required()}
