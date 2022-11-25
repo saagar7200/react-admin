@@ -1,17 +1,14 @@
-
-.empty_container{   
-    /* background-color: #fafafb; */
-    margin: 100px 0px !important;
+.empty_container {
+  margin: 100px 0px !important;
 }
-.text_color{
-    color: rgb(105, 97, 97);
+.text_color {
+  color: rgb(105, 97, 97);
 }
- 
-.bg_color{
-    background-color: #1565c0 !important;
-    color:white !important;
-    font-weight: 700 !important;
-    padding:5px 10px !important;
-    padding-right: 12px !important;
 
-} 
+.bg_color {
+  background-color: #1565c0 !important;
+  color: white !important;
+  font-weight: 700 !important;
+  padding: 5px 10px !important;
+  padding-right: 12px !important;
+}
