@@ -10,6 +10,7 @@ import {
 } from "react-admin";
 
 import "../../../styles/list.css";
+import { PostPagination } from "../../../utils/pagination/index";
 
 const filters = [
   <TextInput
@@ -29,7 +30,12 @@ const Users = (props: any) => {
         Users
       </Typography>
 
-      <List title={"Users"} {...props} filters={filters}>
+      <List
+        title={"Users"}
+        {...props}
+        filters={filters}
+        pagination={<PostPagination limit={null} />}
+      >
         <Datagrid
           rowClick="edit"
           empty={
@@ -46,19 +52,13 @@ const Users = (props: any) => {
           />
           <TextField source="name" />
 
-          <TextField
-            source="commissionSumPend"
-            label="Commission Sum Pending"
-          />
+          <TextField source="commissionSumPend" label="Pending Commission " />
           <TextField
             source="commissionSumApproved"
-            label="Commission Sum Approved"
+            label="Approved Commission"
           />
-          <TextField source="salesAmountSumPend" label="Sales Sum Pending" />
-          <TextField
-            source="salesAmountSumApproved"
-            label="Sales Sum Approved"
-          />
+          <TextField source="salesAmountSumPend" label="Pending Sales" />
+          <TextField source="salesAmountSumApproved" label="Approved Sales " />
           <TextField source="commissionAmountSum" label="Total Commission" />
           <TextField source="salesAmountSum" label="Total Sales" />
           <EditButton />
