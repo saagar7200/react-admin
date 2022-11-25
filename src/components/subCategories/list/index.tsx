@@ -12,7 +12,7 @@ import {
 import { Empty } from "../../empty/Empty";
 
 import "../../../styles/list.css";
-
+import { PostPagination } from "../../../utils/pagination";
 
 const filters = [
   <TextInput
@@ -32,10 +32,14 @@ export const SubCategories = (props: any) => {
         Sub Categories
       </Typography>
 
-      <List {...props} filters={filters}>
-        <Datagrid rowClick="edit"  empty={<Empty label="Sub Category" /> }>
+      <List
+        {...props}
+        filters={filters}
+        pagination={<PostPagination limit={null} />}
+      >
+        <Datagrid rowClick="edit" empty={<Empty label="Sub Category" />}>
           {/* <TextField source="categoryId" /> */}
-          
+
           <ImageField
             className="imgaes"
             source="imageUrl"
@@ -52,11 +56,14 @@ export const SubCategories = (props: any) => {
             source="categoryId"
             reference="categories"
           />
-          <BooleanField  source="isActive" valueLabelTrue="Active" valueLabelFalse="inActive" />
+          <BooleanField
+            source="isActive"
+            valueLabelTrue="Active"
+            valueLabelFalse="inActive"
+          />
           <EditButton />
         </Datagrid>
       </List>
     </div>
   );
 };
-

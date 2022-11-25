@@ -16,7 +16,6 @@ export const DetailUser = (props: any) => {
 
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
   const [withdrawStatus, setWithdrawStatus] = useState(false);
 
   const handleWithdraw = () => {
@@ -31,7 +30,6 @@ export const DetailUser = (props: any) => {
           setWithdrawStatus(true);
         })
         .catch((error) => {
-          setError(error);
           setLoading(false);
         });
     }

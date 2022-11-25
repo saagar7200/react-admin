@@ -1,6 +1,6 @@
 import { Box, Typography } from "@material-ui/core";
-// import Grid from '@mui/material/Grid';
-// import "./create.css";
+import { RichTextInput } from "ra-input-rich-text";
+
 import {
   Create,
   required,
@@ -15,7 +15,7 @@ import {
 
 const choices: { id: string; name: string }[] = [
   { id: "inr", name: "inr" },
-  { id: "cuelinks", name: "cuelinks" },
+  { id: "cuelink", name: "cuelink" },
 ];
 
 export const CreateOffer = (props: any) => {
@@ -70,12 +70,6 @@ export const CreateOffer = (props: any) => {
               validate={required()}
               source="rating"
             />
-            {/* <TextInput
-              variant="outlined"
-              validate={required()}
-              source="network"
-            /> */}
-
 
             <AutocompleteInput
               source="network"
@@ -84,9 +78,18 @@ export const CreateOffer = (props: any) => {
               choices={choices}
             />
           </Box>
-
-         
-          
+          <Box className="offer_form_wrapper">
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              source="subtitle"
+            />
+            <TextInput
+              variant="outlined"
+              validate={required()}
+              source="merchantName"
+            />
+          </Box>
           <TextInput
             className="textInput"
             variant="outlined"
@@ -94,15 +97,22 @@ export const CreateOffer = (props: any) => {
             multiline
             source="description"
           />
-        
+
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
-            <div className="textInput"></div>
+            <ImageInput className="textInput" source="icon" label="Icon">
+              <ImageField source="src" title="title" />
+            </ImageInput>
           </Box>
-         
-         <BooleanInput source="isActive" />
+
+          <RichTextInput variant="outlined" source="cashbackRate" fullWidth />
+
+          <RichTextInput variant="outlined" source="cashbackTerms" fullWidth />
+          <RichTextInput variant="outlined" source="offerDetails" fullWidth />
+
+          <BooleanInput source="isActive" />
         </SimpleForm>
       </Create>
     </div>

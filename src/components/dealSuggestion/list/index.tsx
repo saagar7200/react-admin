@@ -5,10 +5,8 @@ import {
   TextField,
   EditButton,
   ImageField,
-  BooleanField,
-  TextInput,
-  useListContext,
-  ShowButton,
+  ReferenceField,
+  AutocompleteInput,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -16,23 +14,24 @@ import "../../../styles/list.css";
 import { PostPagination } from "../../../utils/pagination/index";
 
 const filters = [
-  <TextInput
+  <AutocompleteInput
     className="search_form"
     source="q"
     variant="outlined"
-    label="Search By Name"
+    label="Search By Type"
     alwaysOn
+    choices={[
+      { id: "offer", name: "offer" },
+      { id: "coupon", name: "coupon" },
+    ]}
   />,
 ];
-export const Categories = (props: any) => {
-  const { isLoading } = useListContext();
-  if (isLoading) return <h5>Loading</h5>;
-
+export const DealSuggestion = (props: any) => {
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
         {" "}
-        Categories
+        Deal Suggestions
       </Typography>
       <List
         {...props}
@@ -40,25 +39,27 @@ export const Categories = (props: any) => {
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
-        <Datagrid rowClick="edit" empty={<Empty label="Category" />}>
+        <Datagrid rowClick="edit" empty={<Empty label="Deal Suggestions" />}>
           <ImageField
             className="imgaes"
-            source="imageUrl"
-            title="title"
+            source="image"
+            title="type"
             label="Image"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-          <TextField source="name" />
-          {/* <TextField source="imageUrl" /> */}
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
+          <TextField source="type" emptyText="━" />
+          <ReferenceField
+            label="Offer"
+            source="offerId"
+            reference="offers"
+            emptyText="━"
           />
+
+          <TextField source="coupon" emptyText="━" />
+
           <EditButton />
-          <ShowButton/>
         </Datagrid>
       </List>
     </div>
