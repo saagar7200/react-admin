@@ -15,7 +15,7 @@ import {
 
 const choices: { id: string; name: string }[] = [
   { id: "inr", name: "inr" },
-  { id: "cuelinks", name: "cuelinks" },
+  { id: "cuelink", name: "cuelink" },
 ];
 
 export const CreateOffer = (props: any) => {
@@ -103,25 +103,10 @@ export const CreateOffer = (props: any) => {
             </ImageInput>
           </Box>
 
-          <RichTextInput
-            variant="outlined"
-            validate={required()}
-            source="cashbackRate"
-            fullWidth
-          />
-          <RichTextInput
-            variant="outlined"
-            validate={required()}
-            source="offerDetails"
-            fullWidth
-          />
+          <RichTextInput variant="outlined" source="cashbackRate" fullWidth />
 
-          <RichTextInput
-            variant="outlined"
-            validate={required()}
-            source="cashbackTerms"
-            fullWidth
-          />
+          <RichTextInput variant="outlined" source="cashbackTerms" fullWidth />
+          <RichTextInput variant="outlined" source="offerDetails" fullWidth />
 
           <BooleanInput source="isActive" />
         </SimpleForm>
