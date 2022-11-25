@@ -105,25 +105,11 @@ export const EditOffer = (props: any) => {
             </ImageInput>
           </Box>
 
-          <RichTextInput
-            variant="outlined"
-            validate={required()}
-            source="cashbackRate"
-            fullWidth
-          />
-          <RichTextInput
-            variant="outlined"
-            validate={required()}
-            source="offerDetails"
-            fullWidth
-          />
+          <RichTextInput variant="outlined" source="cashbackRate" fullWidth />
 
-          <RichTextInput
-            variant="outlined"
-            validate={required()}
-            source="cashbackTerms"
-            fullWidth
-          />
+          <RichTextInput variant="outlined" source="cashbackTerms" fullWidth />
+
+          <RichTextInput variant="outlined" source="offerDetails" fullWidth />
           <BooleanInput source="isActive" />
         </SimpleForm>
       </Edit>
