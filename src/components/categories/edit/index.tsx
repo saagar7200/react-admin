@@ -31,6 +31,7 @@ export const EditCategory = (props: any) => {
             variant="outlined"
             validate={required()}
             source="subTitle"
+            label="Subtitle"
           />
 
           <BooleanInput source="isActive" />

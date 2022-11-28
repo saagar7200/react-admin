@@ -29,6 +29,7 @@ export const CreateCategory = (props: any) => {
           <TextInput
             className="textInput"
             variant="outlined"
+            label="Subtitle"
             validate={required()}
             source="subTitle"
           />
