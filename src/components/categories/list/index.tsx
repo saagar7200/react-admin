@@ -49,7 +49,9 @@ export const Categories = (props: any) => {
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-          <TextField source="name" />
+          <TextField source="name" emptyText="━" />
+          <TextField label="Subtitle" source="subTitle" emptyText="━" />
+
           <BooleanField
             source="isActive"
             valueLabelTrue="Active"
