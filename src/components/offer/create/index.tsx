@@ -92,11 +92,15 @@ export const CreateOffer = (props: any) => {
           <Box className="offer_form_wrapper">
             <ReferenceArrayInput
               variant="outlined"
-              source="tagIds"
-              reference="tags"
-              recordRepresentation="name"
+              source="tags"
+              reference="offers/tags"
             >
-              <AutocompleteArrayInput variant="outlined" label="Tags" />
+              <AutocompleteArrayInput
+                variant="outlined"
+                optionText="tag"
+                optionValue="tag"
+                label="Tags"
+              />
             </ReferenceArrayInput>
 
             <TextInput
@@ -104,7 +108,7 @@ export const CreateOffer = (props: any) => {
               variant="outlined"
               source="color"
               label="Color"
-              defaultValue={null}
+              id="colorInput"
             />
           </Box>
           <TextInput
