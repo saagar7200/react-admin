@@ -11,6 +11,8 @@ import {
   BooleanInput,
   ReferenceInput,
   AutocompleteInput,
+  ReferenceArrayInput,
+  AutocompleteArrayInput,
 } from "react-admin";
 
 const choices: { id: string; name: string }[] = [
@@ -85,6 +87,24 @@ export const CreateOffer = (props: any) => {
               variant="outlined"
               validate={required()}
               source="merchantName"
+            />
+          </Box>
+          <Box className="offer_form_wrapper">
+            <ReferenceArrayInput
+              variant="outlined"
+              source="tagIds"
+              reference="tags"
+              recordRepresentation="name"
+            >
+              <AutocompleteArrayInput variant="outlined" label="Tags" />
+            </ReferenceArrayInput>
+
+            <TextInput
+              type="color"
+              variant="outlined"
+              source="color"
+              label="Color"
+              defaultValue={null}
             />
           </Box>
           <TextInput
