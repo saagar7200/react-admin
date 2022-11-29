@@ -3,8 +3,8 @@ import { stringify } from "query-string";
 import simpleRestProvider from "ra-data-simple-rest";
 import { fetchUtils } from "react-admin";
 
-// export const servicesHost = "https://rayyapi.tk";
-export const servicesHost = "https://f5a8-202-63-244-120.in.ngrok.io";
+export const servicesHost = "https://rayyapi.tk";
+// export const servicesHost = "https://e84f-43-245-86-10.in.ngrok.io";
 
 const countHeader: string = "Content-Range";
 
@@ -115,6 +115,7 @@ export const myDataProvider = {
 
   create: (resource: any, params: any) => {
     const objectFromForm = params.data;
+
     let isFormWithFile = false;
     //go through each value in object, and if a value has rawFile property, then it is a file
     const transformed = {};
@@ -136,6 +137,7 @@ export const myDataProvider = {
   },
   update: (resource: any, params: any) => {
     const objectFromForm = params.data;
+
     let isFormWithFile = false;
     //go through each value in object, and if a value has rawFile property, then it is a file
     const transformed = {};
