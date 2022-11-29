@@ -53,6 +53,18 @@ export const FeatureDeals = (props: any) => {
             reference="offers"
             emptyText="━"
           />
+          <ReferenceField
+            label="Category"
+            source="categoryId"
+            reference="categories"
+            emptyText="━"
+          />
+          <ReferenceField
+            label="Sub Category"
+            source="subCategoryId"
+            reference="sub-categories"
+            emptyText="━"
+          />
           <TextField source="priority" />
           <EditButton />
         </Datagrid>

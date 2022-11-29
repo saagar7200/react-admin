@@ -52,8 +52,6 @@ export const Categories = (props: any) => {
           <TextField source="name" emptyText="━" />
           <TextField label="Title" source="title" emptyText="━" />
           <TextField label="Subtitle" source="subTitle" emptyText="━" />
-          <TextField label="Description" source="description" emptyText="━" />
-
           <BooleanField
             source="isActive"
             valueLabelTrue="Active"

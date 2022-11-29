@@ -9,6 +9,8 @@ import {
   BooleanInput,
   ReferenceInput,
   AutocompleteInput,
+  AutocompleteArrayInput,
+  ReferenceArrayInput,
 } from "react-admin";
 import "../../../styles/edit.css";
 import { RichTextInput } from "ra-input-rich-text";
@@ -87,7 +89,28 @@ export const EditOffer = (props: any) => {
               source="merchantName"
             />
           </Box>
+          <Box className="offer_form_wrapper">
+            <ReferenceArrayInput
+              variant="outlined"
+              source="tags"
+              reference="offers/tags"
+            >
+              <AutocompleteArrayInput
+                variant="outlined"
+                optionText="tag"
+                optionValue="tag"
+                label="Tags"
+              />
+            </ReferenceArrayInput>
 
+            <TextInput
+              type="color"
+              variant="outlined"
+              source="color"
+              label="Color"
+              id="colorInput"
+            />
+          </Box>
           <TextInput
             className="textInput"
             variant="outlined"
