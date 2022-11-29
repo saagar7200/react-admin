@@ -26,6 +26,14 @@ export const EditCategory = (props: any) => {
             style={{ minWidth: "100%" }}
           />
 
+          <TextInput
+            className="textInput"
+            variant="outlined"
+            validate={required()}
+            source="subTitle"
+            label="Subtitle"
+          />
+
           <BooleanInput source="isActive" />
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">

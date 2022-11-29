@@ -26,6 +26,13 @@ export const CreateCategory = (props: any) => {
             variant="outlined"
             validate={required()}
           />
+          <TextInput
+            className="textInput"
+            variant="outlined"
+            label="Subtitle"
+            validate={required()}
+            source="subTitle"
+          />
 
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
