@@ -70,6 +70,7 @@ const Transactions = (props: any) => {
       placeholder="Search"
       alwaysOn={!userSearch && true}
       hidden={userSearch}
+      resettable
     />,
     <TextInput
       className="search_form"
@@ -78,6 +79,7 @@ const Transactions = (props: any) => {
       label="Search By User"
       placeholder="Search"
       hidden={!userSearch}
+      resettable
     />,
 
     <DateInput label="From" source="startDate" variant="outlined" alwaysOn />,

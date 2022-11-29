@@ -5,8 +5,9 @@ import {
   TextField,
   EditButton,
   ImageField,
-  TextInput,
   ReferenceField,
+  ReferenceInput,
+  AutocompleteInput,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -14,13 +15,17 @@ import "../../../styles/list.css";
 import { PostPagination } from "../../../utils/pagination/index";
 
 const filters = [
-  <TextInput
-    className="search_form"
-    source="q"
-    variant="outlined"
-    label="Search By Type"
-    alwaysOn
-  />,
+  <ReferenceInput source="type" reference="carousel/type" alwaysOn>
+    <AutocompleteInput
+      className="select-search"
+      variant="outlined"
+      label="Filter By Deal Type"
+      optionText="type"
+      optionValue="type"
+      fullWidth
+      alwaysOn
+    />
+  </ReferenceInput>,
 ];
 
 export const FeatureDeals = (props: any) => {
