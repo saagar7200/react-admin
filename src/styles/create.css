@@ -14,9 +14,8 @@
 
 .offer_form_wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  /* width: 100%; */
   gap: 1em;
   margin: auto;
 }
@@ -25,4 +24,8 @@
   width: 100%;
   justify-content: center;
   display: flex;
+}
+
+.margin-top {
+  margin-top: 30px !important;
 }
