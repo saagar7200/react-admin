@@ -12,7 +12,7 @@ export const EditReward = (props: any) => {
         Edit a Reward
       </Typography>
       <Edit title=" " {...props}>
-        <SimpleForm>
+        <SimpleForm mode="onBlur" reValidateMode="onBlur">
           <Box className="offer_form_wrapper">
             <TextInput
               className="textInput"
