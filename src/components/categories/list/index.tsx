@@ -21,6 +21,7 @@ const filters = [
     variant="outlined"
     label="Search By Name"
     alwaysOn
+    resettable
   />,
 ];
 export const Categories = (props: any) => {
@@ -50,8 +51,8 @@ export const Categories = (props: any) => {
             }}
           />
           <TextField source="name" emptyText="━" />
+          <TextField label="Title" source="title" emptyText="━" />
           <TextField label="Subtitle" source="subTitle" emptyText="━" />
-
           <BooleanField
             source="isActive"
             valueLabelTrue="Active"

@@ -19,6 +19,7 @@ const filters = [
     variant="outlined"
     label="Search By Name"
     alwaysOn
+    resettable
   />,
 ];
 

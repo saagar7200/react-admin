@@ -5,7 +5,6 @@ import { fetchUtils } from "react-admin";
 
 export const servicesHost = "https://rayyapi.tk";
 
-
 const countHeader: string = "Content-Range";
 
 const objectToFormData = (obj, form, namespace) => {
