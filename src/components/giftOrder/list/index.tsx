@@ -37,7 +37,7 @@ export const GiftOrder = (props: any) => {
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
-        <Datagrid rowClick="edit" empty={<Empty label="Category" />}>
+        <Datagrid rowClick="edit" empty={<Empty label="Gift Order" />}>
           <ImageField
             className="imgaes"
             source="image"

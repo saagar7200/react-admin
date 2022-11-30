@@ -6,6 +6,7 @@ import {
   SimpleForm,
   TextInput,
   AutocompleteInput,
+  number,
 } from "react-admin";
 
 export const CreateGiftOrder = (props: any) => {
@@ -21,7 +22,7 @@ export const CreateGiftOrder = (props: any) => {
       </Typography>
 
       <Create title=" " {...props} redirect="list">
-        <SimpleForm>
+        <SimpleForm mode="onBlur" reValidateMode="onBlur">
           <Box className="offer_form_wrapper">
             <AutocompleteInput
               className="textInput"
@@ -50,7 +51,7 @@ export const CreateGiftOrder = (props: any) => {
             />
             <TextInput
               variant="outlined"
-              validate={required()}
+              validate={[required(), number()]}
               label="Amount"
               source="amount"
             />

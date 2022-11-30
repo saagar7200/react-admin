@@ -127,7 +127,7 @@ function App() {
           create={CreateGiftOrder}
           edit={EditGiftOrder}
           icon={MilitaryTechOutlinedIcon}
-          options={{ label: "Rewards" }}
+          options={{ label: "Gift Order" }}
         />
         <CustomRoutes noLayout>
           <Route path="/reward-point" element={<RewardPoint />} />

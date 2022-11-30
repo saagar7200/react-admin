@@ -6,6 +6,7 @@ import {
   TextInput,
   AutocompleteInput,
   Edit,
+  number,
 } from "react-admin";
 
 export const EditGiftOrder = (props: any) => {
@@ -21,7 +22,7 @@ export const EditGiftOrder = (props: any) => {
       </Typography>
 
       <Edit title=" " {...props} redirect="list">
-        <SimpleForm>
+        <SimpleForm mode="onBlur" reValidateMode="onBlur">
           <Box className="offer_form_wrapper">
             <AutocompleteInput
               className="textInput"
@@ -48,7 +49,12 @@ export const EditGiftOrder = (props: any) => {
               validate={required()}
               source="userEmail"
             />
-            <TextInput variant="outlined" label="Amount" source="amount" />
+            <TextInput
+              variant="outlined"
+              validate={[required(), number()]}
+              label="Amount"
+              source="amount"
+            />
           </Box>
           <Box className="offer_form_wrapper">
             <TextInput
