@@ -31,7 +31,7 @@ import { EditUser } from "./components/users/edit/EditUser";
 import { myDataProvider } from "./utils/data-provider";
 import { DetailUser } from "./components/users/detail";
 import TermsAndConditions from "./components/TermsAndConditions";
-
+import MilitaryTechOutlinedIcon from "@mui/icons-material/MilitaryTechOutlined";
 import LoginPage from "./components/login/login";
 import RewardPoint from "./components/rewardPoint";
 import Ledger from "./components/ledger/list";
@@ -42,6 +42,9 @@ import BookmarksOutlinedIcon from "@mui/icons-material/BookmarksOutlined";
 import { FeatureDeals } from "./components/featureDeals/list";
 import { CreateDeals } from "./components/featureDeals/create";
 import { EditDeal } from "./components/featureDeals/edit";
+import { CreateGiftOrder } from "./components/giftOrder/create/index";
+import { GiftOrder } from "./components/giftOrder/list/index";
+import { EditGiftOrder } from "./components/giftOrder/edit/index";
 
 function App() {
   return (
@@ -117,6 +120,14 @@ function App() {
           edit={EditDeal}
           icon={HandshakeOutlinedIcon}
           options={{ label: "Feature deals" }}
+        />
+        <Resource
+          name="gift-order"
+          list={GiftOrder}
+          create={CreateGiftOrder}
+          edit={EditGiftOrder}
+          icon={MilitaryTechOutlinedIcon}
+          options={{ label: "Gift Order" }}
         />
         <CustomRoutes noLayout>
           <Route path="/reward-point" element={<RewardPoint />} />
