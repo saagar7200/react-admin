@@ -17,6 +17,7 @@ const filters = [
     variant="outlined"
     label="Search By User Name"
     alwaysOn
+    resettable
   />,
   <AutocompleteInput
     source="network"

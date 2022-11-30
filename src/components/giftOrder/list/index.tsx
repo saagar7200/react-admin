@@ -5,9 +5,9 @@ import {
   TextField,
   EditButton,
   ImageField,
-  BooleanField,
   TextInput,
-  useListContext,
+  EmailField,
+  ChipField,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -19,20 +19,17 @@ const filters = [
     className="search_form"
     source="q"
     variant="outlined"
-    label="Search By Name"
+    label="Search By Reward Name"
     alwaysOn
     resettable
   />,
 ];
-export const Categories = (props: any) => {
-  const { isLoading } = useListContext();
-  if (isLoading) return <h5>Loading</h5>;
-
+export const GiftOrder = (props: any) => {
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
         {" "}
-        Categories
+        Gift Orders
       </Typography>
       <List
         {...props}
@@ -40,24 +37,33 @@ export const Categories = (props: any) => {
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
-        <Datagrid rowClick="edit" empty={<Empty label="Category" />}>
+        <Datagrid rowClick="edit" empty={<Empty label="Gift Order" />}>
           <ImageField
             className="imgaes"
-            source="imageUrl"
-            title="title"
+            source="image"
+            title="rewardName"
             label="Image"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-          <TextField source="name" emptyText="━" />
-          <TextField label="Title" source="title" emptyText="━" />
-          <TextField label="Subtitle" source="subTitle" emptyText="━" />
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
+          <EmailField label="User Email" source="userEmail" emptyText="━" />
+          <TextField label="Reward Name" source="rewardName" emptyText="━" />
+          <TextField label="Amount" source="amount" emptyText="━" />
+          <ChipField source="status" emptyText="━" />
+          <TextField
+            label="External Ref ID"
+            source="externalRefId"
+            emptyText="━"
           />
+          <TextField
+            label="Reference order ID "
+            source="referenceOrderId"
+            emptyText="━"
+          />
+          <TextField label="UTID" source="utId" emptyText="━" />
+          <TextField label="ENID" source="enId" emptyText="━" />
+
           <EditButton />
         </Datagrid>
       </List>

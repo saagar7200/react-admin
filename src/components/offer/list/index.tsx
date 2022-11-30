@@ -22,6 +22,7 @@ const filters = [
     variant="outlined"
     label="Search By Title"
     alwaysOn
+    resettable
   />,
 ];
 
