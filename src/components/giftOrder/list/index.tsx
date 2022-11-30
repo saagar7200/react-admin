@@ -2,13 +2,12 @@ import { Typography } from "@material-ui/core";
 import {
   List,
   Datagrid,
-  DateField,
   TextField,
   EditButton,
-  ReferenceField,
   ImageField,
-  BooleanField,
   TextInput,
+  EmailField,
+  ChipField,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -20,52 +19,51 @@ const filters = [
     className="search_form"
     source="q"
     variant="outlined"
-    label="Search By Title"
+    label="Search By Reward Name"
     alwaysOn
     resettable
   />,
 ];
-
-export const Offers = (props: any) => {
+export const GiftOrder = (props: any) => {
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
         {" "}
-        All Offers
+        Gift Orders
       </Typography>
-
       <List
         {...props}
-        title={"Offer"}
+        emptyWhileLoading
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
-        <Datagrid rowClick="edit" empty={<Empty label="Offers" />}>
+        <Datagrid rowClick="edit" empty={<Empty label="Gift Order" />}>
           <ImageField
             className="imgaes"
-            source="imageUrl"
-            title="title"
+            source="image"
+            title="rewardName"
             label="Image"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-          <TextField source="title" />
-          <ReferenceField
-            label="Subcategory"
-            source="subCategoryId"
-            reference="sub-categories"
+          <EmailField label="User Email" source="userEmail" emptyText="━" />
+          <TextField label="Reward Name" source="rewardName" emptyText="━" />
+          <TextField label="Amount" source="amount" emptyText="━" />
+          <ChipField source="status" emptyText="━" />
+          <TextField
+            label="External Ref ID"
+            source="externalRefId"
+            emptyText="━"
           />
-          <TextField source="profit" />
+          <TextField
+            label="Reference order ID "
+            source="referenceOrderId"
+            emptyText="━"
+          />
+          <TextField label="UTID" source="utId" emptyText="━" />
+          <TextField label="ENID" source="enId" emptyText="━" />
 
-          <TextField source="network" />
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
-          <DateField source="createdAt" />
-          <DateField source="updatedAt" />
           <EditButton />
         </Datagrid>
       </List>

@@ -19,29 +19,48 @@ export const EditCategory = (props: any) => {
       </Typography>
       <Edit title=" " {...props}>
         <SimpleForm>
-          <TextInput
-            variant="outlined"
-            source="name"
-            validate={required()}
-            style={{ minWidth: "100%" }}
-          />
-
-          <TextInput
-            className="textInput"
-            variant="outlined"
-            validate={required()}
-            source="subTitle"
-            label="Subtitle"
-          />
-
-          <BooleanInput source="isActive" />
+          <Box className="offer_form_wrapper">
+            <TextInput
+              className="textInput"
+              source="name"
+              label="Category name"
+              variant="outlined"
+              validate={required()}
+            />
+            <TextInput
+              className="textInput"
+              variant="outlined"
+              label="Subtitle"
+              validate={required()}
+              source="subTitle"
+            />
+          </Box>
+          <Box className="offer_form_wrapper">
+            <TextInput
+              className="textInput"
+              variant="outlined"
+              label="Title"
+              validate={required()}
+              source="title"
+            />
+            <TextInput
+              className="textInput"
+              variant="outlined"
+              label="Description"
+              validate={required()}
+              source="description"
+            />
+          </Box>
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
-              <ImageField source="imageUrl" title="title" />
+              <ImageField source="src" title="title" />
             </ImageInput>
-
-            <div className="textInput"></div>
+            <ImageInput className="textInput" source="icon" label="Icon">
+              <ImageField source="src" title="title" />
+            </ImageInput>
           </Box>
+
+          <BooleanInput defaultChecked source="isActive" />
         </SimpleForm>
       </Edit>
     </div>
