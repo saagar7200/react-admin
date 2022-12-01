@@ -1,9 +1,17 @@
 import { Box, Typography } from "@material-ui/core";
-import { required, Edit, SimpleForm, TextInput, number } from "react-admin";
+import {
+  required,
+  Edit,
+  SimpleForm,
+  TextInput,
+  number,
+  ReferenceInput,
+  AutocompleteInput,
+} from "react-admin";
 
 import "../../../styles/edit.css";
 
-const validateNumber = [required(), number()];
+const validateNumber = [required("Max value is required."), number()];
 
 export const EditReward = (props: any) => {
   return (
@@ -18,30 +26,46 @@ export const EditReward = (props: any) => {
               className="textInput"
               variant="outlined"
               label="Reward Name"
-              validate={required()}
+              validate={required("Reward Name is required.")}
               source="rewardName"
             />
-            <TextInput
-              className="textInput"
+            <ReferenceInput
               variant="outlined"
-              label="Type"
-              validate={required()}
               source="type"
-            />
+              reference="gift/type"
+              recordRepresentation="name"
+            >
+              <AutocompleteInput
+                variant="outlined"
+                validate={required("Type is required.")}
+                label="Type"
+                optionText="type"
+                optionValue="type"
+              />
+            </ReferenceInput>
           </Box>
           <Box className="offer_form_wrapper">
+            <ReferenceInput
+              variant="outlined"
+              source="provider"
+              reference="gift/provider"
+              recordRepresentation="name"
+            >
+              <AutocompleteInput
+                variant="outlined"
+                validate={required("Provider is required.")}
+                label="Provider"
+                optionText="provider"
+                optionValue="provider"
+              />
+            </ReferenceInput>
+
             <TextInput
               className="textInput"
               variant="outlined"
-              label="Provider"
-              validate={required()}
-              source="provider"
-            />
-            <TextInput
-              variant="outlined"
+              label="Max Value"
+              source="maxValue"
               validate={validateNumber}
-              label="Amount"
-              source="amount"
             />
           </Box>
           <Box className="offer_form_wrapper">
@@ -52,20 +76,14 @@ export const EditReward = (props: any) => {
               source="faceValue"
               validate={number()}
             />
-            <TextInput
-              className="textInput"
-              variant="outlined"
-              label="Max Value"
-              validate={validateNumber}
-              source="maxValue"
-            />
+            <TextInput variant="outlined" label="ETID" source="etId" />
           </Box>
 
           <TextInput
             variant="outlined"
             label="Image URL"
             source="image"
-            validate={required()}
+            validate={required("Image is required.")}
             fullWidth
           />
         </SimpleForm>

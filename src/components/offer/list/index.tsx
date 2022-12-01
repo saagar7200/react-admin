@@ -57,7 +57,7 @@ export const Offers = (props: any) => {
             reference="sub-categories"
           />
           <TextField source="profit" />
-          {/* <TextField source="baseReferalLink" /> */}
+
           <TextField source="network" />
           <BooleanField
             source="isActive"

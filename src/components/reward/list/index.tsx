@@ -52,7 +52,7 @@ export const Reward = (props: any) => {
 
           <TextField source="type" emptyText="━" />
           <TextField label="Provider" source="provider" emptyText="━" />
-          <TextField label="Amount" source="amount" emptyText="━" />
+          <TextField label="ETID" source="etId" emptyText="━" />
           <TextField label="Max Value" source="maxValue" emptyText="━" />
           <TextField label="Face Value" source="faceValue" emptyText="━" />
 
