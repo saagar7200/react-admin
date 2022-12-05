@@ -2,13 +2,11 @@ import { Typography } from "@material-ui/core";
 import {
   List,
   Datagrid,
-  DateField,
   TextField,
   EditButton,
-  ReferenceField,
   ImageField,
-  BooleanField,
   TextInput,
+  useListContext,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -20,52 +18,44 @@ const filters = [
     className="search_form"
     source="q"
     variant="outlined"
-    label="Search By Title"
+    label="Search By Reward Name"
     alwaysOn
-    resettable
   />,
 ];
+export const Reward = (props: any) => {
+  const { isLoading } = useListContext();
+  if (isLoading) return <h5>Loading</h5>;
 
-export const Offers = (props: any) => {
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
         {" "}
-        All Offers
+        Rewards
       </Typography>
-
       <List
         {...props}
-        title={"Offer"}
+        emptyWhileLoading
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
-        <Datagrid rowClick="edit" empty={<Empty label="Offers" />}>
+        <Datagrid rowClick="edit" empty={<Empty label="Rewards" />}>
           <ImageField
             className="imgaes"
-            source="imageUrl"
-            title="title"
+            source="image"
+            title="rewardName"
             label="Image"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-          <TextField source="title" />
-          <ReferenceField
-            label="Subcategory"
-            source="subCategoryId"
-            reference="sub-categories"
-          />
-          <TextField source="profit" />
+          <TextField label="Reward Name" source="rewardName" emptyText="━" />
 
-          <TextField source="network" />
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
-          <DateField source="createdAt" />
-          <DateField source="updatedAt" />
+          <TextField source="type" emptyText="━" />
+          <TextField label="Provider" source="provider" emptyText="━" />
+          <TextField label="ETID" source="etId" emptyText="━" />
+          <TextField label="Max Value" source="maxValue" emptyText="━" />
+          <TextField label="Face Value" source="faceValue" emptyText="━" />
+
           <EditButton />
         </Datagrid>
       </List>
