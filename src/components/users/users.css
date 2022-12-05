@@ -52,3 +52,11 @@
 .user_detail_ledger_title {
   margin-top: 30px !important;
 }
+
+.user_profile {
+  height: 100px !important;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-top: 5px;
+}
