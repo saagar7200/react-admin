@@ -5,6 +5,8 @@ import {
   TextField,
   TextInput,
   AutocompleteInput,
+  Loading,
+  useListController,
 } from "react-admin";
 import { PostPagination } from "../../../utils/pagination";
 
@@ -33,6 +35,10 @@ const filters = [
 ];
 
 const Ledger = (props: any) => {
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
@@ -46,20 +52,24 @@ const Ledger = (props: any) => {
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
-        <Datagrid
-          empty={
-            <Typography className="empty_text" variant="h6">
-              Ledger data not available !!
-            </Typography>
-          }
-          bulkActionButtons={false}
-        >
-          <TextField label="User Name" source="user.name" emptyText="━" />
-          <TextField source="transactionType" emptyText="━" />
-          <TextField source="rewardPoint" emptyText="━" />
-          <TextField source="network" emptyText="━" />
-          <TextField source="amount" emptyText="━" />
-        </Datagrid>
+        {isLoading ? (
+          <Loading loadingSecondary="" />
+        ) : (
+          <Datagrid
+            empty={
+              <Typography className="empty_text" variant="h6">
+                Ledger data not available !!
+              </Typography>
+            }
+            bulkActionButtons={false}
+          >
+            <TextField label="User Name" source="user.name" emptyText="━" />
+            <TextField source="transactionType" emptyText="━" />
+            <TextField source="rewardPoint" emptyText="━" />
+            <TextField source="network" emptyText="━" />
+            <TextField source="amount" emptyText="━" />
+          </Datagrid>
+        )}
       </List>
     </div>
   );

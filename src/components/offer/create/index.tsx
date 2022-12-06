@@ -13,6 +13,7 @@ import {
   AutocompleteInput,
   ReferenceArrayInput,
   AutocompleteArrayInput,
+  useNotify,
 } from "react-admin";
 
 const choices: { id: string; name: string }[] = [
@@ -21,14 +22,25 @@ const choices: { id: string; name: string }[] = [
 ];
 
 export const CreateOffer = (props: any) => {
+  const notify = useNotify();
+
+  const onError = (error: any) => {
+    notify(`Could not create offer: ${error.message}`, { type: "error" });
+  };
+
   return (
     <div className="create_category_container">
       <Typography className="form_heading" variant="h5">
         Create a offer
       </Typography>
 
-      <Create title=" " {...props} redirect="list">
-        <SimpleForm>
+      <Create
+        title=" "
+        {...props}
+        redirect="list"
+        mutationOptions={{ onError }}
+      >
+        <SimpleForm mode="onBlur" reValidateMode="onBlur">
           <Box className="offer_form_wrapper">
             <ReferenceInput
               variant="outlined"

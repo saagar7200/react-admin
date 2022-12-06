@@ -8,6 +8,8 @@ import {
   ImageField,
   BooleanField,
   TextInput,
+  useListController,
+  Loading,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -26,6 +28,10 @@ const filters = [
 ];
 
 export const SubCategories = (props: any) => {
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">

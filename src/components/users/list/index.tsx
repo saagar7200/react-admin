@@ -7,6 +7,8 @@ import {
   ShowButton,
   TextInput,
   ImageField,
+  useListController,
+  Loading,
 } from "react-admin";
 
 import "../../../styles/list.css";
@@ -24,6 +26,10 @@ const filters = [
 ];
 
 const Users = (props: any) => {
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">

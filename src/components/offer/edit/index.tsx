@@ -11,6 +11,7 @@ import {
   AutocompleteInput,
   AutocompleteArrayInput,
   ReferenceArrayInput,
+  useNotify,
 } from "react-admin";
 import "../../../styles/edit.css";
 import { RichTextInput } from "ra-input-rich-text";
@@ -21,13 +22,19 @@ const choices: { id: string; name: string }[] = [
 ];
 
 export const EditOffer = (props: any) => {
+  const notify = useNotify();
+
+  const onError = (error: any) => {
+    notify(`Could not edit offer: ${error.message}`, { type: "error" });
+  };
+
   return (
     <div>
       <Typography className="form_heading" variant="h5">
         Edit Offer
       </Typography>
 
-      <Edit title=" " {...props}>
+      <Edit title=" " {...props} mutationOptions={{ onError }}>
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput

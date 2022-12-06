@@ -11,10 +11,20 @@ import {
   ReferenceInput,
   AutocompleteInput,
   SelectInput,
+  useNotify,
 } from "react-admin";
 
 export const CreateDealSuggestion: FC = (props: any) => {
   const [isOffer, setIsOffer] = useState(false);
+
+  const notify = useNotify();
+  const onSuccess = (data: any) => {
+    notify(`Changes saved`);
+  };
+
+  const onError = (error: any) => {
+    notify(`Could not create deal suggestion: ${error.message}`);
+  };
 
   const handlechange = (e: any) => {
     if (e.target.value === "offer") {
@@ -30,7 +40,11 @@ export const CreateDealSuggestion: FC = (props: any) => {
         Create a Deal Suggestion
       </Typography>
 
-      <Create title=" " redirect="list">
+      <Create
+        title=" "
+        mutationOptions={{ onError, onSuccess }}
+        redirect="list"
+      >
         <SimpleForm
           mode="onBlur"
           reValidateMode="onBlur"
