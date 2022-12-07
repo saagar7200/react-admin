@@ -96,7 +96,9 @@ export const EditOffer: FC = (props: any) => {
     cashbackTerms:
       data.cashbackTerms !== record.cashbackTerms
         ? data.cashbackTerms
-        : cashbackTerms,
+        : cashbackTerms
+        ? cashbackTerms
+        : record.cashbackTerms,
   });
 
   return (
