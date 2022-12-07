@@ -93,7 +93,10 @@ export const EditOffer: FC = (props: any) => {
 
   const transform = (data: any) => ({
     ...data,
-    cashbackTerms: cashbackTerms || data.cashbackTerms,
+    cashbackTerms:
+      data.cashbackTerms !== record.cashbackTerms
+        ? data.cashbackTerms
+        : cashbackTerms,
   });
 
   return (
@@ -212,7 +215,6 @@ export const EditOffer: FC = (props: any) => {
                   placeholder="trackingTime"
                   variant="outlined"
                   source="trackingTime"
-                  value={filledData.trackingTime}
                   onChange={handleChange}
                 />
                 <TextInput
@@ -220,7 +222,6 @@ export const EditOffer: FC = (props: any) => {
                   variant="outlined"
                   source="verificationTime"
                   onChange={handleChange}
-                  value={filledData.verificationTime}
                 />
               </Box>
               <Box className="offer_form_wrapper">
@@ -229,27 +230,23 @@ export const EditOffer: FC = (props: any) => {
                   variant="outlined"
                   source="cashbackDays"
                   onChange={handleChange}
-                  value={filledData.cashbackDays}
                 />
                 <TextInput
                   className="textInput"
                   variant="outlined"
                   source="cashbackPercent"
                   onChange={handleChange}
-                  value={filledData.cashbackPercent}
                 />
               </Box>
               <Box className="term_bool_wrapper ">
                 <BooleanInput
                   source="isAppTracking"
                   onClick={handleAppTracking}
-                  value={isAppTracking}
                   className="term_bool_input"
                 />
                 <BooleanInput
                   source="isUsableDiscount"
                   onClick={handleDiscount}
-                  value={isUsableDiscount}
                   className="term_bool_input"
                 />
 
