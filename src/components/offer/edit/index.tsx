@@ -81,7 +81,6 @@ export const EditOffer: FC = (props: any) => {
         data: { ...filledData, isUsableDiscount, isAppTracking },
       })
       .then(({ data }) => {
-        console.log("data", data);
         setTerms(data.data);
         refresh();
       })
@@ -94,7 +93,7 @@ export const EditOffer: FC = (props: any) => {
 
   const transform = (data: any) => ({
     ...data,
-    cashbackTerms: cashbackTerms || record?.cashbackTerms,
+    cashbackTerms: cashbackTerms || data.cashbackTerms,
   });
 
   return (
@@ -157,7 +156,8 @@ export const EditOffer: FC = (props: any) => {
             <TextInput
               variant="outlined"
               validate={required()}
-              source="subtitle"
+              source="subTitle"
+              label="Subtitle"
             />
             <TextInput
               variant="outlined"

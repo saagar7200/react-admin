@@ -96,7 +96,7 @@ export const CreateOffer = (props: any) => {
 
   const transform = (data: any) => ({
     ...data,
-    cashbackTerms,
+    cashbackTerms: data.cashbackTerms || cashbackTerms,
   });
 
   return (
@@ -159,7 +159,8 @@ export const CreateOffer = (props: any) => {
             <TextInput
               variant="outlined"
               validate={required()}
-              source="subtitle"
+              source="subTitle"
+              label="Subtitle"
             />
             <TextInput
               variant="outlined"

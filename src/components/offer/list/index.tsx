@@ -43,7 +43,7 @@ export const Offers = (props: any) => {
         <Datagrid rowClick="edit" empty={<Empty label="Offers" />}>
           <ImageField
             className="imgaes"
-            source="imageUrl"
+            source="icon"
             title="title"
             label="Image"
             sx={{
