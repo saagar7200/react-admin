@@ -1,0 +1,34 @@
+.generate_cashback_trem_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 15px 0px;
+}
+.cashback_term_head {
+  padding: 5px 0px;
+}
+
+.term_bool_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 25%;
+  align-items: center;
+}
+.term_bool_input {
+  display: flex;
+  align-items: center;
+  width: fit-content !important;
+}
+.generate_button {
+  background-color: #1976d2 !important;
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.generate_button:disabled {
+  color: rgba(0, 0, 0, 0.26) !important;
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12) !important;
+  cursor: not-allowed;
+}

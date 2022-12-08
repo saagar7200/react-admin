@@ -114,7 +114,6 @@ export const myDataProvider = {
 
   create: (resource: any, params: any) => {
     const objectFromForm = params.data;
-
     let isFormWithFile = false;
     //go through each value in object, and if a value has rawFile property, then it is a file
     const transformed = {};
