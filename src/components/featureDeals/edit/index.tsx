@@ -10,12 +10,18 @@ import {
   ReferenceInput,
   SelectInput,
   useEditContext,
+  useNotify,
 } from "react-admin";
 import "../../../styles/edit.css";
 import { useState } from "react";
 
 export const EditDeal = (props: any) => {
   const [type, setType] = useState("");
+  const notify = useNotify();
+
+  const onError = (error: any) => {
+    notify(`Could not edit deal: ${error.message}`, { type: "error" });
+  };
 
   const handleSelect = (e: any) => {
     e.preventDefault();
@@ -95,7 +101,13 @@ export const EditDeal = (props: any) => {
         Edit deal
       </Typography>
 
-      <Edit title=" " {...props} transform={transform}>
+      <Edit
+        title=" "
+        {...props}
+        transform={transform}
+        redirect="list"
+        mutationOptions={{ onError }}
+      >
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput

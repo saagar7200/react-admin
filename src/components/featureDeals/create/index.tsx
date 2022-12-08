@@ -11,13 +11,27 @@ import {
   NumberInput,
   ReferenceInput,
   SelectInput,
+  useNotify,
+  useRedirect,
+  useRefresh,
 } from "react-admin";
 
 export const CreateDeals = (props: any) => {
   const [type, setType] = useState("");
-
+  const notify = useNotify();
+  const redirect = useRedirect();
+  const refresh = useRefresh();
   const handleSelect = (e: any) => {
     setType(e.target.value);
+  };
+
+  const onError = (error: any) => {
+    notify(`Could not create deal: ${error.message}`, { type: "error" });
+  };
+  const onSuccess = (data: any) => {
+    notify(`Deal Created.`, { type: "success" });
+    refresh();
+    redirect(`/carousel`);
   };
 
   const transform = (data: any) => {
@@ -72,7 +86,13 @@ export const CreateDeals = (props: any) => {
         Create a deal
       </Typography>
 
-      <Create title=" " {...props} redirect="list" transform={transform}>
+      <Create
+        title=" "
+        {...props}
+        redirect="list"
+        mutationOptions={{ onError, onSuccess }}
+        transform={transform}
+      >
         <SimpleForm validate={validate} mode="onBlur" reValidateMode="onBlur">
           <Box className="offer_form_wrapper">
             <ReferenceInput

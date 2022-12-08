@@ -7,17 +7,25 @@ import {
   ImageInput,
   BooleanInput,
   ImageField,
+  useNotify,
+  number,
 } from "react-admin";
 
 import "../../../styles/edit.css";
 
 export const EditCategory = (props: any) => {
+  const notify = useNotify();
+
+  const onError = (error: any) => {
+    notify(`Could not edit category: ${error.message}`, { type: "error" });
+  };
+
   return (
     <div className="edit_container">
       <Typography className="form_heading" variant="h5">
         Edit a Category
       </Typography>
-      <Edit title=" " {...props}>
+      <Edit title=" " {...props} mutationOptions={{ onError }}>
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <TextInput
@@ -46,9 +54,26 @@ export const EditCategory = (props: any) => {
             <TextInput
               className="textInput"
               variant="outlined"
+              label="priority"
+              validate={[required(), number()]}
+              source="priority"
+            />
+          </Box>
+          <Box className="offer_form_wrapper">
+            <TextInput
+              className="textInput"
+              variant="outlined"
+              label="Carousel subtitle"
+              validate={required()}
+              source="carouselProp"
+            />
+            <TextInput
+              className="textInput"
+              variant="outlined"
               label="Description"
               validate={required()}
               source="description"
+              multiline
             />
           </Box>
           <Box className="offer_form_wrapper">

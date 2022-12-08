@@ -8,6 +8,8 @@ import {
   TextInput,
   EmailField,
   ChipField,
+  Loading,
+  useListController,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -25,6 +27,10 @@ const filters = [
   />,
 ];
 export const GiftOrder = (props: any) => {
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">

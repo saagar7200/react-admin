@@ -8,16 +8,29 @@ import {
   BooleanInput,
   ImageInput,
   ImageField,
+  useNotify,
+  number,
 } from "react-admin";
 
 export const CreateCategory = (props: any) => {
+  const notify = useNotify();
+
+  const onError = (error: any) => {
+    notify(`Could not create category: ${error.message}`, { type: "error" });
+  };
+
   return (
     <div className="create_category_container">
       <Typography className="form_heading" variant="h5">
         Create a Category
       </Typography>
 
-      <Create title=" " {...props} redirect="list">
+      <Create
+        title=" "
+        {...props}
+        redirect="list"
+        mutationOptions={{ onError }}
+      >
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <TextInput
@@ -46,9 +59,26 @@ export const CreateCategory = (props: any) => {
             <TextInput
               className="textInput"
               variant="outlined"
+              label="priority"
+              validate={[required(), number()]}
+              source="priority"
+            />
+          </Box>
+          <Box className="offer_form_wrapper">
+            <TextInput
+              className="textInput"
+              variant="outlined"
+              label="Carousel subtitle"
+              validate={required()}
+              source="carouselProp"
+            />
+            <TextInput
+              className="textInput"
+              variant="outlined"
               label="Description"
               validate={required()}
               source="description"
+              multiline
             />
           </Box>
           <Box className="offer_form_wrapper">
