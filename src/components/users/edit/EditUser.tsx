@@ -24,14 +24,18 @@ export const EditUser = (props: any) => {
     redirect("/categories");
     refresh();
   };
-
+  const onError = (error: any) => {
+    notify(`Could not edit user: ${error.message}`, {
+      type: "error",
+    });
+  };
   return (
     <div className="create_category_container">
       <Typography className="form_heading" variant="h5">
         Edit a User
       </Typography>
 
-      <Edit onSuccess={onSuccess} title=" " {...props}>
+      <Edit mutationOptions={{ onError, onSuccess }} title=" " {...props}>
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <TextInput
@@ -53,12 +57,11 @@ export const EditUser = (props: any) => {
             <div className="textInput"></div>
           </Box> */}
 
-          
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />
             </ImageInput>
-             
+
             <div className="textInput"></div>
           </Box>
         </SimpleForm>

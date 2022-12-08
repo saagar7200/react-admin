@@ -6,7 +6,8 @@ import {
   EditButton,
   ImageField,
   TextInput,
-  useListContext,
+  Loading,
+  useListController,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -23,8 +24,9 @@ const filters = [
   />,
 ];
 export const Reward = (props: any) => {
-  const { isLoading } = useListContext();
-  if (isLoading) return <h5>Loading</h5>;
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
 
   return (
     <div className="list_wapper">

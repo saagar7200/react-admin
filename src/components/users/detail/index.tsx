@@ -6,12 +6,13 @@ import {
   SimpleShowLayout,
   useShowController,
   DataProviderContext,
+  Loading,
 } from "react-admin";
 import "../../../styles/edit.css";
 import "../users.css";
 
 export const DetailUser = (props: any) => {
-  const { record } = useShowController(props);
+  const { isLoading, record } = useShowController(props);
   const dataProvider = useContext(DataProviderContext);
 
   const [user, setUser] = useState();
@@ -34,6 +35,8 @@ export const DetailUser = (props: any) => {
         });
     }
   };
+
+  if (isLoading) return <Loading color="#312a91" />;
 
   return (
     <div className="create_category_container">

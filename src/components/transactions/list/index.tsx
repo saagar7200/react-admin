@@ -12,6 +12,8 @@ import {
   FilterForm,
   ListBase,
   AutocompleteInput,
+  useListController,
+  Loading,
 } from "react-admin";
 
 import "../../../styles/list.css";
@@ -27,6 +29,11 @@ const Transactions = (props: any) => {
   const location = useLocation();
 
   const refresh = useRefresh();
+
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   const getData = async () => {
     const res = await fetch(
       `${servicesHost}/affiliate/transactions?network=inr&persist=true`,

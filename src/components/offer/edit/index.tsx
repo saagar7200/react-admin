@@ -44,6 +44,10 @@ export const EditOffer: FC = (props: any) => {
   const notify = useNotify();
   const { id } = useParams();
 
+  const onError = (error: any) => {
+    notify(`Could not edit offer: ${error.message}`, { type: "error" });
+  };
+
   // const { record, isLoading } = useEditContext();
 
   const { record, isLoading } = useEditController({ resource: "offers", id });
@@ -111,8 +115,13 @@ export const EditOffer: FC = (props: any) => {
         Edit Offer
       </Typography>
 
-      <Edit title=" " {...props} transform={transform}>
-        <SimpleForm>
+      <Edit
+        title=" "
+        {...props}
+        mutationOptions={{ onError }}
+        transform={transform}
+      >
+        <SimpleForm mode="onBlur" reValidateMode="onBlur">
           <Box className="offer_form_wrapper">
             <ReferenceInput
               variant="outlined"

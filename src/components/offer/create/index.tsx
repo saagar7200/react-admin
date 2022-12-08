@@ -18,6 +18,7 @@ import {
   useRefresh,
   number,
   useNotify,
+  
 } from "react-admin";
 
 const choices: { id: string; name: string }[] = [
@@ -41,6 +42,10 @@ export const CreateOffer = (props: any) => {
 
   const notify = useNotify();
   const refresh = useRefresh();
+
+  const onError = (error: any) => {
+    notify(`Could not create offer: ${error.message}`, { type: "error" });
+  }
 
   //handle input change for term generation
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,8 +110,14 @@ export const CreateOffer = (props: any) => {
         Create a offer
       </Typography>
 
-      <Create title=" " {...props} redirect="list" transform={transform}>
-        <SimpleForm>
+      <Create
+        title=" "
+        {...props}
+        redirect="list"
+        mutationOptions={{ onError }}
+        transform={transform}
+      >
+        <SimpleForm mode="onBlur" reValidateMode="onBlur">
           <Box className="offer_form_wrapper">
             <ReferenceInput
               variant="outlined"

@@ -9,7 +9,7 @@ export const validate = (values: any) => {
   if (values.type === "Category" && !values.categoryId) {
     errors.categoryId = "Category  is required.";
   }
-  if (values.type === "sub-category" && !values.subCategoryId) {
+  if (values.type === "subCategory" && !values.subCategoryId) {
     errors.subCategoryId = "Sub Category  is required.";
   }
   if (!values.image) {

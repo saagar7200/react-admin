@@ -11,17 +11,26 @@ import {
   AutocompleteInput,
   AutocompleteArrayInput,
   ReferenceArrayInput,
+  useNotify,
 } from "react-admin";
 import "../../../styles/edit.css";
 
 export const EditSubCategory = (props: any) => {
+  const notify = useNotify();
+
+  const onError = (error: any) => {
+    notify(`Could not edit sub category: ${error.message}`, {
+      type: "error",
+    });
+  };
+
   return (
     <div className="edit_container">
       <Typography className="form_heading" variant="h5">
         Edit a sub category
       </Typography>
 
-      <Edit title=" " {...props}>
+      <Edit title=" " {...props} mutationOptions={{ onError }}>
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput

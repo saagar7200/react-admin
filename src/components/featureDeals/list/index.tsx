@@ -8,6 +8,8 @@ import {
   ReferenceField,
   ReferenceInput,
   AutocompleteInput,
+  useListController,
+  Loading,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -29,6 +31,10 @@ const filters = [
 ];
 
 export const FeatureDeals = (props: any) => {
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
