@@ -8,6 +8,7 @@ import {
   BooleanInput,
   ImageInput,
   ImageField,
+  number,
 } from "react-admin";
 
 export const CreateCategory = (props: any) => {
@@ -46,9 +47,26 @@ export const CreateCategory = (props: any) => {
             <TextInput
               className="textInput"
               variant="outlined"
+              label="priority"
+              validate={[required(), number()]}
+              source="priority"
+            />
+          </Box>
+          <Box className="offer_form_wrapper">
+            <TextInput
+              className="textInput"
+              variant="outlined"
+              label="Carousel subtitle"
+              validate={required()}
+              source="carouselProp"
+            />
+            <TextInput
+              className="textInput"
+              variant="outlined"
               label="Description"
               validate={required()}
               source="description"
+              multiline
             />
           </Box>
           <Box className="offer_form_wrapper">

@@ -81,7 +81,8 @@ export const CreateOffer = (props: any) => {
             <TextInput
               variant="outlined"
               validate={required()}
-              source="subtitle"
+              source="subTitle"
+              label="Subtitle"
             />
             <TextInput
               variant="outlined"
