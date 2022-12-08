@@ -1,4 +1,5 @@
 import { Box, Typography } from "@material-ui/core";
+import { FC } from "react";
 import {
   Edit,
   SimpleForm,
@@ -14,8 +15,15 @@ import "../../../styles/edit.css";
 
 import { validateDeal } from "../validaton/index";
 
-export const EditDealSuggestion = (props: any) => {
+export const EditDealSuggestion: FC = (props: any) => {
   const notify = useNotify();
+  const transform = (data: any) => {
+    if (data.type === "offer") {
+      return { ...data, coupon: null };
+    }
+
+    return { ...data, offerId: null, offer: null };
+  };
 
   const onError = (error: any) => {
     notify(`Could not edit deal suggestion: ${error.message}`, {
@@ -28,7 +36,12 @@ export const EditDealSuggestion = (props: any) => {
       <Typography className="form_heading" variant="h5">
         Edit a Deal Suggestion
       </Typography>
-      <Edit title=" " {...props} mutationOptions={{ onError }}>
+      <Edit
+        title=" "
+        {...props}
+        mutationOptions={{ onError }}
+        transform={transform}
+      >
         <SimpleForm
           mode="onBlur"
           reValidateMode="onBlur"

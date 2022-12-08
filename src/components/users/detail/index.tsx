@@ -59,7 +59,15 @@ export const DetailUser = (props: any) => {
                 <div className="user_detail_data_container">
                   <div className="user_detail_data_title">Image</div>
                   <div className="user_detail_data">
-                    {record.image ? record.image : "-"}
+                    {record.image ? (
+                      <img
+                        className="user_profile"
+                        alt={record.name}
+                        src={record.image}
+                      />
+                    ) : (
+                      "-"
+                    )}
                   </div>
                 </div>
               </Grid>

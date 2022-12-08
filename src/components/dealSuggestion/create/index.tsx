@@ -18,9 +18,6 @@ export const CreateDealSuggestion: FC = (props: any) => {
   const [isOffer, setIsOffer] = useState(false);
 
   const notify = useNotify();
-  const onSuccess = (data: any) => {
-    notify(`Changes saved`);
-  };
 
   const onError = (error: any) => {
     notify(`Could not create deal suggestion: ${error.message}`);
@@ -34,6 +31,14 @@ export const CreateDealSuggestion: FC = (props: any) => {
     setIsOffer(false);
   };
 
+  const transform = (data: any) => {
+    if (data.type === "offer") {
+      return { ...data, coupon: null };
+    }
+
+    return { ...data, offerId: null, offer: null };
+  };
+
   return (
     <div className="create_category_container">
       <Typography className="form_heading" variant="h5">
@@ -42,7 +47,8 @@ export const CreateDealSuggestion: FC = (props: any) => {
 
       <Create
         title=" "
-        mutationOptions={{ onError, onSuccess }}
+        mutationOptions={{ onError }}
+        transform={transform}
         redirect="list"
       >
         <SimpleForm
