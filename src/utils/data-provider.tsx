@@ -3,7 +3,7 @@ import { stringify } from "query-string";
 import simpleRestProvider from "ra-data-simple-rest";
 import { fetchUtils } from "react-admin";
 
-export const servicesHost = "https://c3c4-43-245-86-49.in.ngrok.io";
+export const servicesHost = "https://rayyapi.tk";
 
 const countHeader: string = "Content-Range";
 

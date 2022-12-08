@@ -29,14 +29,14 @@ const choices: { id: string; name: string }[] = [
 
 export const EditOffer: FC = (props: any) => {
   const [filledData, setFilledData] = useState({
-    trackingTime: "",
-    verificationTime: "",
-    cashbackPercent: "",
-    cashbackDays: "",
+    trackingTime: "12-24",
+    verificationTime: "12",
+    cashbackPercent: "10",
+    cashbackDays: "10",
   });
   const [isAppTracking, setIsAppTracking] = useState(false);
   const [isUsableDiscount, setIsUsableDiscount] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const [cashbackTerms, setTerms] = useState("");
   const dataProvider = useContext(DataProviderContext);
@@ -76,11 +76,15 @@ export const EditOffer: FC = (props: any) => {
       return notify("Cashback Days required.", { type: "error" });
     }
 
+    setLoading(true);
+
     dataProvider
       .create(`offers/terms`, {
         data: { ...filledData, isUsableDiscount, isAppTracking },
       })
       .then(({ data }) => {
+        setLoading(false);
+
         setTerms(data.data);
         refresh();
       })
@@ -218,12 +222,14 @@ export const EditOffer: FC = (props: any) => {
                   variant="outlined"
                   source="trackingTime"
                   onChange={handleChange}
+                  defaultValue={filledData?.trackingTime}
                 />
                 <TextInput
                   className="textInput"
                   variant="outlined"
                   source="verificationTime"
                   onChange={handleChange}
+                  defaultValue={filledData?.verificationTime}
                 />
               </Box>
               <Box className="offer_form_wrapper">
@@ -232,17 +238,20 @@ export const EditOffer: FC = (props: any) => {
                   variant="outlined"
                   source="cashbackDays"
                   onChange={handleChange}
+                  defaultValue={filledData?.cashbackDays}
                 />
                 <TextInput
                   className="textInput"
                   variant="outlined"
                   source="cashbackPercent"
                   onChange={handleChange}
+                  defaultValue={filledData?.cashbackPercent}
                 />
               </Box>
               <Box className="term_bool_wrapper ">
                 <BooleanInput
                   source="isAppTracking"
+                  label="App Tracking."
                   onClick={handleAppTracking}
                   className="term_bool_input"
                 />
@@ -250,6 +259,7 @@ export const EditOffer: FC = (props: any) => {
                   source="isUsableDiscount"
                   onClick={handleDiscount}
                   className="term_bool_input"
+                  label="Do not use discount."
                 />
 
                 <Button
@@ -257,7 +267,7 @@ export const EditOffer: FC = (props: any) => {
                   className="generate_button"
                   disableElevation
                   onClick={handleGenerate}
-                  disabled={isLoading}
+                  disabled={loading}
                 >
                   Generate
                 </Button>

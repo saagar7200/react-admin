@@ -27,10 +27,10 @@ const choices: { id: string; name: string }[] = [
 
 export const CreateOffer = (props: any) => {
   const [filledData, setFilledData] = useState({
-    trackingTime: "",
-    verificationTime: "",
-    cashbackPercent: "",
-    cashbackDays: "",
+    trackingTime: "12-24",
+    verificationTime: "12",
+    cashbackPercent: "10",
+    cashbackDays: "10",
   });
   const [isUsableDiscount, setIsUsableDiscount] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -63,7 +63,6 @@ export const CreateOffer = (props: any) => {
 
   const handleGenerate = () => {
     setIsTermUpdated(false);
-    setLoading(true);
     setTerms("");
 
     if (!filledData.trackingTime) {
@@ -78,6 +77,7 @@ export const CreateOffer = (props: any) => {
     if (!filledData.cashbackDays) {
       return notify("Cashback Days required.", { type: "error" });
     }
+    setLoading(true);
 
     dataProvider
       .create(`offers/terms`, {
@@ -217,8 +217,7 @@ export const CreateOffer = (props: any) => {
                   variant="outlined"
                   source="trackingTime"
                   label="Tracking Time"
-                  validate={required()}
-                  value={filledData?.trackingTime}
+                  defaultValue={filledData?.trackingTime}
                   onChange={handleChange}
                 />
 
@@ -227,9 +226,8 @@ export const CreateOffer = (props: any) => {
                   label="Verification Time"
                   variant="outlined"
                   source="verificationTime"
-                  validate={required()}
                   onChange={handleChange}
-                  value={filledData?.verificationTime}
+                  defaultValue={filledData?.verificationTime}
                 />
               </Box>
               <Box className="offer_form_wrapper">
@@ -238,9 +236,8 @@ export const CreateOffer = (props: any) => {
                   label="Cashback Days"
                   variant="outlined"
                   source="cashbackDays"
-                  validate={required()}
                   onChange={handleChange}
-                  value={filledData?.cashbackDays}
+                  defaultValue={filledData?.cashbackDays}
                 />
                 <TextInput
                   className="textInput"
@@ -248,13 +245,13 @@ export const CreateOffer = (props: any) => {
                   label="Cashback Rate"
                   source="cashbackPercent"
                   onChange={handleChange}
-                  validate={required()}
-                  value={filledData?.cashbackPercent}
+                  defaultValue={filledData?.cashbackPercent}
                 />
               </Box>
               <Box className="term_bool_wrapper ">
                 <BooleanInput
                   source="isAppTracking"
+                  label="App Tracking."
                   className="term_bool_input"
                   onClick={handleAppTracking}
                 />
@@ -262,6 +259,7 @@ export const CreateOffer = (props: any) => {
                   source="isUsableDiscount"
                   onClick={handleDiscount}
                   className="term_bool_input"
+                  label="Do not use discount."
                 />
 
                 <Button
@@ -269,7 +267,7 @@ export const CreateOffer = (props: any) => {
                   className="generate_button"
                   disableElevation
                   onClick={handleGenerate}
-                  // disabled={loading}
+                  disabled={loading}
                 >
                   Generate
                 </Button>

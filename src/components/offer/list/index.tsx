@@ -45,7 +45,7 @@ export const Offers = (props: any) => {
             className="imgaes"
             source="icon"
             title="title"
-            label="Image"
+            label="Icon"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}

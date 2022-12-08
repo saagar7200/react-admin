@@ -27,7 +27,8 @@
 }
 
 .generate_button:disabled {
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0, 0.26) !important;
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.12) !important;
+  cursor: not-allowed;
 }
