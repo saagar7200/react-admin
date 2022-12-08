@@ -8,6 +8,7 @@ import {
   BooleanInput,
   ImageField,
   useNotify,
+  number,
 } from "react-admin";
 
 import "../../../styles/edit.css";
@@ -53,9 +54,26 @@ export const EditCategory = (props: any) => {
             <TextInput
               className="textInput"
               variant="outlined"
+              label="priority"
+              validate={[required(), number()]}
+              source="priority"
+            />
+          </Box>
+          <Box className="offer_form_wrapper">
+            <TextInput
+              className="textInput"
+              variant="outlined"
+              label="Carousel subtitle"
+              validate={required()}
+              source="carouselProp"
+            />
+            <TextInput
+              className="textInput"
+              variant="outlined"
               label="Description"
               validate={required()}
               source="description"
+              multiline
             />
           </Box>
           <Box className="offer_form_wrapper">
