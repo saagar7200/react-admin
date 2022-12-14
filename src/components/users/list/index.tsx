@@ -9,10 +9,14 @@ import {
   ImageField,
   useListController,
   Loading,
+  Labeled,
+  FunctionField,
 } from "react-admin";
 
 import "../../../styles/list.css";
 import { PostPagination } from "../../../utils/pagination/index";
+import { useRecordContext } from "react-admin";
+
 // import Transactions from "../../transactions/list/index";
 
 const filters = [
@@ -27,7 +31,8 @@ const filters = [
 ];
 
 const Users = (props: any) => {
-  const { isLoading } = useListController();
+  const { isLoading, data } = useListController();
+  console.log("list data", data);
 
   if (isLoading) return <Loading loadingSecondary="" />;
 
@@ -59,7 +64,22 @@ const Users = (props: any) => {
             source="image"
             title="name"
           />
-          <TextField source="name" />
+
+          <FunctionField
+            label="User"
+            render={(record: any) =>
+              `${
+                record.name
+                  ? record.name
+                  : record.email
+                  ? record.email
+                  : record.phone
+                  ? record.phone
+                  : record.id
+              } `
+            }
+          />
+
           <TextField source="commissionSumPend" label="Pending Commission " />
           <TextField
             source="commissionSumApproved"
