@@ -48,8 +48,6 @@ export const DetailUser = (props: any) => {
           data: { userId: `${record.id}` },
         })
         .then(({ data }) => {
-          // setUser(data);
-          // setLoading(false);
           setSeedTransactionLoading(false);
           refresh();
         })
