@@ -1,5 +1,5 @@
 import { FC, useContext, useState } from "react";
-import { Box, Typography, Button } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import {
   required,
   Edit,
@@ -222,8 +222,10 @@ export const EditOffer: FC = (props: any) => {
             </ImageInput>
           </Box>
           <Box className="generate_cashback_trem_wrapper">
-            <fieldset>
-              <legend>Generate cashback terms</legend>
+            <fieldset className="generateCashbackFieldset">
+              <legend className="generateCashbackHead">
+                Generate cashback Terms
+              </legend>
               <Box className="offer_form_wrapper">
                 <TextInput
                   className="textInput"
@@ -271,15 +273,13 @@ export const EditOffer: FC = (props: any) => {
                   label="Do not use discount."
                 />
 
-                <Button
-                  variant="contained"
+                <button
                   className="generate_button"
-                  disableElevation
                   onClick={handleGenerate}
                   disabled={loading}
                 >
                   Generate
-                </Button>
+                </button>
               </Box>
             </fieldset>
           </Box>

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Box, Typography, Button } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import { RichTextInput } from "ra-input-rich-text";
 import "../offer.css";
 import {
@@ -18,7 +18,6 @@ import {
   useRefresh,
   number,
   useNotify,
-  
 } from "react-admin";
 
 const choices: { id: string; name: string }[] = [
@@ -45,7 +44,7 @@ export const CreateOffer = (props: any) => {
 
   const onError = (error: any) => {
     notify(`Could not create offer: ${error.message}`, { type: "error" });
-  }
+  };
 
   //handle input change for term generation
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -95,6 +94,7 @@ export const CreateOffer = (props: any) => {
         refresh();
       })
       .catch((error) => {
+        notify(`${error.message}`);
         setLoading(false);
       });
   };
@@ -219,8 +219,10 @@ export const CreateOffer = (props: any) => {
           </Box>
 
           <Box className="generate_cashback_trem_wrapper">
-            <fieldset>
-              <legend>Generate Cashback Terms</legend>
+            <fieldset className="generateCashbackFieldset">
+              <legend className="generateCashbackHead">
+                Generate Cashback Terms
+              </legend>
               <Box className="offer_form_wrapper">
                 <TextInput
                   className={`textInput `}
@@ -273,15 +275,14 @@ export const CreateOffer = (props: any) => {
                   label="Do not use discount."
                 />
 
-                <Button
-                  variant="contained"
+                <button
                   className="generate_button"
-                  disableElevation
+                  // disableElevation
                   onClick={handleGenerate}
                   disabled={loading}
                 >
                   Generate
-                </Button>
+                </button>
               </Box>
             </fieldset>
           </Box>
