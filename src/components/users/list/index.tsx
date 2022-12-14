@@ -9,13 +9,11 @@ import {
   ImageField,
   useListController,
   Loading,
-  Labeled,
   FunctionField,
 } from "react-admin";
 
 import "../../../styles/list.css";
 import { PostPagination } from "../../../utils/pagination/index";
-import { useRecordContext } from "react-admin";
 
 // import Transactions from "../../transactions/list/index";
 
@@ -31,8 +29,7 @@ const filters = [
 ];
 
 const Users = (props: any) => {
-  const { isLoading, data } = useListController();
-  console.log("list data", data);
+  const { isLoading } = useListController();
 
   if (isLoading) return <Loading loadingSecondary="" />;
 
@@ -50,7 +47,7 @@ const Users = (props: any) => {
         pagination={<PostPagination limit={null} />}
       >
         <Datagrid
-          rowClick="edit"
+          rowClick="show"
           empty={
             <Typography className="empty_text" variant="h6">
               No Users !!

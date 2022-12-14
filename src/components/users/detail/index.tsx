@@ -129,9 +129,23 @@ export const DetailUser = (props: any) => {
               </Grid>
               <Grid item sm={6} md={4}>
                 <div className="user_detail_data_container">
-                  <div className="user_detail_data_title">Name</div>
+                  <div className="user_detail_data_title">
+                    {record.name
+                      ? "Name"
+                      : record.email
+                      ? "Email"
+                      : record.phone
+                      ? "Phone"
+                      : "User"}
+                  </div>
                   <div className="user_detail_data">
-                    {record.name ? record.name : "-"}
+                    {record.name
+                      ? record.name
+                      : record.email
+                      ? record.email
+                      : record.phone
+                      ? record.phone
+                      : record.id}
                   </div>
                 </div>
               </Grid>
