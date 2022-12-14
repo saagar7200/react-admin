@@ -13,6 +13,7 @@ import {
 
 import "../../../styles/list.css";
 import { PostPagination } from "../../../utils/pagination/index";
+// import Transactions from "../../transactions/list/index";
 
 const filters = [
   <TextInput
@@ -59,7 +60,6 @@ const Users = (props: any) => {
             title="name"
           />
           <TextField source="name" />
-
           <TextField source="commissionSumPend" label="Pending Commission " />
           <TextField
             source="commissionSumApproved"
