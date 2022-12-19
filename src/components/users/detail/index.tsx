@@ -7,6 +7,7 @@ import {
   useShowController,
   DataProviderContext,
   Loading,
+  useRefresh,
 } from "react-admin";
 import "../../../styles/edit.css";
 import "../users.css";
@@ -18,6 +19,10 @@ export const DetailUser = (props: any) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
   const [withdrawStatus, setWithdrawStatus] = useState(false);
+  const [seedTrasactionLoading, setSeedTransactionLoading] = useState(false);
+  const [seedLedgerLoading, setLedgerLoading] = useState(false);
+
+  const refresh = useRefresh();
 
   const handleWithdraw = () => {
     if (record.id) {
@@ -32,6 +37,38 @@ export const DetailUser = (props: any) => {
         })
         .catch((error) => {
           setLoading(false);
+        });
+    }
+  };
+  const handleSeedTransaction = () => {
+    if (record.id) {
+      setSeedTransactionLoading(true);
+      dataProvider
+        .create(`seeding/populate-transaction?userId=${record.id}`, {
+          data: { userId: `${record.id}` },
+        })
+        .then(({ data }) => {
+          setSeedTransactionLoading(false);
+          refresh();
+        })
+        .catch((error) => {
+          setSeedTransactionLoading(false);
+        });
+    }
+  };
+  const handleSeedLadger = () => {
+    if (record.id) {
+      setLedgerLoading(true);
+      dataProvider
+        .create(`seeding/populate-ledger?userId=${record.id}`, {
+          data: { userId: `${record.id}` },
+        })
+        .then((res) => {
+          setLedgerLoading(false);
+          refresh();
+        })
+        .catch((error) => {
+          setLedgerLoading(false);
         });
     }
   };
@@ -51,9 +88,28 @@ export const DetailUser = (props: any) => {
       <Show actions=" " {...props} className="user_detail_show_container">
         <SimpleShowLayout>
           <div className="user_detail_basic_info">
-            <Typography className="user_detail_card_title" variant="h6">
-              Basic Information
-            </Typography>
+            <div className="user_details_basic_info_heading">
+              <Typography className="user_detail_card_title" variant="h6">
+                Basic Information
+              </Typography>
+              <div className="user_detail_info_head_button_wrapper">
+                <button
+                  disabled={seedTrasactionLoading}
+                  onClick={handleSeedTransaction}
+                  className="seed_button"
+                >
+                  Seed Transaction
+                </button>{" "}
+                <button
+                  disabled={seedLedgerLoading}
+                  onClick={handleSeedLadger}
+                  className="seed_button"
+                >
+                  Seed Ladger
+                </button>{" "}
+              </div>
+            </div>
+
             <Grid container spacing={2}>
               <Grid item sm={6} md={4}>
                 <div className="user_detail_data_container">
@@ -73,9 +129,23 @@ export const DetailUser = (props: any) => {
               </Grid>
               <Grid item sm={6} md={4}>
                 <div className="user_detail_data_container">
-                  <div className="user_detail_data_title">Name</div>
+                  <div className="user_detail_data_title">
+                    {record.name
+                      ? "Name"
+                      : record.email
+                      ? "Email"
+                      : record.phone
+                      ? "Phone"
+                      : "User"}
+                  </div>
                   <div className="user_detail_data">
-                    {record.name ? record.name : "-"}
+                    {record.name
+                      ? record.name
+                      : record.email
+                      ? record.email
+                      : record.phone
+                      ? record.phone
+                      : record.id}
                   </div>
                 </div>
               </Grid>
@@ -83,7 +153,7 @@ export const DetailUser = (props: any) => {
                 <div className="user_detail_data_container">
                   <div className="user_detail_data_title">Balance</div>
                   <div className="user_detail_data">
-                    {record.Balance ? record.Balance : "-"}
+                    {record.Balance ? record.Balance : "0"}
                   </div>
                 </div>
               </Grid>
@@ -95,7 +165,7 @@ export const DetailUser = (props: any) => {
                   <div className="user_detail_data">
                     {record.commissionAmountSum
                       ? record.commissionAmountSum
-                      : "-"}
+                      : "0"}
                   </div>
                 </div>
               </Grid>
@@ -107,7 +177,7 @@ export const DetailUser = (props: any) => {
                   <div className="user_detail_data">
                     {record.commissionSumApproved
                       ? record.commissionSumApproved
-                      : "-"}
+                      : "0"}
                   </div>
                 </div>
               </Grid>
@@ -117,7 +187,7 @@ export const DetailUser = (props: any) => {
                     Pending Commission Amount
                   </div>
                   <div className="user_detail_data">
-                    {record.commissionSumPend ? record.commissionSumPend : "-"}
+                    {record.commissionSumPend ? record.commissionSumPend : "0"}
                   </div>
                 </div>
               </Grid>
@@ -127,7 +197,7 @@ export const DetailUser = (props: any) => {
                     Total Sales Amount
                   </div>
                   <div className="user_detail_data">
-                    {record.salesAmountSum ? record.salesAmountSum : "-"}
+                    {record.salesAmountSum ? record.salesAmountSum : "0"}
                   </div>
                 </div>
               </Grid>
@@ -139,7 +209,7 @@ export const DetailUser = (props: any) => {
                   <div className="user_detail_data">
                     {record.salesAmountSumApproved
                       ? record.salesAmountSumApproved
-                      : "-"}
+                      : "0"}
                   </div>
                 </div>
               </Grid>
@@ -151,7 +221,7 @@ export const DetailUser = (props: any) => {
                   <div className="user_detail_data">
                     {record.salesAmountSumPend
                       ? record.salesAmountSumPend
-                      : "-"}
+                      : "0"}
                   </div>
                 </div>
               </Grid>
@@ -183,7 +253,7 @@ export const DetailUser = (props: any) => {
                   <div className="user_detail_data_container">
                     <div className="user_detail_data_title">Amount</div>
                     <div className="user_detail_data">
-                      {user?.[0].amount ? user?.[0].amount : "-"}
+                      {user?.[0].amount ? user?.[0].amount : "0"}
                     </div>
                   </div>
                 </Grid>
@@ -199,7 +269,7 @@ export const DetailUser = (props: any) => {
                   <div className="user_detail_data_container">
                     <div className="user_detail_data_title">Reward Point</div>
                     <div className="user_detail_data">
-                      {user?.[0].rewardPoint ? user?.[0].rewardPoint : "-"}
+                      {user?.[0].rewardPoint ? user?.[0].rewardPoint : "0"}
                     </div>
                   </div>
                 </Grid>
