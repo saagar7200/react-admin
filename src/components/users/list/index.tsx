@@ -3,7 +3,6 @@ import {
   List,
   Datagrid,
   TextField,
-  EditButton,
   ShowButton,
   TextInput,
   ImageField,
@@ -48,6 +47,7 @@ const Users = (props: any) => {
       >
         <Datagrid
           rowClick="show"
+          bulkActionButtons={false}
           empty={
             <Typography className="empty_text" variant="h6">
               No Users !!
