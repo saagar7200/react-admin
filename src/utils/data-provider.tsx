@@ -134,6 +134,7 @@ export const myDataProvider = {
     }).then(({ json }) => ({ data: json }));
   },
   update: (resource: any, params: any) => {
+    console.log("req update", params.data);
     const objectFromForm = params.data;
 
     let isFormWithFile = false;
@@ -155,4 +156,23 @@ export const myDataProvider = {
         : JSON.stringify(transformed),
     }).then(({ json }) => ({ data: json }));
   },
+  getOne: (resource, params) =>
+    httpClient(`${servicesHost}/${resource}/${params.id}`).then(({ json }) => {
+      console.log("get one data ------>", json);
+
+      let newData: any = {
+        ...json,
+        image: { src: json.imageUrl },
+        icon: { src: json.icon },
+      };
+      // let newData:any = {...json,src:json.imageUrl}
+
+      // console.log('updated get one data ------>',newData)
+
+      return {
+        //   data: json?.results,
+        // data: json,
+        data: newData,
+      };
+    }),
 };
