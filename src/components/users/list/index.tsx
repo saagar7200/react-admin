@@ -64,6 +64,7 @@ const Users = (props: any) => {
 
           <FunctionField
             label="User"
+            sortBy={`${"name" || "email"}`}
             render={(record: any) =>
               `${
                 record.name
@@ -86,7 +87,7 @@ const Users = (props: any) => {
           <TextField source="salesAmountSumApproved" label="Approved Sales " />
           <TextField source="commissionAmountSum" label="Total Commission" />
           <TextField source="salesAmountSum" label="Total Sales" />
-          <EditButton />
+          {/* <EditButton /> */}
           <ShowButton />
         </Datagrid>
       </List>
