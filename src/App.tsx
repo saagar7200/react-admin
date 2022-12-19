@@ -104,6 +104,17 @@ function App() {
           show={DetailUser}
           icon={PeopleOutlinedIcon}
           options={{ label: "Users" }}
+          recordRepresentation={(record) =>
+            `${
+              record.name
+                ? record.name
+                : record.email
+                ? record.email
+                : record.phone
+                ? record.phone
+                : record.id
+            } `
+          }
         />
 
         <Resource
@@ -141,8 +152,8 @@ function App() {
           edit={EditGiftOrder}
           icon={MilitaryTechOutlinedIcon}
           options={{ label: "Gift Order" }}
-          ></Resource>
-          <Resource 
+        ></Resource>
+        <Resource
           name="gift"
           list={Reward}
           create={CreateReward}
