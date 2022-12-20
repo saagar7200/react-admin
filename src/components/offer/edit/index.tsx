@@ -99,15 +99,31 @@ export const EditOffer: FC = (props: any) => {
   };
   if (isLoading) return <Loading loadingSecondary=" " />;
 
-  const transform = (data: any) => ({
-    ...data,
-    cashbackTerms:
-      data.cashbackTerms !== record.cashbackTerms
-        ? data.cashbackTerms
-        : cashbackTerms
-        ? cashbackTerms
-        : record.cashbackTerms,
-  });
+  const transform = (data: any) => {
+    let { image, icon, ...others } = data;
+    if (data.image.rawFile) {
+      others.image = image;
+      others.imageUrl = null;
+    } else {
+      others.imageUrl = data.image.src;
+    }
+    if (data.icon.rawFile) {
+      others.icon = icon;
+    } else {
+      others.icon = data.icon.src;
+    }
+    // return others;
+
+    return {
+      ...others,
+      cashbackTerms:
+        data.cashbackTerms !== record.cashbackTerms
+          ? data.cashbackTerms
+          : cashbackTerms
+          ? cashbackTerms
+          : record.cashbackTerms,
+    };
+  };
 
   return (
     <div>

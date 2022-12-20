@@ -24,13 +24,34 @@ export const EditSubCategory = (props: any) => {
     });
   };
 
+  const transform = (data: any) => {
+    let { image, icon, ...others } = data;
+    if (data.image.rawFile) {
+      others.image = image;
+      others.imageUrl = null;
+    } else {
+      others.imageUrl = data.image.src;
+    }
+    if (data.icon.rawFile) {
+      others.icon = icon;
+    } else {
+      others.icon = data.icon.src;
+    }
+    return others;
+  };
+
   return (
     <div className="edit_container">
       <Typography className="form_heading" variant="h5">
         Edit a sub category
       </Typography>
 
-      <Edit title=" " {...props} mutationOptions={{ onError }}>
+      <Edit
+        title=" "
+        {...props}
+        mutationOptions={{ onError }}
+        transform={transform}
+      >
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput

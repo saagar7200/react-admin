@@ -20,10 +20,7 @@ export const EditCategory = (props: any) => {
     notify(`Could not edit category: ${error.message}`, { type: "error" });
   };
 
-  const transform = (data: any, prevData: any) => {
-    console.log("transform ", data);
-    console.log("transform prev data ", { prevData });
-
+  const transform = (data: any) => {
     let { image, icon, ...others } = data;
     if (data.image.rawFile) {
       others.image = image;
@@ -36,11 +33,7 @@ export const EditCategory = (props: any) => {
     } else {
       others.icon = data.icon.src;
     }
-    return {
-      data: others,
-      // imageUrl,
-      // icon
-    };
+    return others;
   };
 
   return (
