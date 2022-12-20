@@ -22,3 +22,9 @@
   text-align: center;
   padding: 60px;
 }
+.user_profile_list {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 100%;
+}
