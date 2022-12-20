@@ -14,6 +14,7 @@ import {
   AutocompleteInput,
   useListController,
   Loading,
+  ReferenceField,
 } from "react-admin";
 
 import "../../../styles/list.css";
@@ -158,13 +159,13 @@ const Transactions = (props: any) => {
             }
             bulkActionButtons={false}
           >
-            <TextField source="user.name" emptyText="━" />
+            <ReferenceField source="userId" reference="customer360" />
             <TextField source="storeName" emptyText="━" />
             <TextField source="offer.network" emptyText="━" />
             <TextField source="saleAmount" emptyText="━" />
             <TextField source="commission" emptyText="━" />
-            <DateField source="date" emptyText="━" />
             <ChipField source="status" emptyText="━" />
+            <DateField source="date" emptyText="━" />
           </Datagrid>
         </List>
       </ListBase>

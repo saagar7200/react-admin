@@ -7,6 +7,7 @@ import {
   AutocompleteInput,
   Loading,
   useListController,
+  FunctionField,
 } from "react-admin";
 import { PostPagination } from "../../../utils/pagination";
 
@@ -63,10 +64,24 @@ const Ledger = (props: any) => {
             }
             bulkActionButtons={false}
           >
-            <TextField label="User Name" source="user.name" emptyText="━" />
+            <FunctionField
+              label="User"
+              sortBy={`${"name" || "email"}`}
+              render={(record: any) =>
+                `${
+                  record.user.name
+                    ? record.user.name
+                    : record.user.email
+                    ? record.user.email
+                    : record.user.phone
+                    ? record.user.phone
+                    : record.userId
+                } `
+              }
+            />
             <TextField source="transactionType" emptyText="━" />
-            <TextField source="rewardPoint" emptyText="━" />
             <TextField source="network" emptyText="━" />
+            <TextField source="rewardPoint" emptyText="━" />
             <TextField source="amount" emptyText="━" />
           </Datagrid>
         )}
