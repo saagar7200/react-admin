@@ -61,11 +61,13 @@ export const SubCategories = (props: any) => {
             source="categoryId"
             reference="categories"
           />
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
+          <WrapperField label="Active">
+            <BooleanField
+              source="isActive"
+              valueLabelTrue="Active"
+              valueLabelFalse="inActive"
+            />
+          </WrapperField>
           <WrapperField label="Action">
             <EditButton label="" />
           </WrapperField>

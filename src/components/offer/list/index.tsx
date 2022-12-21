@@ -59,20 +59,22 @@ export const Offers = (props: any) => {
           />
           <TextField source="title" />
           <ReferenceField
-            label="Subcategory"
+            label="Sub Category"
             source="subCategoryId"
             reference="sub-categories"
           />
           <TextField source="profit" />
 
           <TextField source="network" />
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
+          <WrapperField label="Active">
+            <BooleanField
+              source="isActive"
+              valueLabelTrue="Active"
+              valueLabelFalse="inActive"
+            />
+          </WrapperField>
           <DateField source="createdAt" />
-          <DateField source="updatedAt" />
+
           <WrapperField label="Action">
             <EditButton label="" />
           </WrapperField>

@@ -56,11 +56,13 @@ export const Categories = (props: any) => {
           <TextField source="name" emptyText="━" />
           <TextField label="Title" source="title" emptyText="━" />
           <TextField label="Subtitle" source="subTitle" emptyText="━" />
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
+          <WrapperField label="Active">
+            <BooleanField
+              source="isActive"
+              valueLabelTrue="Active"
+              valueLabelFalse="inActive"
+            />
+          </WrapperField>
           <WrapperField label="Action">
             <EditButton label="" />
           </WrapperField>
