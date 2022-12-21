@@ -56,26 +56,26 @@ export const CreateDeals = (props: any) => {
         </ReferenceInput>
       );
     }
-    if (type === "category") {
+    if (type === "subCategory") {
       return (
         <ReferenceInput
           variant="outlined"
-          source="categoryId"
-          reference="categories"
+          source="subCategoryId"
+          reference="sub-categories"
           recordRepresentation="name"
         >
-          <AutocompleteInput variant="outlined" label="Category" />
+          <AutocompleteInput variant="outlined" label="Sub Category" />
         </ReferenceInput>
       );
     }
     return (
       <ReferenceInput
         variant="outlined"
-        source="subCategoryId"
-        reference="sub-categories"
+        source="categoryId"
+        reference="categories"
         recordRepresentation="name"
       >
-        <AutocompleteInput variant="outlined" label="Sub Category" />
+        <AutocompleteInput variant="outlined" label="Category" />
       </ReferenceInput>
     );
   };
@@ -108,7 +108,7 @@ export const CreateDeals = (props: any) => {
                 source="type"
                 optionValue="type"
                 onChange={handleSelect}
-                defaultValue="subCategory"
+                defaultValue="category"
                 fullWidth
               />
             </ReferenceInput>

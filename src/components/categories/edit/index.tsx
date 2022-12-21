@@ -20,12 +20,33 @@ export const EditCategory = (props: any) => {
     notify(`Could not edit category: ${error.message}`, { type: "error" });
   };
 
+  const transform = (data: any) => {
+    let { image, icon, ...others } = data;
+    if (data.image.rawFile) {
+      others.image = image;
+      others.imageUrl = null;
+    } else {
+      others.imageUrl = data.image.src;
+    }
+    if (data.icon.rawFile) {
+      others.icon = icon;
+    } else {
+      others.icon = data.icon.src;
+    }
+    return others;
+  };
+
   return (
     <div className="edit_container">
       <Typography className="form_heading" variant="h5">
         Edit a Category
       </Typography>
-      <Edit title=" " {...props} mutationOptions={{ onError }}>
+      <Edit
+        title=" "
+        transform={transform}
+        {...props}
+        mutationOptions={{ onError }}
+      >
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <TextInput

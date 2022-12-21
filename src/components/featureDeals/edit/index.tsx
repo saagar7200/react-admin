@@ -15,6 +15,47 @@ import {
 import "../../../styles/edit.css";
 import { useState } from "react";
 
+const ShowInput = (props: any) => {
+  const { record } = useEditContext();
+  const { type } = props;
+  props.setType(type || record?.type);
+  if (type === "offer") {
+    return (
+      <ReferenceInput
+        variant="outlined"
+        source="offerId"
+        reference="offers"
+        recordRepresentation="name"
+      >
+        <AutocompleteInput variant="outlined" label="Deal Offer" />
+      </ReferenceInput>
+    );
+  }
+  if (type === "category") {
+    return (
+      <ReferenceInput
+        variant="outlined"
+        source="categoryId"
+        reference="categories"
+        recordRepresentation="name"
+      >
+        <AutocompleteInput variant="outlined" label="Category" />
+      </ReferenceInput>
+    );
+  }
+
+  return (
+    <ReferenceInput
+      variant="outlined"
+      source="subCategoryId"
+      reference="sub-categories"
+      recordRepresentation="name"
+    >
+      <AutocompleteInput variant="outlined" label="Sub Category" />
+    </ReferenceInput>
+  );
+};
+
 export const EditDeal = (props: any) => {
   const [type, setType] = useState("");
   const notify = useNotify();
@@ -29,9 +70,17 @@ export const EditDeal = (props: any) => {
   };
 
   const transform = (data: any) => {
+    let { image, icon, ...others } = data;
+    if (data.image.rawFile) {
+      others.image = image;
+      others.imageUrl = null;
+    } else {
+      others.imageUrl = data.image.src;
+    }
+
     if (data.type === "offer")
       return {
-        ...data,
+        ...others,
         categoryId: null,
         subCategoryId: null,
         subCategory: null,
@@ -39,7 +88,7 @@ export const EditDeal = (props: any) => {
       };
     if (data.type === "category")
       return {
-        ...data,
+        ...others,
         offerId: null,
         subCategoryId: null,
         offer: null,
@@ -47,52 +96,12 @@ export const EditDeal = (props: any) => {
       };
     if (data.type === "subCategory")
       return {
-        ...data,
+        ...others,
         offerId: null,
         categoryId: null,
         offer: null,
         category: null,
       };
-  };
-
-  const ShowInput = () => {
-    const { record } = useEditContext();
-    setType(type || record?.type);
-    if (type === "offer") {
-      return (
-        <ReferenceInput
-          variant="outlined"
-          source="offerId"
-          reference="offers"
-          recordRepresentation="name"
-        >
-          <AutocompleteInput variant="outlined" label="Deal Offer" />
-        </ReferenceInput>
-      );
-    }
-    if (type === "category") {
-      return (
-        <ReferenceInput
-          variant="outlined"
-          source="categoryId"
-          reference="categories"
-          recordRepresentation="name"
-        >
-          <AutocompleteInput variant="outlined" label="Category" />
-        </ReferenceInput>
-      );
-    }
-
-    return (
-      <ReferenceInput
-        variant="outlined"
-        source="subCategoryId"
-        reference="sub-categories"
-        recordRepresentation="name"
-      >
-        <AutocompleteInput variant="outlined" label="Sub Category" />
-      </ReferenceInput>
-    );
   };
 
   return (
@@ -124,13 +133,13 @@ export const EditDeal = (props: any) => {
                 source="type"
                 optionValue="type"
                 onChange={handleSelect}
-                defaultValue="sub-category"
+                defaultValue="category"
                 fullWidth
               />
             </ReferenceInput>
 
             {type !== " " ? (
-              <ShowInput />
+              <ShowInput type={type} setType={setType} />
             ) : (
               <ReferenceInput
                 variant="outlined"

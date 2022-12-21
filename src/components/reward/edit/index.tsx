@@ -82,7 +82,7 @@ export const EditReward = (props: any) => {
           <TextInput
             variant="outlined"
             label="Image URL"
-            source="image"
+            source="image.src"
             validate={required("Image is required.")}
             fullWidth
           />

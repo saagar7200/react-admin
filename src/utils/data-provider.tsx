@@ -155,4 +155,16 @@ export const myDataProvider = {
         : JSON.stringify(transformed),
     }).then(({ json }) => ({ data: json }));
   },
+  getOne: (resource, params) =>
+    httpClient(`${servicesHost}/${resource}/${params.id}`).then(({ json }) => {
+      let newData: any = {
+        ...json,
+        image: { src: json?.imageUrl ? json?.imageUrl : json?.image },
+        icon: { src: json.icon },
+      };
+
+      return {
+        data: newData,
+      };
+    }),
 };
