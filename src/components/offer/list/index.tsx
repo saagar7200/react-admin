@@ -11,6 +11,7 @@ import {
   TextInput,
   useListController,
   Loading,
+  WrapperField,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -72,7 +73,9 @@ export const Offers = (props: any) => {
           />
           <DateField source="createdAt" />
           <DateField source="updatedAt" />
-          <EditButton />
+          <WrapperField label="Action">
+            <EditButton label="" />
+          </WrapperField>
         </Datagrid>
       </List>
     </div>

@@ -9,6 +9,7 @@ import {
   AutocompleteInput,
   useListController,
   Loading,
+  WrapperField,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -64,8 +65,9 @@ export const DealSuggestion = (props: any) => {
           />
 
           <TextField source="coupon" emptyText="━" />
-
-          <EditButton />
+          <WrapperField label="Action">
+            <EditButton label="" />
+          </WrapperField>
         </Datagrid>
       </List>
     </div>

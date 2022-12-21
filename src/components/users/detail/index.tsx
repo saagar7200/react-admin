@@ -117,7 +117,7 @@ export const DetailUser = (props: any) => {
                   <div className="user_detail_data">
                     <img
                       className="user_profile"
-                      alt={record.name}
+                      alt={record.name || "Not Found"}
                       src={record?.image ? record?.image : "/asset/noImage.png"}
                     />
                   </div>

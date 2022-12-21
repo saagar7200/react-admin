@@ -9,6 +9,7 @@ import {
   useListController,
   Loading,
   FunctionField,
+  WrapperField,
 } from "react-admin";
 
 import "../../../styles/list.css";
@@ -109,7 +110,10 @@ const Users = (props: any) => {
           <TextField source="salesAmountSumApproved" label="Approved Sales " />
           <TextField source="commissionAmountSum" label="Total Commission" />
           <TextField source="salesAmountSum" label="Total Sales" />
-          <ShowButton />
+
+          <WrapperField label="Action">
+            <ShowButton label="" />
+          </WrapperField>
         </Datagrid>
       </List>
     </div>
