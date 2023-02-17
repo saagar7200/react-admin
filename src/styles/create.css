@@ -10,6 +10,8 @@
   margin-bottom: 20px;
   color: rgb(105, 97, 97);
   font-weight: 500 !important;
+  display: flex;
+  align-items: center;
 }
 
 .offer_form_wrapper {

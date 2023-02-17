@@ -1,5 +1,5 @@
 import { FC, useContext, useState } from "react";
-import { Box, Typography } from "@material-ui/core";
+import { Box,  } from "@material-ui/core";
 import {
   required,
   Edit,
@@ -17,10 +17,12 @@ import {
   useNotify,
   useEditController,
   Loading,
+  useResourceContext,
 } from "react-admin";
 import "../../../styles/edit.css";
 import { RichTextInput } from "ra-input-rich-text";
 import { useParams } from "react-router-dom";
+import Title from "../../../utils/title/Title";
 
 const choices: { id: string; name: string }[] = [
   { id: "inr", name: "inr" },
@@ -43,6 +45,7 @@ export const EditOffer: FC = (props: any) => {
   const refresh = useRefresh();
   const notify = useNotify();
   const { id } = useParams();
+  const resource = useResourceContext();
 
   const onError = (error: any) => {
     notify(`Could not edit offer: ${error.message}`, { type: "error" });
@@ -127,9 +130,7 @@ export const EditOffer: FC = (props: any) => {
 
   return (
     <div>
-      <Typography className="form_heading" variant="h5">
-        Edit Offer
-      </Typography>
+      <Title title="Edit a offer" resource={resource} />
 
       <Edit
         title=" "

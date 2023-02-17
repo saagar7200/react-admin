@@ -1,4 +1,4 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import {
   required,
   Edit,
@@ -12,11 +12,14 @@ import {
   AutocompleteArrayInput,
   ReferenceArrayInput,
   useNotify,
+  useResourceContext,
 } from "react-admin";
 import "../../../styles/edit.css";
+import Title from "../../../utils/title/Title";
 
 export const EditSubCategory = (props: any) => {
   const notify = useNotify();
+  const resource = useResourceContext();
 
   const onError = (error: any) => {
     notify(`Could not edit sub category: ${error.message}`, {
@@ -42,9 +45,7 @@ export const EditSubCategory = (props: any) => {
 
   return (
     <div className="edit_container">
-      <Typography className="form_heading" variant="h5">
-        Edit a sub category
-      </Typography>
+      <Title title="Edit a Subcategory" resource={resource} />
 
       <Edit
         title=" "

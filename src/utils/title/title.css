@@ -1,0 +1,15 @@
+.title_wrapper {
+  margin-top: 35px !important;
+  margin-left: 0px;
+  margin-bottom: 20px;
+  color: rgb(105, 97, 97);
+  font-weight: 500 !important;
+  display: flex;
+  align-items: center;
+}
+
+.title_back_icon {
+  cursor: pointer;
+  font-size: 32px !important;
+  width: 50px !important;
+}
