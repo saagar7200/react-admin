@@ -26,14 +26,24 @@
 }
 
 .user_detail_withdraw_btn {
-  height: 35px !important;
-  width: 100px !important;
+  height: 40px !important;
+  width: 140px !important;
   border-radius: 5px !important;
   border: 0px !important;
   color: white;
-  background-color: #312a91 !important;
+  background-color: #1976d2 !important;
   margin-top: 35px !important;
+  margin-right: 20px;
   cursor: pointer;
+  transition: all 0.5s;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.user_detail_withdraw_btn:hover {
+  border: 1px solid #1976d2 !important;
+  background-color: white !important;
+  color: #1976d2;
 }
 
 .user_detail_card_title {
@@ -51,4 +61,51 @@
 
 .user_detail_ledger_title {
   margin-top: 30px !important;
+}
+
+.user_profile {
+  height: 100px !important;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 55px;
+  margin-top: 5px;
+}
+
+.user_details_basic_info_heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user_detail_info_head_button_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.seed_button {
+  border: 1px solid #1976d2;
+  background-color: white;
+  color: #1976d2;
+  font-weight: 400;
+  padding: 10px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 150px;
+  transition: all 0.5s;
+}
+.seed_button:hover {
+  border-color: #1976d2;
+  background: #1976d2;
+  color: white;
+}
+
+.seed_button:disabled {
+  /* border: 1px solid rgba(0, 0, 0, 0.12); */
+  border: none;
+  color: rgba(0, 0, 0, 0.596);
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12);
+  cursor: not-allowed;
 }

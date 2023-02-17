@@ -7,6 +7,8 @@ import {
   ImageField,
   ReferenceField,
   AutocompleteInput,
+  useListController,
+  Loading,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -27,6 +29,10 @@ const filters = [
   />,
 ];
 export const DealSuggestion = (props: any) => {
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">

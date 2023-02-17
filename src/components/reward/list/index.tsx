@@ -4,30 +4,26 @@ import {
   Datagrid,
   TextField,
   EditButton,
-  ReferenceField,
   ImageField,
-  BooleanField,
   TextInput,
-  useListController,
   Loading,
+  useListController,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
 import "../../../styles/list.css";
-import { PostPagination } from "../../../utils/pagination";
+import { PostPagination } from "../../../utils/pagination/index";
 
 const filters = [
   <TextInput
     className="search_form"
     source="q"
     variant="outlined"
-    label="Search By Name"
+    label="Search By Reward Name"
     alwaysOn
-    resettable
   />,
 ];
-
-export const SubCategories = (props: any) => {
+export const Reward = (props: any) => {
   const { isLoading } = useListController();
 
   if (isLoading) return <Loading loadingSecondary="" />;
@@ -36,35 +32,32 @@ export const SubCategories = (props: any) => {
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
         {" "}
-        Sub Categories
+        Rewards
       </Typography>
-
       <List
         {...props}
+        emptyWhileLoading
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
-        <Datagrid rowClick="edit" empty={<Empty label="Sub Category" />}>
+        <Datagrid rowClick="edit" empty={<Empty label="Rewards" />}>
           <ImageField
             className="imgaes"
-            source="imageUrl"
-            title="title"
+            source="image"
+            title="rewardName"
             label="Image"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-          <TextField source="name" />
-          <ReferenceField
-            label="category"
-            source="categoryId"
-            reference="categories"
-          />
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
+          <TextField label="Reward Name" source="rewardName" emptyText="━" />
+
+          <TextField source="type" emptyText="━" />
+          <TextField label="Provider" source="provider" emptyText="━" />
+          <TextField label="ETID" source="etId" emptyText="━" />
+          <TextField label="Max Value" source="maxValue" emptyText="━" />
+          <TextField label="Face Value" source="faceValue" emptyText="━" />
+
           <EditButton />
         </Datagrid>
       </List>

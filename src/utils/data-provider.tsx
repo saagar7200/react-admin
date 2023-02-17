@@ -4,7 +4,6 @@ import simpleRestProvider from "ra-data-simple-rest";
 import { fetchUtils } from "react-admin";
 
 export const servicesHost = "https://rayyapi.tk";
-// export const servicesHost = "https://a1a6-103-10-28-196.in.ngrok.io";
 
 const countHeader: string = "Content-Range";
 
@@ -136,6 +135,7 @@ export const myDataProvider = {
   },
   update: (resource: any, params: any) => {
     const objectFromForm = params.data;
+
     let isFormWithFile = false;
     //go through each value in object, and if a value has rawFile property, then it is a file
     const transformed = {};
@@ -155,4 +155,16 @@ export const myDataProvider = {
         : JSON.stringify(transformed),
     }).then(({ json }) => ({ data: json }));
   },
+  getOne: (resource, params) =>
+    httpClient(`${servicesHost}/${resource}/${params.id}`).then(({ json }) => {
+      let newData: any = {
+        ...json,
+        image: { src: json?.imageUrl ? json?.imageUrl : json?.image },
+        icon: { src: json.icon },
+      };
+
+      return {
+        data: newData,
+      };
+    }),
 };

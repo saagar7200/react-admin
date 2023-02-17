@@ -12,16 +12,25 @@ import {
   AutocompleteInput,
   ReferenceArrayInput,
   AutocompleteArrayInput,
+  useNotify,
 } from "react-admin";
 
 export const CreateSubCategory = (props: any) => {
+  const notify = useNotify();
+
+  const onError = (error: any) => {
+    notify(`Could not create sub category: ${error.message}`, {
+      type: "error",
+    });
+  };
+
   return (
     <div className="create_category_container">
       <Typography className="form_heading" variant="h5">
         Create a Subcategory
       </Typography>
 
-      <Create title=" " redirect="list">
+      <Create title=" " redirect="list" mutationOptions={{ onError }}>
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <ReferenceInput
@@ -63,14 +72,23 @@ export const CreateSubCategory = (props: any) => {
               source="title"
             />
           </Box>
+          <Box className="offer_form_wrapper">
+            <TextInput
+              className="textInput"
+              variant="outlined"
+              label="Carousel subtitle"
+              validate={required()}
+              source="carouselProp"
+            />
+            <TextInput
+              multiline
+              variant="outlined"
+              validate={required()}
+              source="description"
+              style={{ width: "100%" }}
+            />
+          </Box>
 
-          <TextInput
-            multiline
-            variant="outlined"
-            validate={required()}
-            source="description"
-            style={{ width: "100%" }}
-          />
           <Box className="offer_form_wrapper">
             <ImageInput className="textInput" source="image" label="Image">
               <ImageField source="src" title="title" />

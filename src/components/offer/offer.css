@@ -1,0 +1,84 @@
+.create_category_container {
+  margin-left: 8px;
+}
+.textInput {
+  width: 100%;
+}
+.form_heading {
+  margin-top: 35px !important;
+  margin-left: 0px;
+  margin-bottom: 20px;
+  color: rgb(105, 97, 97);
+  font-weight: 500 !important;
+}
+
+.offer_form_wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1em;
+  margin: auto;
+}
+
+.offer_form_wrapper > .ra-input {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.margin-top {
+  margin-top: 30px !important;
+}
+
+.generate_cashback_trem_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 15px 0px;
+}
+
+.generateCashbackFieldset {
+  border-radius: 4px;
+  border-color: rgba(0, 0, 0, 0.171);
+  box-shadow: none;
+}
+.generateCashbackHead {
+  font-weight: 500;
+  color: rgba(53, 52, 52, 0.795);
+  border: none;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #fafafb;
+}
+
+.term_bool_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 25%;
+  align-items: center;
+}
+.term_bool_input {
+  display: flex;
+  align-items: center;
+  width: fit-content !important;
+}
+.generate_button {
+  border: none;
+  outline: none;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.generate_button:disabled {
+  color: rgba(0, 0, 0, 0.26) !important;
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12) !important;
+  cursor: not-allowed;
+}

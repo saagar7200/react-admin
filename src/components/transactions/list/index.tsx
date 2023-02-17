@@ -12,6 +12,9 @@ import {
   FilterForm,
   ListBase,
   AutocompleteInput,
+  useListController,
+  Loading,
+  ReferenceField,
 } from "react-admin";
 
 import "../../../styles/list.css";
@@ -27,6 +30,11 @@ const Transactions = (props: any) => {
   const location = useLocation();
 
   const refresh = useRefresh();
+
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   const getData = async () => {
     const res = await fetch(
       `${servicesHost}/affiliate/transactions?network=inr&persist=true`,
@@ -70,6 +78,7 @@ const Transactions = (props: any) => {
       placeholder="Search"
       alwaysOn={!userSearch && true}
       hidden={userSearch}
+      resettable
     />,
     <TextInput
       className="search_form"
@@ -78,6 +87,7 @@ const Transactions = (props: any) => {
       label="Search By User"
       placeholder="Search"
       hidden={!userSearch}
+      resettable
     />,
 
     <DateInput label="From" source="startDate" variant="outlined" alwaysOn />,
@@ -149,13 +159,13 @@ const Transactions = (props: any) => {
             }
             bulkActionButtons={false}
           >
-            <TextField source="user.name" emptyText="━" />
+            <ReferenceField source="userId" reference="customer360" />
             <TextField source="storeName" emptyText="━" />
             <TextField source="offer.network" emptyText="━" />
             <TextField source="saleAmount" emptyText="━" />
             <TextField source="commission" emptyText="━" />
-            <DateField source="date" emptyText="━" />
             <ChipField source="status" emptyText="━" />
+            <DateField source="date" emptyText="━" />
           </Datagrid>
         </List>
       </ListBase>

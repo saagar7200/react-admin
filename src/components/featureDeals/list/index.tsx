@@ -5,8 +5,11 @@ import {
   TextField,
   EditButton,
   ImageField,
-  TextInput,
   ReferenceField,
+  ReferenceInput,
+  AutocompleteInput,
+  useListController,
+  Loading,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -14,16 +17,24 @@ import "../../../styles/list.css";
 import { PostPagination } from "../../../utils/pagination/index";
 
 const filters = [
-  <TextInput
-    className="search_form"
-    source="q"
-    variant="outlined"
-    label="Search By Type"
-    alwaysOn
-  />,
+  <ReferenceInput source="type" reference="carousel/type" alwaysOn>
+    <AutocompleteInput
+      className="select-search"
+      variant="outlined"
+      label="Filter By Deal Type"
+      optionText="type"
+      optionValue="type"
+      fullWidth
+      alwaysOn
+    />
+  </ReferenceInput>,
 ];
 
 export const FeatureDeals = (props: any) => {
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
@@ -51,6 +62,18 @@ export const FeatureDeals = (props: any) => {
             label="Offer"
             source="offerId"
             reference="offers"
+            emptyText="━"
+          />
+          <ReferenceField
+            label="Category"
+            source="categoryId"
+            reference="categories"
+            emptyText="━"
+          />
+          <ReferenceField
+            label="Sub Category"
+            source="subCategoryId"
+            reference="sub-categories"
             emptyText="━"
           />
           <TextField source="priority" />

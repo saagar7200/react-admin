@@ -9,6 +9,8 @@ import {
   ImageField,
   BooleanField,
   TextInput,
+  useListController,
+  Loading,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -22,10 +24,15 @@ const filters = [
     variant="outlined"
     label="Search By Title"
     alwaysOn
+    resettable
   />,
 ];
 
 export const Offers = (props: any) => {
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
@@ -42,9 +49,9 @@ export const Offers = (props: any) => {
         <Datagrid rowClick="edit" empty={<Empty label="Offers" />}>
           <ImageField
             className="imgaes"
-            source="imageUrl"
+            source="icon"
             title="title"
-            label="Image"
+            label="Icon"
             sx={{
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
@@ -56,7 +63,7 @@ export const Offers = (props: any) => {
             reference="sub-categories"
           />
           <TextField source="profit" />
-          {/* <TextField source="baseReferalLink" /> */}
+
           <TextField source="network" />
           <BooleanField
             source="isActive"

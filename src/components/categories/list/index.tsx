@@ -7,7 +7,8 @@ import {
   ImageField,
   BooleanField,
   TextInput,
-  useListContext,
+  Loading,
+  useListController,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -21,11 +22,13 @@ const filters = [
     variant="outlined"
     label="Search By Name"
     alwaysOn
+    resettable
   />,
 ];
 export const Categories = (props: any) => {
-  const { isLoading } = useListContext();
-  if (isLoading) return <h5>Loading</h5>;
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
 
   return (
     <div className="list_wapper">
@@ -49,7 +52,9 @@ export const Categories = (props: any) => {
               "& img": { maxWidth: 50, maxHeight: 60, objectFit: "cover" },
             }}
           />
-          <TextField source="name" />
+          <TextField source="name" emptyText="━" />
+          <TextField label="Title" source="title" emptyText="━" />
+          <TextField label="Subtitle" source="subTitle" emptyText="━" />
           <BooleanField
             source="isActive"
             valueLabelTrue="Active"

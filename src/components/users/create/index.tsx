@@ -21,10 +21,15 @@ export const CreateUser = (props: any) => {
   const refresh = useRefresh();
   const redirect = useRedirect();
 
-  const onSuccess = () => {
-    notify(`Category created.`);
-    redirect("/categories");
+  const onSuccess = (data: any) => {
+    notify(`user  created.`);
+    redirect("/customer360");
     refresh();
+  };
+  const onError = (error: any) => {
+    notify(`Could not create user: ${error.message}`, {
+      type: "error",
+    });
   };
 
   return (
@@ -33,7 +38,7 @@ export const CreateUser = (props: any) => {
         Create a User
       </Typography>
 
-      <Create onSuccess={onSuccess} title=" " {...props}>
+      <Create mutationOptions={{ onError, onSuccess }} title=" " {...props}>
         <SimpleForm>
           <Box className="offer_form_wrapper">
             <TextInput
@@ -43,42 +48,40 @@ export const CreateUser = (props: any) => {
               variant="outlined"
               validate={required()}
             />
-             <AutocompleteInput
-            className="textInput"
-            source="status"
-            validate={required()}
-            variant="outlined"
-            choices={choices}
-          />
-            
+            <AutocompleteInput
+              className="textInput"
+              source="status"
+              validate={required()}
+              variant="outlined"
+              choices={choices}
+            />
           </Box>
-        
-        <Box className="offer_form_wrapper">
-        <TextInput
-            className="textInput"
-            source="salesAmountSum"
-            variant="outlined"
-            validate={required()}
-          />
 
-          <TextInput
-            className="textInput"
-            source="commissionSum"
-            variant="outlined"
-            validate={required()}
-          />
-        </Box>
-        <Box className="offer_form_wrapper">
-        <TextInput
+          <Box className="offer_form_wrapper">
+            <TextInput
+              className="textInput"
+              source="salesAmountSum"
+              variant="outlined"
+              validate={required()}
+            />
+
+            <TextInput
+              className="textInput"
+              source="commissionSum"
+              variant="outlined"
+              validate={required()}
+            />
+          </Box>
+          <Box className="offer_form_wrapper">
+            <TextInput
               className="textInput"
               source="image"
               variant="outlined"
               validate={required()}
             />
             <div className="textInput"></div>
-        </Box>
+          </Box>
 
-         
           {/* <Box className="offer_form_wrapper">
              <ImageInput className="textInput" source="image" label="Image">
           <Box className="offer_form_wrapper">

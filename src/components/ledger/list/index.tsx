@@ -5,6 +5,9 @@ import {
   TextField,
   TextInput,
   AutocompleteInput,
+  Loading,
+  useListController,
+  FunctionField,
 } from "react-admin";
 import { PostPagination } from "../../../utils/pagination";
 
@@ -17,6 +20,7 @@ const filters = [
     variant="outlined"
     label="Search By User Name"
     alwaysOn
+    resettable
   />,
   <AutocompleteInput
     source="network"
@@ -32,6 +36,10 @@ const filters = [
 ];
 
 const Ledger = (props: any) => {
+  const { isLoading } = useListController();
+
+  if (isLoading) return <Loading loadingSecondary="" />;
+
   return (
     <div className="list_wapper">
       <Typography className="List_header" variant="h5">
@@ -45,20 +53,38 @@ const Ledger = (props: any) => {
         filters={filters}
         pagination={<PostPagination limit={null} />}
       >
-        <Datagrid
-          empty={
-            <Typography className="empty_text" variant="h6">
-              Ledger data not available !!
-            </Typography>
-          }
-          bulkActionButtons={false}
-        >
-          <TextField label="User Name" source="user.name" emptyText="━" />
-          <TextField source="transactionType" emptyText="━" />
-          <TextField source="rewardPoint" emptyText="━" />
-          <TextField source="network" emptyText="━" />
-          <TextField source="amount" emptyText="━" />
-        </Datagrid>
+        {isLoading ? (
+          <Loading loadingSecondary="" />
+        ) : (
+          <Datagrid
+            empty={
+              <Typography className="empty_text" variant="h6">
+                Ledger data not available !!
+              </Typography>
+            }
+            bulkActionButtons={false}
+          >
+            <FunctionField
+              label="User"
+              sortBy={`${"name" || "email"}`}
+              render={(record: any) =>
+                `${
+                  record.user.name
+                    ? record.user.name
+                    : record.user.email
+                    ? record.user.email
+                    : record.user.phone
+                    ? record.user.phone
+                    : record.userId
+                } `
+              }
+            />
+            <TextField source="transactionType" emptyText="━" />
+            <TextField source="network" emptyText="━" />
+            <TextField source="rewardPoint" emptyText="━" />
+            <TextField source="amount" emptyText="━" />
+          </Datagrid>
+        )}
       </List>
     </div>
   );
