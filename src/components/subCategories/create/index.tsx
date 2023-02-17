@@ -1,5 +1,6 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 
+import Title from "../../../utils/title/Title";
 import {
   Create,
   required,
@@ -13,10 +14,12 @@ import {
   ReferenceArrayInput,
   AutocompleteArrayInput,
   useNotify,
+  useResourceContext,
 } from "react-admin";
 
 export const CreateSubCategory = (props: any) => {
   const notify = useNotify();
+  const resource = useResourceContext();
 
   const onError = (error: any) => {
     notify(`Could not create sub category: ${error.message}`, {
@@ -26,9 +29,7 @@ export const CreateSubCategory = (props: any) => {
 
   return (
     <div className="create_category_container">
-      <Typography className="form_heading" variant="h5">
-        Create a Subcategory
-      </Typography>
+      <Title title="Create a Subcategory" resource={resource} />
 
       <Create title=" " redirect="list" mutationOptions={{ onError }}>
         <SimpleForm>

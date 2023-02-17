@@ -9,6 +9,7 @@ import {
   TextInput,
   Loading,
   useListController,
+  WrapperField,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -55,12 +56,16 @@ export const Categories = (props: any) => {
           <TextField source="name" emptyText="━" />
           <TextField label="Title" source="title" emptyText="━" />
           <TextField label="Subtitle" source="subTitle" emptyText="━" />
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
-          <EditButton />
+          <WrapperField label="Active">
+            <BooleanField
+              source="isActive"
+              valueLabelTrue="Active"
+              valueLabelFalse="inActive"
+            />
+          </WrapperField>
+          <WrapperField label="Action">
+            <EditButton label="" />
+          </WrapperField>
         </Datagrid>
       </List>
     </div>

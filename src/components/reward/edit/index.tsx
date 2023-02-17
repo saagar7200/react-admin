@@ -1,4 +1,4 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import {
   required,
   Edit,
@@ -7,18 +7,21 @@ import {
   number,
   ReferenceInput,
   AutocompleteInput,
+  useResourceContext,
 } from "react-admin";
 
 import "../../../styles/edit.css";
+import Title from "../../../utils/title/Title";
 
 const validateNumber = [required("Max value is required."), number()];
 
 export const EditReward = (props: any) => {
+  const resource = useResourceContext();
+
   return (
     <div className="edit_container">
-      <Typography className="form_heading" variant="h5">
-        Edit a Reward
-      </Typography>
+      <Title title="Edit a Reward" resource={resource} />
+
       <Edit title=" " {...props}>
         <SimpleForm mode="onBlur" reValidateMode="onBlur">
           <Box className="offer_form_wrapper">

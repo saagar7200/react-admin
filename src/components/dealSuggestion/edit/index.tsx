@@ -10,13 +10,17 @@ import {
   ImageInput,
   ImageField,
   useNotify,
+  useResourceContext,
 } from "react-admin";
 import "../../../styles/edit.css";
 
 import { validateDeal } from "../validaton/index";
+import Title from "../../../utils/title/Title";
 
 export const EditDealSuggestion: FC = (props: any) => {
   const notify = useNotify();
+  const resource = useResourceContext();
+
   const transform = (data: any) => {
     if (data.type === "offer") {
       return { ...data, coupon: null };
@@ -33,9 +37,8 @@ export const EditDealSuggestion: FC = (props: any) => {
 
   return (
     <div className="edit_container">
-      <Typography className="form_heading" variant="h5">
-        Edit a Deal Suggestion
-      </Typography>
+      <Title title=" Edit a Deal Suggestion" resource={resource} />
+
       <Edit
         title=" "
         {...props}

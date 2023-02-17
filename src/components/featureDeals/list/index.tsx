@@ -10,6 +10,7 @@ import {
   AutocompleteInput,
   useListController,
   Loading,
+  WrapperField,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -77,7 +78,9 @@ export const FeatureDeals = (props: any) => {
             emptyText="━"
           />
           <TextField source="priority" />
-          <EditButton />
+          <WrapperField label="Action">
+            <EditButton label="" />
+          </WrapperField>
         </Datagrid>
       </List>
     </div>

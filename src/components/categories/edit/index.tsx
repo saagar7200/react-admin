@@ -9,12 +9,15 @@ import {
   ImageField,
   useNotify,
   number,
+  useResourceContext,
 } from "react-admin";
 
 import "../../../styles/edit.css";
+import Title from "../../../utils/title/Title";
 
 export const EditCategory = (props: any) => {
   const notify = useNotify();
+  const resource = useResourceContext();
 
   const onError = (error: any) => {
     notify(`Could not edit category: ${error.message}`, { type: "error" });
@@ -38,9 +41,8 @@ export const EditCategory = (props: any) => {
 
   return (
     <div className="edit_container">
-      <Typography className="form_heading" variant="h5">
-        Edit a Category
-      </Typography>
+      <Title title="Edit a Category" resource={resource} />
+
       <Edit
         title=" "
         transform={transform}

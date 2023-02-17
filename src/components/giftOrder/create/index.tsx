@@ -1,5 +1,6 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import "../../../styles/create.css";
+import Title from "../../../utils/title/Title";
 import {
   Create,
   required,
@@ -7,6 +8,7 @@ import {
   TextInput,
   AutocompleteInput,
   number,
+  useResourceContext,
 } from "react-admin";
 
 export const CreateGiftOrder = (props: any) => {
@@ -15,11 +17,10 @@ export const CreateGiftOrder = (props: any) => {
     { id: "pending", name: "PENDING" },
   ];
 
+  const resource = useResourceContext();
   return (
     <div className="create_category_container">
-      <Typography className="form_heading" variant="h5">
-        Create a Gift Order
-      </Typography>
+      <Title title="Create a Gift Order" resource={resource} />
 
       <Create title=" " {...props} redirect="list">
         <SimpleForm mode="onBlur" reValidateMode="onBlur">
