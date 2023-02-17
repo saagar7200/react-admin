@@ -1,7 +1,8 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { FC, useState } from "react";
 
 import { validateDeal } from "../validaton/index";
+import Title from "../../../utils/title/Title";
 import {
   Create,
   SimpleForm,
@@ -12,12 +13,14 @@ import {
   AutocompleteInput,
   SelectInput,
   useNotify,
+  useResourceContext,
 } from "react-admin";
 
 export const CreateDealSuggestion: FC = (props: any) => {
   const [isOffer, setIsOffer] = useState(false);
 
   const notify = useNotify();
+  const resource = useResourceContext();
 
   const onError = (error: any) => {
     notify(`Could not create deal suggestion: ${error.message}`);
@@ -41,9 +44,7 @@ export const CreateDealSuggestion: FC = (props: any) => {
 
   return (
     <div className="create_category_container">
-      <Typography className="form_heading" variant="h5">
-        Create a Deal Suggestion
-      </Typography>
+      <Title title="Create a Deal Suggestion" resource={resource} />
 
       <Create
         title=" "

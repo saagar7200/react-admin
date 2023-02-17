@@ -1,5 +1,6 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import "../../../styles/create.css";
+import Title from "../../../utils/title/Title";
 import {
   Create,
   required,
@@ -8,16 +9,17 @@ import {
   number,
   ReferenceInput,
   AutocompleteInput,
+  useResourceContext,
 } from "react-admin";
 
 const validateNumber = [required("Max value is required."), number()];
 
 export const CreateReward = (props: any) => {
+  const resource = useResourceContext();
+
   return (
     <div className="create_category_container">
-      <Typography className="form_heading" variant="h5">
-        Create a Reward
-      </Typography>
+      <Title title="Create a Reward" resource={resource} />
 
       <Create title=" " {...props} redirect="list">
         <SimpleForm mode="onBlur" reValidateMode="onBlur">

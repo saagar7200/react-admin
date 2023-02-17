@@ -1,6 +1,7 @@
 import { Box, Typography } from "@material-ui/core";
 import { useState } from "react";
 import { validate } from "../validaton/index";
+import Title from "../../../utils/title/Title";
 import {
   Create,
   required,
@@ -14,6 +15,7 @@ import {
   useNotify,
   useRedirect,
   useRefresh,
+  useResourceContext,
 } from "react-admin";
 
 export const CreateDeals = (props: any) => {
@@ -21,6 +23,7 @@ export const CreateDeals = (props: any) => {
   const notify = useNotify();
   const redirect = useRedirect();
   const refresh = useRefresh();
+  const resource = useResourceContext();
   const handleSelect = (e: any) => {
     setType(e.target.value);
   };
@@ -82,9 +85,7 @@ export const CreateDeals = (props: any) => {
 
   return (
     <div className="create_category_container">
-      <Typography className="form_heading" variant="h5">
-        Create a deal
-      </Typography>
+      <Title title="Create a deal" resource={resource} />
 
       <Create
         title=" "

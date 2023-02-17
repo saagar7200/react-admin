@@ -1,5 +1,6 @@
 import { Box, Typography } from "@material-ui/core";
 import "../../../styles/create.css";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import {
   Create,
   required,
@@ -10,10 +11,15 @@ import {
   ImageField,
   useNotify,
   number,
+  useResourceContext,
 } from "react-admin";
+// import { useNavigate } from "react-router-dom";
+import Title from "../../../utils/title/Title";
 
 export const CreateCategory = (props: any) => {
   const notify = useNotify();
+  const resource = useResourceContext();
+  // const navigate = useNavigate();
 
   const onError = (error: any) => {
     notify(`Could not create category: ${error.message}`, { type: "error" });
@@ -21,9 +27,7 @@ export const CreateCategory = (props: any) => {
 
   return (
     <div className="create_category_container">
-      <Typography className="form_heading" variant="h5">
-        Create a Category
-      </Typography>
+      <Title title="Create a Category" resource={resource} />
 
       <Create
         title=" "

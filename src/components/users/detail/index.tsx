@@ -8,9 +8,11 @@ import {
   DataProviderContext,
   Loading,
   useRefresh,
+  useResourceContext,
 } from "react-admin";
 import "../../../styles/edit.css";
 import "../users.css";
+import Title from "../../../utils/title/Title";
 
 export const DetailUser = (props: any) => {
   const { isLoading, record } = useShowController(props);
@@ -23,6 +25,7 @@ export const DetailUser = (props: any) => {
   const [seedLedgerLoading, setLedgerLoading] = useState(false);
 
   const refresh = useRefresh();
+  const resource = useResourceContext();
 
   const handleWithdraw = () => {
     if (record.id) {
@@ -78,9 +81,7 @@ export const DetailUser = (props: any) => {
   return (
     <div className="create_category_container">
       <div className="user_detail_header">
-        <Typography className="form_heading" variant="h5">
-          User Detail
-        </Typography>
+        <Title title="User Detail" resource={resource} />
         <button onClick={handleWithdraw} className="user_detail_withdraw_btn">
           Withdraw
         </button>
@@ -117,7 +118,7 @@ export const DetailUser = (props: any) => {
                   <div className="user_detail_data">
                     <img
                       className="user_profile"
-                      alt={record.name}
+                      alt={record.name || "Not Found"}
                       src={record?.image ? record?.image : "/asset/noImage.png"}
                     />
                   </div>

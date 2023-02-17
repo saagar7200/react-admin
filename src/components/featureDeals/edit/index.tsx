@@ -1,4 +1,4 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import {
   required,
   Edit,
@@ -11,14 +11,17 @@ import {
   SelectInput,
   useEditContext,
   useNotify,
+  useResourceContext,
 } from "react-admin";
 import "../../../styles/edit.css";
 import { useState } from "react";
+import Title from "../../../utils/title/Title";
 
 const ShowInput = (props: any) => {
   const { record } = useEditContext();
   const { type } = props;
-  props.setType(type || record?.type);
+
+  props.setType(type ? type : record?.type);
   if (type === "offer") {
     return (
       <ReferenceInput
@@ -59,6 +62,7 @@ const ShowInput = (props: any) => {
 export const EditDeal = (props: any) => {
   const [type, setType] = useState("");
   const notify = useNotify();
+  const resource = useResourceContext();
 
   const onError = (error: any) => {
     notify(`Could not edit deal: ${error.message}`, { type: "error" });
@@ -106,9 +110,7 @@ export const EditDeal = (props: any) => {
 
   return (
     <div>
-      <Typography className="form_heading" variant="h5">
-        Edit deal
-      </Typography>
+      <Title title="Edit a deal" resource={resource} />
 
       <Edit
         title=" "

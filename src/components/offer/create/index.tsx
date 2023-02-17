@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
-import { Box, Typography } from "@material-ui/core";
+import { Box,  } from "@material-ui/core";
 import { RichTextInput } from "ra-input-rich-text";
 import "../offer.css";
+import Title from "../../../utils/title/Title";
 import {
   Create,
   required,
@@ -18,6 +19,7 @@ import {
   useRefresh,
   number,
   useNotify,
+  useResourceContext,
 } from "react-admin";
 
 const choices: { id: string; name: string }[] = [
@@ -41,6 +43,8 @@ export const CreateOffer = (props: any) => {
 
   const notify = useNotify();
   const refresh = useRefresh();
+
+  const resource = useResourceContext();
 
   const onError = (error: any) => {
     notify(`Could not create offer: ${error.message}`, { type: "error" });
@@ -106,9 +110,7 @@ export const CreateOffer = (props: any) => {
 
   return (
     <div className="create_category_container">
-      <Typography className="form_heading" variant="h5">
-        Create a offer
-      </Typography>
+      <Title title="Create a offer" resource={resource} />
 
       <Create
         title=" "

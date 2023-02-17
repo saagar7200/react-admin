@@ -10,6 +10,7 @@ import {
   TextInput,
   useListController,
   Loading,
+  WrapperField,
 } from "react-admin";
 import { Empty } from "../../empty/Empty";
 
@@ -60,12 +61,16 @@ export const SubCategories = (props: any) => {
             source="categoryId"
             reference="categories"
           />
-          <BooleanField
-            source="isActive"
-            valueLabelTrue="Active"
-            valueLabelFalse="inActive"
-          />
-          <EditButton />
+          <WrapperField label="Active">
+            <BooleanField
+              source="isActive"
+              valueLabelTrue="Active"
+              valueLabelFalse="inActive"
+            />
+          </WrapperField>
+          <WrapperField label="Action">
+            <EditButton label="" />
+          </WrapperField>
         </Datagrid>
       </List>
     </div>

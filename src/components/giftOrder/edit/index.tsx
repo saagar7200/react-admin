@@ -1,5 +1,6 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import "../../../styles/create.css";
+import Title from "../../../utils/title/Title";
 import {
   required,
   SimpleForm,
@@ -7,9 +8,12 @@ import {
   AutocompleteInput,
   Edit,
   number,
+  useResourceContext,
 } from "react-admin";
 
 export const EditGiftOrder = (props: any) => {
+  const resource = useResourceContext();
+
   const choices: { id: string; name: string }[] = [
     { id: "complete", name: "COMPLETE" },
     { id: "pending", name: "PENDING" },
@@ -17,9 +21,7 @@ export const EditGiftOrder = (props: any) => {
 
   return (
     <div className="edit_container">
-      <Typography className="form_heading" variant="h5">
-        Create a Gift Order
-      </Typography>
+      <Title title="Edit a Gift Order" resource={resource} />
 
       <Edit title=" " {...props} redirect="list">
         <SimpleForm mode="onBlur" reValidateMode="onBlur">
